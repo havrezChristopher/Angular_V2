@@ -8,13 +8,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class ConnexionComponent {
 
-    login:string = '';
-    password:string = '';
+  login: string = '';
+  password: string = '';
 
-    constructor ( ) {}
-
-    connection(): void {
-      
-    }
+  constructor() {
 
   }
+
+  connection(): void {
+
+  }
+
+}

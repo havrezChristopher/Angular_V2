@@ -7,6 +7,7 @@ import { ContactComponent } from './contact/contact.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { ServicesComponent } from './services/services.component';
+import { CreationCompteComponent } from './creation-compte/creation-compte.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path:'reservation', component:ReservationComponent},
   {path:'contact', component:ContactComponent},
   {path:'connexion', component:ConnexionComponent},
+  {path:'creation-compte', component:CreationCompteComponent},
+
 ];
 
 @NgModule({

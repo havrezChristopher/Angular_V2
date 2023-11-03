@@ -13,9 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { ServicesComponent } from './services/services.component';
-// import { ButtonModule } from 'primeng/button';
-// import { MenuModule } from 'primeng/menu';
-// import { MenubarModule } from 'primeng/menubar';
+import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+
 
 @NgModule({
   declarations: [
@@ -29,18 +28,12 @@ import { ServicesComponent } from './services/services.component';
     ConnexionComponent,
     NavbarComponent,
     FooterComponent,
+    CreationCompteComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    // BrowserAnimationsModule,
-    // ButtonModule,
-    // MenuModule,
-    // MenubarModule,
-
-    
-
   ],
   providers: [],
   bootstrap: [AppComponent]
