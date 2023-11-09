@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BackEndServiceService } from '../share/services/back-end-services.service';
 
 @Component({
   selector: 'app-creation-compte',
@@ -9,12 +10,13 @@ export class CreationCompteComponent {
   login: string = '';
   password: string = '';
 
-  constructor() {
+  constructor(private BackEndServiceService: BackEndServiceService) {}
 
+    register(): void {
+      this.BackEndServiceService.sigup(this.login, this.password)
+
+        .subscribe(response => ({
+
+        }));
   }
-
-  register(): void {
-
-  }
-
 }
