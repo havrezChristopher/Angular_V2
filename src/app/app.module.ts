@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule } from '@angular/common/http'
 import { HomeComponent } from './home/home.component';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import { ReservationComponent } from './reservation/reservation.component';
@@ -14,6 +13,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ProduitsComponent } from './produits/produits.component';
 import { ServicesComponent } from './services/services.component';
 import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 
 @NgModule({

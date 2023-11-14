@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component } from '@angular/core'
 import { BackEndServiceService } from '../share/services/back-end-services.service';
 
 @Component({

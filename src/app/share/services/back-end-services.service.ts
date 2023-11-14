@@ -29,7 +29,7 @@ export class BackEndServiceService {
 
       );
   };
-// Methode de Déconnection lier a la fonction du componen (création de compte (register))  
+// Methode de Déconnection lier a la fonction du component (création de compte (register))  
   sigup(login: string, password: string): Observable<any> {
     const data = { login, password };
     const headers = new HttpHeaders({
