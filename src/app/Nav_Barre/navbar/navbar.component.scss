@@ -1,0 +1,45 @@
+$primary-color: #4A90E2; // Bleu vif pour les éléments principaux
+$secondary-color: #4A90E2;
+$background-color: #282C34; // Arrière-plan foncé
+$text-color: #fff;
+$hover-color: lighten($primary-color, 10%);
+$nav-height: 60px;
+$link-padding: 15px;
+$transition-duration: 0.3s;
+
+.nav-barr {
+  background-color: $background-color;
+  color: $text-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 20px;
+  height: $nav-height;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    padding: $link-padding;
+    transition: color $transition-duration ease-in-out, transform $transition-duration ease-in-out;
+
+    &:hover {
+      color: $secondary-color;
+      transform: translateY(-2px);
+
+      &::after {
+        background-color: $hover-color;
+        transform: scaleX(1);
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      height: 3px;
+      background-color: transparent;
+      transform: scaleX(0);
+      transition: transform $transition-duration ease-in-out;
+      transform-origin: left;
+    }
+  }
+}

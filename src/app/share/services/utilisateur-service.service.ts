@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class UtilisateurServiceService {
 
 //Renplacer par les variable d env ==>
-private apiUrl = 'http://adresse_du_serveur_api/utilisateurs';
+private apiUrl = 'http://localhost:3000/api';
 
 constructor(private http: HttpClient) {}
 
@@ -28,3 +28,4 @@ updateUser(id: number, data: any): Observable<any> {
   return this.http.put(`${this.apiUrl}/${id}`, data);
 }
 }
+

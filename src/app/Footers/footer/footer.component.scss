@@ -1,0 +1,91 @@
+$footer-background: #282C34;
+$footer-text-color: #fff;
+$footer-accent-color: #ffa500; // Orange pour les boutons et liens
+$footer-link-hover: #00fffc; // Bleu fluo pour le survol
+$footer-padding: 20px;
+
+.footer {
+  background-color: $footer-background;
+  color: $footer-text-color;
+  padding: $footer-padding;
+  font-family: 'Arial', sans-serif;
+
+  .footer-section {
+    margin-bottom: $footer-padding;
+
+    h5 {
+      margin-bottom: $footer-padding;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li a {
+        color: $footer-text-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: $footer-link-hover;
+        }
+      }
+    }
+
+    form {
+      display: flex;
+      margin-top: $footer-padding;
+
+      input[type="email"] {
+        flex-grow: 1;
+        padding: 10px;
+        border: none;
+        margin-right: $footer-padding;
+
+        &:focus {
+          outline: none;
+          border-color: $footer-accent-color;
+        }
+      }
+
+      button {
+        background-color: $footer-accent-color;
+        border: none;
+        padding: 10px;
+        color: $footer-text-color;
+        cursor: pointer;
+
+        &:hover {
+          background-color: darken($footer-accent-color, 10%);
+        }
+      }
+
+      label {
+        display: block;
+        margin-top: $footer-padding;
+        font-size: smaller;
+
+        input[type="checkbox"] {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+
+  .footer-legal {
+    border-top: 1px solid $footer-text-color;
+    padding-top: $footer-padding;
+    text-align: center;
+    margin-top: $footer-padding;
+
+    a {
+      color: $footer-text-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+        color: $footer-link-hover;
+      }
+    }
+  }
+}
