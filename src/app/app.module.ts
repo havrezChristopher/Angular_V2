@@ -7,16 +7,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './Nav_Barre/home/home.component';
-import { GallerieComponent } from './Nav_Barre/gallerie/gallerie.component';
-import { ReservationComponent } from './Nav_Barre/reservation/reservation.component';
-import { ContactComponent } from './Nav_Barre/contact/contact.component';
-import { ConnexionComponent } from './connexion/connexion.component';
-import { NavbarComponent } from './Nav_Barre/navbar/navbar.component';
-import { FooterComponent } from './Footers/footer/footer.component';
-import { ProduitsComponent } from './Nav_Barre/produits/produits.component';
-import { ServicesComponent } from './Nav_Barre/services/services.component';
-import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+import { HomeComponent } from './home/home.component';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProduitsComponent } from './produits/produits.component';
+import { ServicesComponent } from './services/services.component';
+import { LoginComponent } from './authentification/login/login.component';
+import { RegisterComponent } from './authentification/register/register.component';
+
 
 
 
@@ -30,10 +31,11 @@ import { CreationCompteComponent } from './creation-compte/creation-compte.compo
     ServicesComponent,
     ReservationComponent,
     ContactComponent,
-    ConnexionComponent,
     NavbarComponent,
     FooterComponent,
-    CreationCompteComponent,
+    LoginComponent,
+    RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { CreationCompteComponent } from './creation-compte/creation-compte.compo
   ],
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },
+    
     // provide: indique que vous souhaitez enregistrer un intercepteur pour les requête HTTP
     // useCLass: la classe de votre intercepteur personnalité qu'on souhaite utiliser
     // multi: enregistrer plusieurs intercepteurs de type HTTP_INTERCEPTORS

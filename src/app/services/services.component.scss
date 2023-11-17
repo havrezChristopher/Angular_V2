@@ -65,19 +65,14 @@ $max-width-service-box: 300px; // Largeur maximale pour les services
         }
       }
 
-      .like-section {
-        display: flex;
-        align-items: center;
 
         .like-button {
           background-color: transparent;
           color: $like-color;
         }
 
-        .like-count {
-          margin-left: 5px;
-        }
+
       }
     }
   }
-}
+

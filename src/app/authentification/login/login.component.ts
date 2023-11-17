@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { BackEndServiceService } from '../share/services/back-end-services.service';
-@Component({
-  selector: 'app-connexion',
-  templateUrl: './connexion.component.html',
-  styleUrls: ['./connexion.component.scss']
-})
-export class ConnexionComponent {
+import { BackEndServiceService } from '../Services/back-end.service.service';
 
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent {
   login: string = '';
   password: string = '';
 
@@ -19,8 +19,9 @@ export class ConnexionComponent {
 
         .subscribe(response => ({
 
+            
         }));
+
   }
 
 }
-

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './Nav_Barre/home/home.component';
-import { GallerieComponent } from './Nav_Barre/gallerie/gallerie.component';
-import { ReservationComponent } from './Nav_Barre/reservation/reservation.component';
-import { ContactComponent } from './Nav_Barre/contact/contact.component';
-import { ConnexionComponent } from './connexion/connexion.component';
-import { ProduitsComponent } from './Nav_Barre/produits/produits.component';
-import { ServicesComponent } from './Nav_Barre/services/services.component';
-import { CreationCompteComponent } from './creation-compte/creation-compte.component';
+import { HomeComponent } from './home/home.component';
+import { GallerieComponent } from './gallerie/gallerie.component';
+import { ProduitsComponent } from './produits/produits.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ContactComponent } from './contact/contact.component';
+import { ServicesComponent } from './services/services.component';
+import { LoginComponent } from './authentification/login/login.component';
+import { RegisterComponent } from './authentification/register/register.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -17,8 +17,8 @@ const routes: Routes = [
   {path:'services', component:ServicesComponent},
   {path:'reservation', component:ReservationComponent},
   {path:'contact', component:ContactComponent},
-  {path:'connexion', component:ConnexionComponent},
-  {path:'creation-compte', component:CreationCompteComponent},
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
 
 ];
 

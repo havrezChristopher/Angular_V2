@@ -1,0 +1,29 @@
+<legend>
+    <h1>Connexion</h1>
+  </legend>
+  
+  <div class="login-container">
+  
+    <legend>
+      <h1>Connexion</h1>
+    </legend>
+  
+    <img src="user-icon.png" alt="User Logo" />
+  
+    <form action="/endpoint" method="post">
+      <label for="login">Adresse Email</label>
+      <input type="email" id="login" name="login" [(ngModel)]="login" required /><br />
+  
+      <label for="password">Mot De Passe</label>
+      <input type="password" id="password" name="password" [(ngModel)]="password" required />
+  
+      <input type="checkbox" id="remember" name="remember" />
+      <label for="remember">Rememver Me</label>
+  
+      <button type="button" (click)="connection()">Connexion</button><br />
+      <a href="/reset-password">Mot de passe oublié?</a>
+    </form>
+  </div>
+  
+  
+  
