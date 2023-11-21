@@ -1,0 +1,37 @@
+1. Composants de l'Interface Utilisateur
+
+LoginComponent : Permet aux utilisateurs de se connecter en utilisant leur email et mot de passe.
+RegisterComponent : Fournit un formulaire d'inscription pour que les nouveaux utilisateurs puissent créer un compte.
+DashboardComponent : Un tableau de bord affichant les détails de l'utilisateur après la connexion. 
+Redirige vers la page de connexion si l'utilisateur n'est pas authentifié.
+
+2. Gestion des Formulaires
+
+Utilisation de formulaires réactifs pour collecter et valider les données saisies par l'utilisateur.
+Validation du formulaire pour s'assurer que les entrées sont correctes (par exemple, validation de l'email et du mot de passe).
+
+3. Services d'Authentification
+
+AuthService : Centralise les fonctionnalités liées à l'authentification.
+Fonctions pour l'inscription (signup), la connexion (signin), la déconnexion (logout), et la récupération des détails de l'utilisateur (getUserDetails).
+Utilisation de HttpClient pour communiquer avec le backend.
+4. Gestion des Cookies
+Utilisation de CookieService pour stocker et gérer le token d'authentification.
+
+5. Navigation et Sécurité des Routes
+
+AuthGuard : Un guard pour protéger les routes qui nécessitent une authentification.
+Redirection vers la page de connexion si l'utilisateur n'est pas authentifié.
+
+# 6. Intégration de l'API
+
+Des requêtes HTTP sont envoyées à l'API pour l'inscription, la connexion, et la récupération des informations utilisateur.
+Gestion des erreurs et des réponses du serveur.
+7. Interface Utilisateur et Affichage de Données
+Affichage des informations de l'utilisateur sur le tableau de bord après la connexion.
+Messages d'erreur et de confirmation pour guider l'utilisateur.
+
+Points Clés :
+Sécurité et validation robuste des données côté client.
+Expérience utilisateur fluide avec redirections et affichage conditionnel.
+Architecture modulaire et services réutilisables.

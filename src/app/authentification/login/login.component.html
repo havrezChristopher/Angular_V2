@@ -1,29 +1,4 @@
-  <!-- <div class="login-container">
-  <fieldset>
-    <legend>
-      <h1>Login</h1>
-    </legend>
-  
-    <img src="user-icon.png" alt="User Logo" />
-  
-    <form >
-      <label for="login">Adresse Email</label>
-      <input type="email" id="login" name="login" [(ngModel)]="login" required /><br />
-  
-      <label for="password">Mot De Passe</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required />
-  
-      <input type="checkbox" id="remember" name="remember" />
-      <label for="remember">Remember Me</label>
-  
-      <button type="button" (click)="connection()">Connexion</button><br />
-      <a href="/reset-password">Mot de passe oublié?</a>
-    </form>
-    
-  </fieldset>
-</div>
-   -->
-
+<!--  
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <div>
     <label for="email">Email:</label>
@@ -42,8 +17,54 @@
   </div>
   <button type="submit" [disabled]="loginForm.invalid">Login</button>
   <div *ngIf="loginError">{{ loginError }}</div>
-</form>
+</form> -->
+<!-- ?? ********************************************************************************************************************************************************* -->
+<!-- Le formulaire est lié à loginForm défini dans le composant TypeScript. 
+     ngSubmit appelle la méthode login() lorsque le formulaire est soumis. -->
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div>
+    <!-- Label et champ de saisie pour l'email. 
+             'formControlName' associe ce champ au contrôle du formulaire dans le composant. -->
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="emailUtilisateur" />
 
-      
-      
-  
+    <!-- Affiche des messages d'erreur si les conditions de validation de l'email ne sont pas remplies. -->
+    <div
+      *ngIf="
+        loginForm.get('emailUtilisateur')?.invalid &&
+        loginForm.get('emailUtilisateur')?.touched
+      "
+    >
+      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['required']"
+        >Email is required.</span
+      >
+      <span
+        *ngIf="loginForm.get('emailUtilisateur')?.errors?.['emailUtilisateur']"
+        >Enter a valid email.</span
+      >
+    </div>
+  </div>
+  <div>
+    <!-- Label et champ de saisie pour le mot de passe. -->
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="motsDePasse" />
+
+    <!-- Affiche un message d'erreur si le champ du mot de passe est vide. -->
+    <div
+      *ngIf="
+        loginForm.get('motsDePasse')?.invalid &&
+        loginForm.get('motsDePasse')?.touched
+      "
+    >
+      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['required']"
+        >Password is required.</span
+      >
+    </div>
+  </div>
+
+  <!-- Bouton de soumission du formulaire. Il est désactivé si le formulaire n'est pas valide. -->
+  <button type="submit" [disabled]="loginForm.invalid">Login</button>
+
+  <!-- Affiche un message d'erreur si la tentative de connexion échoue. -->
+  <div *ngIf="loginError">{{ loginError }}</div>
+</form>

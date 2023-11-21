@@ -1,104 +1,90 @@
-// import { Component } from '@angular/core';
-// import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-// import { BackEndServiceService } from '../register/Services/back-end.service.service';
+//  import { Component ,OnInit} from '@angular/core';
+//  import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+//  import { AuthService } from '../register/Services/auth-service.service';
+//  import { Router } from '@angular/router';
+//  @Component({
+//    selector: 'app-login',
+//    templateUrl: './login.component.html',
+//    styleUrls: ['./login.component.scss']
+//  })
+//  export class LoginComponent implements OnInit {
+//   loginForm!: FormGroup;
+//   signupError! :string;
+//   loginError!:string;
+//   constructor(private formBuilder: FormBuilder, private router:Router, private authService: AuthService) { }
 
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.scss']
-// })
-// export class LoginComponent {
-//   login: string = '';
-//   password: string = '';
-
-
-//   constructor(private BackEndServiceService: BackEndServiceService) {}
-
-//     connection(): void {
-//       this.BackEndServiceService.sigin(this.login, this.password)
-
-//         .subscribe(response => ({
-
-            
-//         }));
-
-//   }
-
-// // }
-// import { Component } from '@angular/core';
-// import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { BackEndServiceService } from '../register/Services/back-end.service.service';
-// import { Router } from '@angular/router';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.scss']
-// })
-// export class LoginComponent {
-//   loginForm: FormGroup;
-
-//   constructor(
-//     private formBuilder: FormBuilder,
-//     private backEndService: BackEndServiceService,
-//     private router: Router
-//   ) {
+//   ngOnInit(): void {
 //     this.loginForm = this.formBuilder.group({
-//       email: ['', [Validators.required, Validators.email]],
-//       password: ['', Validators.required]
+//       emailUtilisateur: ['', [Validators.required, Validators.email]],
+//       motsDePasse: ['', Validators.required]
 //     });
 //   }
 
-//   connection(): void {
+//   login(): void {
 //     if (this.loginForm.valid) {
-//       const { email, password } = this.loginForm.value;
-//       this.backEndService.sigin(email, password).subscribe(response => {
-//         // Stockez le token de l'utilisateur et d'autres données nécessaires
-//         localStorage.setItem('token', response.token);
-//         // Redirigez l'utilisateur vers la page d'accueil ou le tableau de bord
-//         this.router.navigate(['/user-home']);
-//       }, error => {
-//         // Gérez les erreurs ici, par exemple en affichant un message à l'utilisateur
-//         console.error(error);
+//       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
+//       this.authService.signin(this.loginForm.value.emailUtilisateur, this.loginForm.value.motsDePasse).subscribe({
+//           next: (response) => {
+//             this.router.navigate(['/dashboard']);
+//           },
+//           error: (error) => {
+//             // Afficher un message d'erreur
+//             this.signupError = 'Failed to sign up. Please try again.';
+//           }
 //       });
-//     } else {
-//       // Le formulaire n'est pas valide, gérez l'affichage des erreurs
 //     }
 //   }
 // }
- import { Component ,OnInit} from '@angular/core';
- import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
- import { AuthService } from '../register/Services/auth-service.service';
- import { Router } from '@angular/router';
- @Component({
-   selector: 'app-login',
-   templateUrl: './login.component.html',
-   styleUrls: ['./login.component.scss']
- })
- export class LoginComponent implements OnInit {
-  loginForm!: FormGroup;
-  signupError! :string;
-  loginError!:string;
-  constructor(private formBuilder: FormBuilder, private router:Router, private authService: AuthService) { }
+// ********************************  ADD-Commentaire               *****************************************************
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../register/Services/auth-service.service';
+import { Router } from '@angular/router';
 
+// @Component indique que cette classe est un composant Angular.
+// 'selector' définit la balise personnalisée pour utiliser ce composant.
+// 'templateUrl' et 'styleUrls' lient le HTML et le SCSS de ce composant.
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+  // Déclare une variable pour le formulaire et les messages d'erreur
+  loginForm!: FormGroup;
+  signupError!: string;
+  loginError!: string;
+
+  // Injecte FormBuilder pour la création de formulaires réactifs,
+  // Router pour la navigation et AuthService pour la gestion de l'authentification.
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+
+  // ngOnInit est appelé après la construction du composant.
   ngOnInit(): void {
+    // Initialise le formulaire avec les champs emailUtilisateur et motsDePasse.
+    // Utilise des validateurs pour s'assurer que ces champs sont remplis correctement.
     this.loginForm = this.formBuilder.group({
       emailUtilisateur: ['', [Validators.required, Validators.email]],
       motsDePasse: ['', Validators.required]
     });
   }
 
+  // Fonction pour gérer le processus de connexion.
   login(): void {
+    // Vérifie si le formulaire est valide avant de procéder.
     if (this.loginForm.valid) {
+      // Destructure les valeurs du formulaire pour faciliter l'accès.
       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
-      this.authService.signin(this.loginForm.value.emailUtilisateur, this.loginForm.value.motsDePasse).subscribe({
-          next: (response) => {
-            this.router.navigate(['/dashboard']);
-          },
-          error: (error) => {
-            // Afficher un message d'erreur
-            this.signupError = 'Failed to sign up. Please try again.';
-          }
+      // Appelle la méthode signin d'AuthService et souscrit à la réponse.
+      this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
+        next: (response) => {
+          // Si la connexion réussit, navigue vers le tableau de bord.
+          this.router.navigate(['/dashboard']);
+        },
+        error: (error) => {
+          // En cas d'échec, affiche un message d'erreur.
+          this.loginError = 'Nom d utilisateur ou mots de passe INCORRECT';
+        }
       });
     }
   }
