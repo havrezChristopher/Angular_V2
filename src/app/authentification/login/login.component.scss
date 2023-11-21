@@ -1,111 +1,59 @@
-/* Styles de base pour le formulaire */
-.form-container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    max-width: 350px;
-    margin: auto;
-  }
-  
-  .form-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .input-field:focus {
-    outline: none;
-    border-color: #007bff;
-  }
-  
-  /* Bouton principal */
-  .button-primary {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-  }
-  
-  .button-primary:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Styles pour les messages d'erreur */
-  .error-message {
-    color: #ff3860;
-    margin-bottom: 10px;
-    text-align: left;
-    display: none; /* Caché par défaut */
-  }
-  
-  .input-invalid {
-    border: 1px solid #ff3860;
-  }
-  
-  /* Montrer le message d'erreur si un champ est invalide */
-  .input-field.invalid + .error-message {
-    display: block;
-  }
-  
-  /* Styles pour les boutons de connexion sociale */
-  .social-login {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
-  .social-login button {
-    margin: 0 5px;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* Séparateur "Or" */
-  .or-separator {
-    margin: 20px 0;
-    text-align: center;
-  }
-  
-  .or-separator:before,
-  .or-separator:after {
-    content: "";
-    display: inline-block;
-    width: 40%;
-    border-top: 1px solid #ccc;
-    vertical-align: middle;
-  }
-  
-  .or-separator:before {
-    margin-right: 5px;
-  }
-  
-  .or-separator:after {
-    margin-left: 5px;
-  }
-  
-  /* Lien alternatif (inscription/connexion) */
-  .alt-option {
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .alt-option a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  .alt-option a:hover {
-    text-decoration: underline;
-  }
-  
+/* Réinitialisation du style pour les éléments du formulaire */
+label, input, button {
+  display: block;
+  width: 100%;
+}
+
+/* Style général du formulaire */
+form {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+}
+
+/* Style des champs de saisie */
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+/* Style pour les messages d'erreur */
+div[ngIf] {
+  color: #d9534f;
+  font-size: 14px;
+}
+
+/* Style du bouton de soumission */
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #5a5a5a;
+}
+
+/* espace autour des éléments du formulaire */
+form > div {
+  margin-bottom: 15px;
+}
+
+
