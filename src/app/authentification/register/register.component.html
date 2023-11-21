@@ -2,45 +2,45 @@
      ngSubmit appelle la méthode 'signup()' lorsque le formulaire est soumis. -->
     <form [formGroup]="signupForm" (ngSubmit)="signup()">
     
+      <div>
+        <label for="role">Admin/Utilisateur:</label>
+        <input type="text" id="role" formControlName="role">
+      </div>
     <div>
-      <label for="nom">nom:</label>
+      <label for="nom">Nom:</label>
       <input type="text" id="nom" formControlName="nom">
     </div>
     <div>
-      <label for="gsm">gsm:</label>
-      <input type="text" id="gsm" formControlName="gsm">
-    </div>
-    <div>
-      <label for="telephone">telephone:</label>
-      <input type="text" id="telephone" formControlName="telephone">
-    </div>
-    <div>
-      <label for="prenom">prenom:</label>
+      <label for="prenom">Prenom:</label>
       <input type="text" id="prenom" formControlName="prenom">
     </div>
     <div>
-      <label for="dateDeNaissance">dateDeNaissance:</label>
-      <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
+      <div>
+        <label for="dateDeNaissance">DateDeNaissance:</label>
+        <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
+      </div>
+      <div>
+        <label for="genre">Genre:</label>
+        <input type="text" id="genre" formControlName="genre">
+      </div>
+      <label for="gsm">Gsm:</label>
+      <input type="text" id="gsm" formControlName="gsm">
     </div>
     <div>
-      <label for="role">role:</label>
-      <input type="text" id="role" formControlName="role">
+      <label for="telephone">Telephone:</label>
+      <input type="text" id="telephone" formControlName="telephone">
     </div>
     <div>
-      <label for="genre">genre:</label>
-      <input type="text" id="genre" formControlName="genre">
-    </div>
-    <div>
-      <label for="twitter">twitter:</label>
+      <label for="twitter">Twitter:</label>
       <input type="text" id="twitter" formControlName="twitter">
     </div><div>
-      <label for="snapchat">snapchat:</label>
+      <label for="snapchat">Snapchat:</label>
       <input type="text" id="snapchat" formControlName="snapchat">
     </div><div>
-      <label for="facebook">facebook:</label>
+      <label for="facebook">Facebook:</label>
       <input type="text" id="facebook" formControlName="facebook">
     </div><div>
-      <label for="instagram">instagram:</label>
+      <label for="instagram">Instagram:</label>
       <input type="text" id="instagram" formControlName="instagram">
     </div>
   <!-- Champ pour l'email avec validation et messages d'erreur. -->
@@ -55,7 +55,7 @@
     </div>
     <!-- Champ pour le mot de passe avec validation et messages d'erreur. -->
     <div>
-      <label for="password">Password:</label>
+      <label for="password">Mots De Passe:</label>
       <input type="password" id="password" formControlName="motsDePasse">
       <div *ngIf="signupForm.get('motsDePasse')?.invalid && signupForm.get('motsDePasse')?.touched">
         <span *ngIf="signupForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
