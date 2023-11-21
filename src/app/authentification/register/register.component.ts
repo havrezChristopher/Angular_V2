@@ -109,7 +109,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (error) => {
           // En cas d'échec, affiche un message d'erreur.
-          this.signupError = 'Erreur lors de l\'inscription.';
+          this.signupError = 'Erreur utilisateur (utilisateur) deja inscrit';
         }
       });
     }
