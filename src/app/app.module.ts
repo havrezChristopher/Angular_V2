@@ -6,7 +6,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { GallerieComponent } from './gallerie/gallerie.component';
 import { ReservationComponent } from './reservation/reservation.component';
@@ -17,6 +17,8 @@ import { ProduitsComponent } from './produits/produits.component';
 import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
+import { SharedModule } from './shared/shared.module';
+import { DashboardComponent } from './authentification/dashboard/dashboard.component';
 
 
 
@@ -35,13 +37,17 @@ import { RegisterComponent } from './authentification/register/register.componen
     FooterComponent,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    //! import SharedModule pour utiliser tout ce quil export !
+    SharedModule
   ],
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },

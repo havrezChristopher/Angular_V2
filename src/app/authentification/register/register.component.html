@@ -1,10 +1,9 @@
-<p>register works!</p>
-<div class="content">
+<!-- <div class="content">
     <fieldset>
 
 
         <legend>
-            <h1>Creation_Compte</h1>
+            <h1>SignUP</h1>
         </legend>
 
         <form>
@@ -18,5 +17,76 @@
             <button (click)="register()">Connection</button>
 
         </form>
+    </fieldset> -->
+      <!-- signup.component.html -->
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+    <!-- Ajoute du modèle Utilisateur -->
+    <div>
+      <label for="nom">nom:</label>
+      <input type="text" id="nom" formControlName="nom">
+    </div>
+    <div>
+      <label for="gsm">gsm:</label>
+      <input type="text" id="gsm" formControlName="gsm">
+    </div>
+    <div>
+      <label for="telephone">telephone:</label>
+      <input type="text" id="telephone" formControlName="telephone">
+    </div>
+    <div>
+      <label for="prenom">prenom:</label>
+      <input type="text" id="prenom" formControlName="prenom">
+    </div>
+    <div>
+      <label for="dateDeNaissance">dateDeNaissance:</label>
+      <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
+    </div>
+    <div>
+      <label for="role">role:</label>
+      <input type="text" id="role" formControlName="role">
+    </div>
+    <div>
+      <label for="genre">genre:</label>
+      <input type="text" id="genre" formControlName="genre">
+    </div>
+    <div>
+      <label for="twitter">twitter:</label>
+      <input type="text" id="twitter" formControlName="twitter">
+    </div><div>
+      <label for="snapchat">snapchat:</label>
+      <input type="text" id="snapchat" formControlName="snapchat">
+    </div><div>
+      <label for="facebook">facebook:</label>
+      <input type="text" id="facebook" formControlName="facebook">
+    </div><div>
+      <label for="instagram">instagram:</label>
+      <input type="text" id="instagram" formControlName="instagram">
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="emailUtilisateur">
+      <div *ngIf="signupForm.get('emailUtilisateur')?.invalid && signupForm.get('emailUtilisateur')?.touched">
+        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['required']">Email is required.</span>
+        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="motsDePasse">
+      <div *ngIf="signupForm.get('motsDePasse')?.invalid && signupForm.get('motsDePasse')?.touched">
+        <span *ngIf="signupForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+    <div *ngIf="signupError">{{ signupError }}</div>
+    <!-- Affichage du message de succès -->
+<div *ngIf="signupSuccess" class="success-message">
+  {{ signupSuccess }}
+</div>
+  </form>
+  
+      
 
         
