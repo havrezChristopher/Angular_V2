@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
         next: (response) => {
           // En cas de succès, affiche un message et redirige vers le tableau de bord.
           this.signupSuccess = 'Inscription réussie !';
-          this.router.navigate(['/dashboard']); // Redirection après l'inscription
+          this.router.navigate(['/profileUtilisateur']); // Redirection après l'inscription
         },
         error: (error) => {
           // En cas d'échec, affiche un message d'erreur.

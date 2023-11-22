@@ -18,7 +18,7 @@ import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { SharedModule } from './shared/shared.module';
-import { DashboardComponent } from './authentification/dashboard/dashboard.component';
+import { ProfileUtilisateursComponent } from './authentification/profile.utilisateurs/profile.utilisateurs.component';
 
 
 
@@ -37,7 +37,7 @@ import { DashboardComponent } from './authentification/dashboard/dashboard.compo
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    DashboardComponent,
+    ProfileUtilisateursComponent,
     
   ],
   imports: [

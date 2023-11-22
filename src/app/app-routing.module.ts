@@ -8,9 +8,8 @@ import { ContactComponent } from './contact/contact.component';
 import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
-import { AuthGuard } from './authentification/auth.guard'; // Importez votre AuthGuard
-// Importez également vos composants
-import { DashboardComponent } from './authentification/dashboard/dashboard.component';
+import { AuthGuard } from './authentification/Guard/auth.guard.guard';
+import { ProfileUtilisateursComponent } from './authentification/profile.utilisateurs/profile.utilisateurs.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -22,7 +21,7 @@ const routes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'profileUtilisateur', component: ProfileUtilisateursComponent},
  
 
 ];

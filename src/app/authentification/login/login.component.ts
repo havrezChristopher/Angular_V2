@@ -78,8 +78,9 @@ export class LoginComponent implements OnInit {
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
         next: (response) => {
-          // Si la connexion réussit, navigue vers le tableau de bord.
-          this.router.navigate(['/dashboard']);
+          console.log(response);
+          response.token ?  console.log('ok') : console.log('fail');
+          this.router.navigate(['profileUtilisateur'])
         },
         error: (error) => {
           // En cas d'échec, affiche un message d'erreur.
