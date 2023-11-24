@@ -1,0 +1,87 @@
+<p>utilisateurs </p>
+<fieldset>
+    <legend>Changer mes donnée </legend>
+
+    <!-- utilisateur.component.html -->
+<div>
+  <button (click)="getAllUsers()">Récupérer tous les utilisateurs</button>
+  <ul>
+    <li *ngFor="let user of users" (click)="getUser(user.id)">
+      {{ user.nom }}
+    </li>
+  </ul>
+  <button (click)="getUser('5')">Récupérer l'utilisateurs</button>
+  <ul>
+    <li *ngFor="let user of users" (click)="getUser(user.id)">
+      {{ user.nom }}
+    </li>
+  </ul>
+  <div *ngIf="selectedUser">
+    <p>Utilisateur sélectionné : {{ selectedUser.nom }}</p>
+    <!-- Ajoutez plus de détails sur l'utilisateur ici -->
+  </div>
+  <div *ngIf="message">{{ message }}</div>
+</div>
+
+<div class="user-profile">
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+        <!-- Nom -->
+        <div>
+            <label for="prenom">Prénom</label>
+            <input type="text" formControlName="prenom" id="prenom">
+            <!-- Message d'erreur pour le prénom -->
+            <div *ngIf="submitted && profileForm.controls['prenom'].errors">
+              Prénom requis.
+            </div>
+        </div>
+
+        <!-- Prénom -->
+        <div>
+            <label for="nom">Nom</label>
+            <input type="text" formControlName="nom" id="nom">
+            <!-- Message d'erreur pour le nom -->
+            <div *ngIf="submitted && profileForm.controls['nom'].errors">
+              Nom Obligatoir.
+            </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+            <label for="email">Email</label>
+            <input type="email" formControlName="email" id="email">
+            <!-- Message d'erreur pour l'email -->
+            <div *ngIf="submitted && profileForm.controls['email'].errors">
+              Email Obligatoir.
+            </div>
+        </div>
+
+        <!-- Mot de Passe -->
+        <div>
+            <label for="motsDePasse">Mot de Passe</label>
+            <input type="motsDePasse" formControlName="motsDePasse" id="motsDePasse">
+            <!-- Message d'erreur pour le mot de passe -->
+            <div *ngIf="submitted && profileForm.controls['motsDePasse'].errors">
+              Mot de passe Obligatoir.
+            </div>
+        </div>
+
+        <!-- Adresse -->
+        <div>
+            <label for="address">Adresse</label>
+            <input type="text" formControlName="address" id="address">
+            <!-- Message d'erreur pour l'adresse -->
+            <div *ngIf="submitted && profileForm.controls['address'].errors">
+              Adresse Obligatoir.
+            </div>
+        </div>
+
+        <div *ngIf="message" class="message">
+            {{ message }}
+        </div> 
+
+        <!-- Bouton de Soumission -->
+        <button type="submit" [disabled]="!profileForm.valid">Mettre à jour</button>
+    </form>
+</div>
+</fieldset>

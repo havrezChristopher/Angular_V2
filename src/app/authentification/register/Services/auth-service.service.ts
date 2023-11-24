@@ -100,6 +100,6 @@ export class AuthService {
   // Méthode pour obtenir les détails de l'utilisateur connecté.
   getUserDetails(): Observable<any> {
     // Envoi d'une requête GET à l'API pour obtenir les informations de l'utilisateur.
-    return this.http.get(`${this.API_URL}/user/me`);
+    return this.http.get(`${this.API_URL}/user/:id`);
   }
 }

@@ -9,7 +9,10 @@ import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { AuthGuard } from './authentification/Guard/auth.guard.guard';
-import { ProfileUtilisateursComponent } from './authentification/profile.utilisateurs/profile.utilisateurs.component';
+import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { EvenementComponent } from './Evenements/evenement/evenement.component';
+import { MessageComponent } from './Messages/message/message.component';
+import { GroupeComponent } from './Groupes/groupe/groupe.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -21,7 +24,11 @@ const routes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  { path: 'profileUtilisateur', component: ProfileUtilisateursComponent},
+  {path:'utilisateur', component:UtilisateursComponent},
+  {path:'evenement', component:EvenementComponent},
+  {path:'message', component:MessageComponent},
+  {path:'groupe', component:GroupeComponent},
+  
  
 
 ];

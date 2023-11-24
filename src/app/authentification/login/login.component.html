@@ -1,23 +1,4 @@
-<!--  
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" formControlName="emailUtilisateur">
-    <div *ngIf="loginForm.get('emailUtilisateur')?.invalid && loginForm.get('emailUtilisateur')?.touched">
-      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['required']">Email is required.</span>
-      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['emailUtilisateur']">Enter a valid email.</span>
-    </div>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" formControlName="motsDePasse">
-    <div *ngIf="loginForm.get('motsDePasse')?.invalid && loginForm.get('motsDePasse')?.touched">
-      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
-    </div>
-  </div>
-  <button type="submit" [disabled]="loginForm.invalid">Login</button>
-  <div *ngIf="loginError">{{ loginError }}</div>
-</form> -->
+
 <!-- ?? ********************************************************************************************************************************************************* -->
 <!-- Le formulaire est lié à loginForm défini dans le composant TypeScript. 
      ngSubmit appelle la méthode login() lorsque le formulaire est soumis. -->

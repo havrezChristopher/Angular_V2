@@ -18,7 +18,12 @@ import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { SharedModule } from './shared/shared.module';
-import { ProfileUtilisateursComponent } from './authentification/profile.utilisateurs/profile.utilisateurs.component';
+import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { MessageComponent } from './Messages/message/message.component';
+import { GroupeComponent } from './Groupes/groupe/groupe.component';
+import { EvenementComponent } from './Evenements/evenement/evenement.component';
+
+
 
 
 
@@ -37,7 +42,10 @@ import { ProfileUtilisateursComponent } from './authentification/profile.utilisa
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileUtilisateursComponent,
+    UtilisateursComponent,
+    MessageComponent,
+    GroupeComponent,
+    EvenementComponent,
     
   ],
   imports: [
