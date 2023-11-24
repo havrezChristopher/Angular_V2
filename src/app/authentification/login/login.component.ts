@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           console.log(response);
           // stockage du token dans le session storage avec la valeur de l email
-          sessionStorage.setItem('authToker',emailUtilisateur)
+          // sessionStorage.setItem('authToker',emailUtilisateur)
            
           this.router.navigate(['utilisateur'])
         },

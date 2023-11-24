@@ -8,20 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { GallerieComponent } from './gallerie/gallerie.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ContactComponent } from './contact/contact.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { ProduitsComponent } from './produits/produits.component';
-import { ServicesComponent } from './services/services.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
-import { MessageComponent } from './Messages/message/message.component';
+import { MessageComponent } from './User/utilisateurs/Messages/message/message.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
+import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
+import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 
 
 
@@ -33,9 +32,6 @@ import { EvenementComponent } from './Evenements/evenement/evenement.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    GallerieComponent,
-    ProduitsComponent,
-    ServicesComponent,
     ReservationComponent,
     ContactComponent,
     NavbarComponent,
@@ -46,6 +42,8 @@ import { EvenementComponent } from './Evenements/evenement/evenement.component';
     MessageComponent,
     GroupeComponent,
     EvenementComponent,
+    TableauDeBordComponent,
+    ParametteComponent,
     
   ],
   imports: [

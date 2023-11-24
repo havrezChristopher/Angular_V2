@@ -1,87 +1,118 @@
-<p>utilisateurs </p>
+<p>Route Utilisateurs</p>
 <fieldset>
-    <legend>Changer mes donnée </legend>
+  <legend>Modifier les donnée du profile</legend>
 
-    <!-- utilisateur.component.html -->
-<div>
-  <button (click)="getAllUsers()">Récupérer tous les utilisateurs</button>
-  <ul>
-    <li *ngFor="let user of users" (click)="getUser(user.id)">
-      {{ user.nom }}
-    </li>
-  </ul>
-  <button (click)="getUser('5')">Récupérer l'utilisateurs</button>
-  <ul>
-    <li *ngFor="let user of users" (click)="getUser(user.id)">
-      {{ user.nom }}
-    </li>
-  </ul>
-  <div *ngIf="selectedUser">
-    <p>Utilisateur sélectionné : {{ selectedUser.nom }}</p>
-    <!-- Ajoutez plus de détails sur l'utilisateur ici -->
+  <div>
+    <button (click)="getAllUsers()">Récupérer tous les utilisateurs</button>
+    <ul>
+      <li *ngFor="let user of users" (click)="getUser(user.id)">
+        {{ user.nom }}
+      </li>
+    </ul>
+    <button (click)="getUser('5')">Récupérer l'utilisateurs</button>
+    <ul>
+      <li *ngFor="let user of users" (click)="getUser(user.id)">
+        {{ user.nom }}
+      </li>
+    </ul>
+    <div *ngIf="selectedUser">
+      <p>Utilisateur sélectionné : {{ selectedUser.nom }}</p>
+
+    </div>
+    <div *ngIf="message">{{ message }}</div>
   </div>
-  <div *ngIf="message">{{ message }}</div>
-</div>
-
+</fieldset>
 <div class="user-profile">
-    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <aside class="sidebar">
+    <ul>
+      <!-- Pour mettre en évidence le lien actif <li routerLinkActive="active"> -->
+      <li><li routerLinkActive="active"><a routerLink="/tableauDeBord">Tableau de bord</a></li>
+      <li><li routerLinkActive="active"><a routerLink="/utilisateurs">Votre profil</a></li>
+      <li><li routerLinkActive="active"><a routerLink="/message">Message</a></li>
 
-        <!-- Nom -->
-        <div>
+    </ul>
+  </aside>
+  <section class="profile">
+    <h1>Profil</h1>
+    <div class="profile-options">
+      <h2>Modifier les donnée du profile</h2>
+      <div class="user-profile">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <!-- prénom -->
+          <div>
             <label for="prenom">Prénom</label>
-            <input type="text" formControlName="prenom" id="prenom">
+            <input type="text" formControlName="prenom" id="prenom" />
             <!-- Message d'erreur pour le prénom -->
             <div *ngIf="submitted && profileForm.controls['prenom'].errors">
               Prénom requis.
             </div>
-        </div>
+          </div>
 
-        <!-- Prénom -->
-        <div>
+          <!-- nom -->
+          <div>
             <label for="nom">Nom</label>
-            <input type="text" formControlName="nom" id="nom">
+            <input type="text" formControlName="nom" id="nom" />
             <!-- Message d'erreur pour le nom -->
             <div *ngIf="submitted && profileForm.controls['nom'].errors">
               Nom Obligatoir.
             </div>
-        </div>
+          </div>
 
-        <!-- Email -->
-        <div>
+          <!-- Email -->
+          <div>
             <label for="email">Email</label>
-            <input type="email" formControlName="email" id="email">
+            <input type="email" formControlName="email" id="email" />
             <!-- Message d'erreur pour l'email -->
             <div *ngIf="submitted && profileForm.controls['email'].errors">
               Email Obligatoir.
             </div>
-        </div>
+          </div>
 
-        <!-- Mot de Passe -->
-        <div>
+          <!-- Mot de Passe -->
+          <div>
             <label for="motsDePasse">Mot de Passe</label>
-            <input type="motsDePasse" formControlName="motsDePasse" id="motsDePasse">
+            <input
+              type="motsDePasse"
+              formControlName="motsDePasse"
+              id="motsDePasse"
+            />
             <!-- Message d'erreur pour le mot de passe -->
-            <div *ngIf="submitted && profileForm.controls['motsDePasse'].errors">
+            <div
+              *ngIf="submitted && profileForm.controls['motsDePasse'].errors"
+            >
               Mot de passe Obligatoir.
             </div>
-        </div>
+          </div>
 
-        <!-- Adresse -->
-        <div>
+          <!-- Adresse -->
+          <div>
             <label for="address">Adresse</label>
-            <input type="text" formControlName="address" id="address">
+            <input type="text" formControlName="address" id="address" />
             <!-- Message d'erreur pour l'adresse -->
             <div *ngIf="submitted && profileForm.controls['address'].errors">
               Adresse Obligatoir.
             </div>
-        </div>
+          </div>
 
-        <div *ngIf="message" class="message">
+          <div *ngIf="message" class="message">
             {{ message }}
-        </div> 
+          </div>
 
-        <!-- Bouton de Soumission -->
-        <button type="submit" [disabled]="!profileForm.valid">Mettre à jour</button>
-    </form>
+          <!-- Bouton de Soumission -->
+          <button type="submit" [disabled]="!profileForm.valid">
+            Mettre à jour
+          </button>
+        </form>
+      </div>
+      <label> <input type="checkbox" /> option1 </label>
+      <label> <input type="checkbox" /> option2 </label>
+      <h2>Couleurs de l'interface d'administration</h2>
+      <div class="color-scheme">
+        <label>
+          <input type="radio" name="color-scheme" checked /> Par défaut
+        </label>
+        <label> <input type="radio" name="color-scheme" /> Par défaut </label>
+      </div>
+    </div>
+  </section>
 </div>
-</fieldset>

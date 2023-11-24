@@ -1,0 +1,109 @@
+/* Conteneur principal de l'application */
+.app-container {
+    display: grid;
+    grid-template-columns: 250px 1fr 250px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* En-tête de l'application */
+.app-header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.app-header .logo {
+    font-size: 1.8em;
+    color: #333;
+}
+
+.search-input {
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+.auth-buttons .login-btn,
+.auth-buttons .create-account-btn {
+    background-color: #5B68DF;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Navigation latérale */
+.sidebar-navigation {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+/* Contenu principal */
+.main-content .tabs .tab {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #5B68DF;
+}
+
+.create-post-section {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+
+.create-post-section textarea {
+    width: 100%;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    padding: 10px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.upload-image-btn,
+.publish-post-btn {
+    background-color: #5B68DF;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* Réactivité */
+@media screen and (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .sidebar-navigation,
+    .side-panel {
+        display: none;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .auth-buttons {
+        margin-top: 10px;
+    }
+}

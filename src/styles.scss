@@ -1,3 +1,267 @@
-*{
-    font-family: sans-serif;
-}
+// *{
+//     font-family: sans-serif;
+     
+// }
+// //*************************************************          NAV______BARRE      ************************************************************************ 
+// /* Variables de couleur pour la cohérence */
+// :root {
+//     --color-primary: #333; /* Couleur de fond de la barre latérale */
+//     --color-secondary: #444; /* Couleur de fond pour le hover et l'élément actif */
+//     --color-background: #f1f1f1; /* Couleur de fond du profil */
+//     --color-text: #fff; /* Couleur du texte de la barre latérale */
+//     --color-text-secondary: #333; /* Couleur du texte du contenu du profil */
+//     --color-error: #d9534f; /* Couleur pour les messages d'erreur */
+//     --color-input-border: #ccc; /* Couleur de bordure des inputs */
+//     --color-button: #007bff; /* Couleur de fond des boutons */
+//     --color-button-hover: #0056b3; /* Couleur de fond des boutons au hover */
+//     --color-button-disabled: #5a5a5a; /* Couleur de fond des boutons désactivés */
+//   }
+  
+//   /* Styles réinitialisés pour les éléments du formulaire */
+//   label, input, button {
+//     display: block;
+//     width: 100%;
+//   }
+  
+//   /* Styles généraux du formulaire */
+//   form {
+//     background: var(--color-background);
+//     border-radius: 8px;
+//     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+//     padding: 30px;
+//     max-width: 350px;
+//     margin: auto;
+//     margin-top: 120px;
+//     margin-bottom: 120px;
+//   }
+  
+//   /* Styles pour les champs de saisie */
+//   input {
+//     border: 1px solid var(--color-input-border);
+//     border-radius: 4px;
+//     margin-top: 8px;
+//     margin-bottom: 20px;
+//     padding: 12px;
+//     font-size: 16px;
+//   }
+  
+//   /* Styles pour les messages d'erreur */
+//   div[ngIf] {
+//     color: var(--color-error);
+//     font-size: 14px;
+//   }
+  
+//   /* Styles pour le bouton de soumission */
+//   button {
+//     background-color: var(--color-button);
+//     color: var(--color-text);
+//     padding: 12px 20px;
+//     border: none;
+//     border-radius: 4px;
+//     margin-top: 10px;
+//     cursor: pointer;
+//     font-size: 16px;
+//     transition: background-color 0.3s ease;
+//   }
+  
+//   button:hover {
+//     background-color: var(--color-button-hover);
+//   }
+  
+//   button:disabled {
+//     background-color: var(--color-button-disabled);
+//   }
+  
+//   /* Marges autour des éléments du formulaire */
+//   form > div {
+//     margin-bottom: 15px;
+//   }
+  
+//   /* Styles du profil utilisateur et de la barre latérale */
+//   .user-profile {
+//     display: flex;
+//     min-height: 100vh;
+//     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//   }
+  
+//   .sidebar {
+//     width: 200px;
+//     background: var(--color-primary);
+//     color: var(--color-text);
+//     padding: 20px;
+//   }
+  
+//   .sidebar ul {
+//     list-style: none;
+//     padding: 0;
+//   }
+  
+//   .sidebar ul li a {
+//     color: var(--color-text);
+//     text-decoration: none;
+//     padding: 10px 0;
+//     display: block;
+//   }
+  
+//   .sidebar ul li.active a, .sidebar ul li a:hover {
+//     background: var(--color-secondary);
+//   }
+  
+//   .profile {
+//     flex-grow: 1;
+//     background: var(--color-background);
+//     padding: 20px;
+//   }
+  
+//   .profile-options h2, .color-scheme label {
+//     color: var(--color-text-secondary);
+//   }
+  
+//   /* Styles supplémentaires pour la cohérence */
+//   .profile-options label, .color-scheme label {
+//     display: block;
+//     margin-bottom: 10px;
+//   }
+  
+//   .color-scheme input[type="radio"] {
+//     margin-right: 5px;
+//   }
+:root {
+    /* Couleurs de base */
+    --primary-color: #4A90E2; /* Bleu vif pour les éléments principaux */
+    --background-color: #282C34; /* Arrière-plan foncé pour la barre de navigation */
+    --text-color: #fff; /* Couleur de texte pour la barre de navigation et les liens */
+    --hover-color: #5aa0f2; /* Couleur pour le hover des liens */
+    
+    /* Couleurs du formulaire */
+    --form-background-color: #FFFFFF; /* Arrière-plan du formulaire */
+    --input-border-color: #ccc; /* Bordure des champs de saisie */
+    --error-color: #d9534f; /* Messages d'erreur */
+  
+    /* Dimensions et espacement */
+    --nav-height: 60px; /* Hauteur de la barre de navigation */
+    --link-padding: 15px; /* Espacement autour des liens */
+    --form-padding: 30px; /* Espacement interne du formulaire */
+    --form-max-width: 350px; /* Largeur maximale du formulaire */
+    --input-margin: 20px; /* Marge externe des champs de saisie */
+    
+    /* Autres */
+    --transition-duration: 0.3s; /* Durée de l'animation de transition */
+  }
+  
+  /* Style général du formulaire */
+  form {
+    background: var(--form-background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: var(--form-padding);
+    max-width: var(--form-max-width);
+    margin: auto;
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+  
+  /* Style des champs de saisie */
+  input {
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    margin-top: 8px;
+    margin-bottom: var(--input-margin);
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  /* Style pour les messages d'erreur */
+  div[ngIf] {
+    color: var(--error-color);
+    font-size: 14px;
+  }
+  
+  /* Style du bouton de soumission */
+  button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color var(--transition-duration) ease;
+  }
+  
+  button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  button:disabled {
+    background-color: #5a5a5a;
+  }
+  
+  /* Styles du profil utilisateur et de la barre latérale */
+  .user-profile {
+    display: flex;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .sidebar {
+    width: 200px;
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: var(--link-padding);
+    display: block;
+    transition: color var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
+  }
+  
+  .sidebar ul li.active a, .sidebar ul li a:hover {
+    background: var(--primary-color);
+    transform: translateY(-2px);
+  }
+  
+  .sidebar ul li a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: background-color var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
+    transform-origin: left;
+  }
+  
+  .sidebar ul li a:hover::after {
+    background-color: var(--hover-color);
+    transform: scaleX(1);
+  }
+  
+  .profile {
+    flex-grow: 1;
+    background: var(--form-background-color);
+    padding: 20px;
+  }
+  
+  .profile-options h2, .color-scheme label {
+    color: var(--text-color);
+  }
+  
+  /* Styles supplémentaires pour la cohérence */
+  .profile-options label, .color-scheme label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .color-scheme input[type="radio"] {
+    margin-right: 5px;
+  }
+  

@@ -25,15 +25,15 @@ export class UtilisateursServiceService {
   }
 
   getUserById(id: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/${id}`);
+    return this.http.get(`${this.API_URL}/:${id}`);
   }
 
   updateUser(id: string, userData: any): Observable<any> {
-    return this.http.put(`${this.API_URL}/${id}`, userData);
+    return this.http.put(`${this.API_URL}/:${id}`, userData);
   }
 
   deleteUser(id: string): Observable<any> {
-    return this.http.delete(`${this.API_URL}/${id}`);
+    return this.http.delete(`${this.API_URL}/:${id}`);
   }
 
   updatePassword(id: string, newPassword: string): Observable<any> {
