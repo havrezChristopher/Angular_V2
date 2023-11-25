@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../register/Services/auth-service.service';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,17 +14,17 @@ export class LoginComponent implements OnInit {
   // Déclare une variable pour la lier au formulaire FormGroup
   loginForm!: FormGroup;
   loginError!: string;
-
+  idUser!:number
   
 
   // Injecte FormBuilder pour la création de formulaires réactifs,
   // Router pour la navigation et AuthService pour la gestion de l'authentification.
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,private _nomActivatedRoute : ActivatedRoute) { }
 
 
   ngOnInit(): void {
-    // Initialise le formulaire avec les champs emailUtilisateur et motsDePasse.
-    // Utilise des validateurs pour s'assurer que ces champs sont remplis correctement.
+    this.idUser = this._nomActivatedRoute.snapshot.params['id']
+
     this.loginForm = this.formBuilder.group({
       emailUtilisateur: ['', [Validators.required, Validators.email]],
       motsDePasse: ['', Validators.required]
@@ -33,8 +34,8 @@ export class LoginComponent implements OnInit {
 
   // Fonction pour gérer le processus de connexion.
   login(): void {
-    // Vérifie si le formulaire est valide avant de procéder.
-    if (this.loginForm.valid) {
+
+    if (this.loginForm.valid && this.idUser) {
       // Destructure les valeurs du formulaire pour faciliter l'accès.
       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
@@ -42,12 +43,12 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           console.log(response);
           // stockage du token dans le session storage avec la valeur de l email
-          // sessionStorage.setItem('authToker',emailUtilisateur)
+          sessionStorage.setItem('authToker',emailUtilisateur)
            
-          this.router.navigate(['utilisateur'])
+          this.router.navigate(['utilisateur/'+ this.idUser])
         },
         error: (error) => {
-          // En cas d'échec, affiche un message d'erreur.
+
           this.loginError = 'Adresse email ou mots de passe incorrect';
           console.warn(this.loginError)
           // modifier l erreur pour voir le champs qui correspond soit mail ou mdp

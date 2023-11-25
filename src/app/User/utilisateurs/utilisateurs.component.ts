@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/authentification/register/Services/auth-service.service';
 import { UtilisateurInterface } from '../Interface/utilisateur.interface';
 import { UtilisateursServiceService } from '../Services/utilisateurs.service.service';
-
+import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-utilisateurs',
@@ -14,13 +15,15 @@ export class UtilisateursComponent implements OnInit {
   utilisateurFound!: boolean;
   utilisateurError!: string;
   utilisateurActuel!: UtilisateurInterface;
-  constructor(private _utilsServices: AuthService) { }
+  userId!:number;
+  constructor(private _utilsServices: AuthService,private _nomActivatedRoute:ActivatedRoute) { }
 
 
 
   ngOnInit() {
-    const userId = 1; // L'ID de l'utilisateur à récupérer
-    this._utilsServices.getUserDetails(userId).subscribe({
+    // L'ID de l'utilisateur à récupérer
+   
+    this._utilsServices.getUserDetails(this.userId).subscribe({
       next: (data) => {
         console.log(this.utilisateurActuel);
 
@@ -53,6 +56,7 @@ export class UtilisateursComponent implements OnInit {
       },
       complete: () => {
         console.log("Récupération de l'utilisateur terminée")
+        this.userId = this._nomActivatedRoute.snapshot.params['id']
         this.utilisateurFound= !this.utilisateurFound
       }
 

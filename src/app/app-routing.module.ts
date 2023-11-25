@@ -19,7 +19,8 @@ const routes: Routes = [
   {path:'contact', component:ContactComponent},
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
-  {path:'utilisateur', component:UtilisateursComponent},
+  // ajouter /:id pour pouvoir passer les parametre depuis login
+  {path:'utilisateur/:id', component:UtilisateursComponent},
   {path:'evenement', component:EvenementComponent},
   {path:'message', component:MessageComponent},
   {path:'groupe', component:GroupeComponent},
