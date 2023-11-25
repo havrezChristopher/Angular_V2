@@ -6,11 +6,11 @@ import { UtilisateursServiceService } from '../Services/utilisateurs.service.ser
   templateUrl: './utilisateurs.component.html',
   styleUrls: ['./utilisateurs.component.scss']
 })
+
 export class UtilisateursComponent {
   profileForm!: FormGroup;
   message!: string
   submitted = false;
-  utilisateurService!: string;
 
   users: any[] = [];
   selectedUser: any;
@@ -19,18 +19,6 @@ export class UtilisateursComponent {
     private fb: FormBuilder,
     private userService: UtilisateursServiceService
   ) { }
-
-
-
-
-
-  getAllUsers() {
-    this.userService.getAllUsers().subscribe(data => {
-      this.users = data;
-    }, error => {
-      this.message = 'Erreur lors de la récupération des utilisateurs';
-    });
-  }
 
   getUser(id: string) {
     this.userService.getUserById(id).subscribe(data => {
@@ -47,7 +35,6 @@ export class UtilisateursComponent {
   onSubmit() {
     // Vérifier si le formulaire est valide
     if (this.profileForm.valid) {
-      console.log('Form Data:', this.profileForm.value);
 
       this.message = 'Profil mis à jour avec succès.';
     } else {

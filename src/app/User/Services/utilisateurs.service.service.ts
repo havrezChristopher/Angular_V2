@@ -3,7 +3,7 @@ import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-
+import { UtilisateurInterface } from '../Interface/utilisateur.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,19 +25,19 @@ export class UtilisateursServiceService {
   }
 
   getUserById(id: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/:${id}`);
+    return this.http.get(`${this.API_URL}/${id}`);
   }
 
   updateUser(id: string, userData: any): Observable<any> {
-    return this.http.put(`${this.API_URL}/:${id}`, userData);
+    return this.http.put(`${this.API_URL}/${id}`, userData);
   }
 
   deleteUser(id: string): Observable<any> {
-    return this.http.delete(`${this.API_URL}/:${id}`);
+    return this.http.delete(`${this.API_URL}/${id}`);
   }
 
   updatePassword(id: string, newPassword: string): Observable<any> {
-    return this.http.put(`${this.API_URL}/updateMDP/:${id}`, { password: newPassword });
+    return this.http.put(`${this.API_URL}/updateMDP/${id}`, { password: newPassword });
   }
 
   updateProfileImage(userId: string, contenuId: string, imageData: any): Observable<any> {
