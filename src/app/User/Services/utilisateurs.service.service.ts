@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
 import { UtilisateurInterface } from '../Interface/utilisateur.interface';
 @Injectable({
   providedIn: 'root'
@@ -23,9 +23,9 @@ export class UtilisateursServiceService {
 
     return this.http.get(`${this.API_URL}/userAll`);
   }
-
-  getUserById(id: string): Observable<any> {
-    return this.http.get(`${this.API_URL}/${id}`);
+//todo Je susis actuelement sur cette methode!!!!! 
+  getUserById(id: number): Observable<any> {
+    return this.http.get(`${this.API_URL}/utilisateur/${id}`);
   }
 
   updateUser(id: string, userData: any): Observable<any> {

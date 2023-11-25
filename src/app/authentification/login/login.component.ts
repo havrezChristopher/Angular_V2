@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
         error: (error) => {
           // En cas d'échec, affiche un message d'erreur.
           this.loginError = 'Adresse email ou mots de passe incorrect';
+          console.warn(this.loginError)
           // modifier l erreur pour voir le champs qui correspond soit mail ou mdp
         }
       });

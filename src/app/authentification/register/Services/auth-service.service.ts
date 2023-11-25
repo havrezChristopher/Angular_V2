@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
+import { CookieService } from 'ngx-cookie-service';
+import { UtilisateurInterface } from 'src/app/User/Interface/utilisateur.interface';
 
 // @Injectable indique qu'il s'agit d'un service qui peut être injecté dans d'autres classes.
 // providedIn: 'root' signifie qu'il est disponible dans toute l'application.
@@ -51,8 +52,7 @@ export class AuthService {
   }
 
   // Méthode pour obtenir les détails de l'utilisateur connecté.
-  getUserDetails(): Observable<any> {
-    // Envoi d'une requête GET à l'API pour obtenir les informations de l'utilisateur.
-    return this.http.get(`${this.API_URL}/user/:id`);
+  getUserDetails(userId:number): Observable<UtilisateurInterface> {
+    return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${userId}`);
   }
 }
