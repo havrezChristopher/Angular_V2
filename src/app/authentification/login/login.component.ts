@@ -41,12 +41,13 @@ export class LoginComponent implements OnInit {
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
         next: (response) => {
-          console.log(response);
+        console.log('ok',response);
+        
           // stockage du token dans le session storage avec la valeur de l email
-          sessionStorage.setItem('authTokenEmail',emailUtilisateur)
-          sessionStorage.setItem('authTokenMdp',motsDePasse)
-           
-          this.router.navigate(['utilisateur/'+ this.idUser])
+          sessionStorage.setItem('authToken',response.token)
+
+          //  permets de passer en paramettre l id de l utilisateur !
+          this.router.navigate(['utilisateur/', response.idUtilisateur])
         },
         error: (error) => {
 

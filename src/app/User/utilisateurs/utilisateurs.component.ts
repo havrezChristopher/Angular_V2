@@ -22,7 +22,10 @@ export class UtilisateursComponent implements OnInit {
 
   ngOnInit() {
     // L'ID de l'utilisateur à récupérer
-   this.userId=1;
+
+    this._nomActivatedRoute.params.subscribe(params=>{
+      this.userId=+params['id']
+    })
     this._utilsServices.getUserDetails(this.userId).subscribe({
       next: (data) => {
         console.log(this.utilisateurActuel);

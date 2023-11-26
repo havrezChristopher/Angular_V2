@@ -29,9 +29,9 @@ export class AuthService {
 
   // Méthode pour connecter un utilisateur.
   // Prend l'email et le mot de passe, retourne un Observable.
-  signin(email: string, password: string): Observable<UtilisateurInterface> {
+  signin(email: string, password: string): Observable<any> {
     // Envoi d'une requête POST à l'API pour la connexion.
-    return this.http.post<UtilisateurInterface>(`${this.API_URL}/authentification/login`, { emailUtilisateur: email, motsDePasse: password });
+    return this.http.post<any>(`${this.API_URL}/authentification/login`, { emailUtilisateur: email, motsDePasse: password });
   }
 
   // Méthode pour déconnecter l'utilisateur.
@@ -49,8 +49,8 @@ export class AuthService {
   // Méthode pour vérifier si l'utilisateur est actuellement connecté.
   isLoggedIn(): boolean {
     const email = sessionStorage.getItem('authToken')
-    const password=sessionStorage.getItem('authToken')
-    if(!email&&!password){
+   
+    if(!email){
       return false
     }
     return true
