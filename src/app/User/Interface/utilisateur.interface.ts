@@ -1,7 +1,7 @@
 export interface UtilisateurInterface {
     idUtilisateur: number;
     nom: string;
-    prenom: string;
+    // prenom: string;
     emailUtilisateur: string;
     motsDePasse: string
     dateDeNaissance: Date;

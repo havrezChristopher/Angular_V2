@@ -1,6 +1,5 @@
 <nav class="nav-barr">
-
-  <a routerLink="home" >logo</a>
+  <a routerLink="home">logo</a>
   <a routerLink="reservation">Reservation</a>
   <a routerLink="contact">Contact</a>
   <!-- changer nom mettre dashboard-->
@@ -9,13 +8,16 @@
   <a routerLink="register">s'enregistrer</a>
 </nav>
 <!-- pour mettre un sous menu apres connection ! -->
-  <!-- Sous-menu utilisateur -->
-  <!-- <div *ngIf="isLoggedIn">
-    <a routerLink="user/profile">Profile</a>
-    <a routerLink="user/paramètres">Paramètres</a>
-    <a routerLink="user/messages">Messages</a>
-  </div>
 
-   Liens de connexion 
-  <a *ngIf="!isLoggedIn" routerLink="login">login</a>
-  <a *ngIf="!isLoggedIn" routerLink="register">s'enregistrer</a> -->
+<!-- Sous-menu utilisateur -->
+  <div *ngIf="isLoggedIn",else notconnected>
+    <!-- Connecter  -->
+  <a routerLink="user/profile">Profile</a>
+  <a routerLink="user/paramètres">Paramètres</a>
+  <a routerLink="user/messages">Messages</a>
+</div>
+
+<ng-content #notconnected>
+  <!-- non Connecter -->
+
+</ng-content>

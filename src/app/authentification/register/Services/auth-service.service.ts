@@ -36,8 +36,9 @@ export class AuthService {
 
   // Méthode pour déconnecter l'utilisateur.
   logout(): void {
+    sessionStorage.clear();
     // Supprime le token du stockage des cookies pour déconnecter l'utilisateur.
-    this.cookieService.delete('authToken');
+    // this.cookieService.delete('authToken');
   }
 
   // Méthode pour récupérer le token d'authentification stocké dans les cookies.
@@ -47,8 +48,14 @@ export class AuthService {
 
   // Méthode pour vérifier si l'utilisateur est actuellement connecté.
   isLoggedIn(): boolean {
+    const email = sessionStorage.getItem('authToken')
+    const password=sessionStorage.getItem('authToken')
+    if(!email&&!password){
+      return false
+    }
+    return true
     // Vérifie l'existence du token d'authentification dans les cookies.
-    return this.cookieService.check('authToken');
+    // return this.cookieService.check('authToken');
   }
 
   // Méthode pour obtenir les détails de l'utilisateur connecté.

@@ -22,7 +22,7 @@ export class UtilisateursComponent implements OnInit {
 
   ngOnInit() {
     // L'ID de l'utilisateur à récupérer
-   
+   this.userId=1;
     this._utilsServices.getUserDetails(this.userId).subscribe({
       next: (data) => {
         console.log(this.utilisateurActuel);
@@ -32,7 +32,7 @@ export class UtilisateursComponent implements OnInit {
 
           idUtilisateur: data.idUtilisateur,
           nom: data.nom,
-          prenom: data.prenom,
+          // prenom: data.prenom,
           emailUtilisateur: data.emailUtilisateur,
           motsDePasse: data.motsDePasse,
           dateDeNaissance: data.dateDeNaissance,

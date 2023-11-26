@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.idUser = this._nomActivatedRoute.snapshot.params['id']
+
 
     this.loginForm = this.formBuilder.group({
       emailUtilisateur: ['', [Validators.required, Validators.email]],
@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
   // Fonction pour gérer le processus de connexion.
   login(): void {
 
-    if (this.loginForm.valid && this.idUser) {
+    if (this.loginForm.valid) {
       // Destructure les valeurs du formulaire pour faciliter l'accès.
       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
@@ -43,7 +43,8 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           console.log(response);
           // stockage du token dans le session storage avec la valeur de l email
-          sessionStorage.setItem('authToker',emailUtilisateur)
+          sessionStorage.setItem('authTokenEmail',emailUtilisateur)
+          sessionStorage.setItem('authTokenMdp',motsDePasse)
            
           this.router.navigate(['utilisateur/'+ this.idUser])
         },

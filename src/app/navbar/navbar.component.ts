@@ -7,11 +7,13 @@ import { AuthService } from '../authentification/register/Services/auth-service.
 })
 
 export class NavbarComponent implements OnInit {
-  isLoggedIn = false;
+  isLoggedIn:boolean =this.authService.isLoggedIn()
 
-  constructor(/* private authService: AuthService */) { }
+  constructor( private authService: AuthService ) { }
 
   ngOnInit(): void {
+    console.log("is connected navBarr");
+    
     
   }
 }
