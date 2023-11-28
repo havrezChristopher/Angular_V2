@@ -16,10 +16,12 @@ export class LoginComponent implements OnInit {
   errorMessage!: string;
   idUser!: number;
 
-
-  // Injecte FormBuilder pour la création de formulaires réactifs,
-  // Router pour la navigation et AuthService pour la gestion de l'authentification.
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private _nomActivatedRoute: ActivatedRoute) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService,
+    private _nomActivatedRoute: ActivatedRoute
+  ) { }
 
 
   ngOnInit(): void {

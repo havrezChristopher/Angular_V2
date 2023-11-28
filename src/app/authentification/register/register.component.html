@@ -1,25 +1,25 @@
 <!-- Le formulaire est lié au 'signupForm' défini dans le composant TypeScript. 
      ngSubmit appelle la méthode 'signup()' lorsque le formulaire est soumis. -->
-    <form [formGroup]="signupForm" (ngSubmit)="signup()">
-    
-      <div>
-        <label for="role">Admin/Utilisateur:</label>
-        <input type="text" id="role" formControlName="role">
-      </div>
+<form [formGroup]="signupForm" (ngSubmit)="signup()">
+
+  <div>
+    <label for="role">Admin/Utilisateur:</label>
+    <input type="text" id="role" formControlName="role">
+  </div>
+  <div>
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" formControlName="nom">
+  </div>
+  <div>
+    <label for="prenom">Prenom:</label>
+    <input type="text" id="prenom" formControlName="prenom">
+  </div>
+  <div>
     <div>
-      <label for="nom">Nom:</label>
-      <input type="text" id="nom" formControlName="nom">
+      <label for="dateDeNaissance">DateDeNaissance:</label>
+      <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
     </div>
-    <div>
-      <label for="prenom">Prenom:</label>
-      <input type="text" id="prenom" formControlName="prenom">
-    </div>
-    <div>
-      <div>
-        <label for="dateDeNaissance">DateDeNaissance:</label>
-        <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
-      </div>
-      <!-- Champ pour l'email avec validation et messages d'erreur. -->
+    <!-- Champ pour l'email avec validation et messages d'erreur. -->
     <div>
       <label for="email">Email:</label>
       <input type="email" id="email" formControlName="emailUtilisateur">
@@ -37,36 +37,39 @@
         <span *ngIf="signupForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
       </div>
     </div>
-      <div>
-        <label for="genre">Genre:</label>
-        <input type="text" id="genre" formControlName="genre">
-      </div>
-      <label for="gsm">Gsm:</label>
-      <input type="text" id="gsm" formControlName="gsm">
-    </div>
     <div>
-      <label for="telephone">Telephone:</label>
-      <input type="text" id="telephone" formControlName="telephone">
+      <label for="genre">Genre:</label>
+      <input type="text" id="genre" formControlName="genre">
     </div>
-    <div>
-      <label for="twitter">Twitter:</label>
-      <input type="text" id="twitter" formControlName="twitter">
-    </div><div>
-      <label for="snapchat">Snapchat:</label>
-      <input type="text" id="snapchat" formControlName="snapchat">
-    </div><div>
-      <label for="facebook">Facebook:</label>
-      <input type="text" id="facebook" formControlName="facebook">
-    </div><div>
-      <label for="instagram">Instagram:</label>
-      <input type="text" id="instagram" formControlName="instagram">
-    </div>
-  
-<!-- Bouton de soumission du formulaire, désactivé si le formulaire n'est pas valide. -->
-    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
-    <div *ngIf="signupError">{{ signupError }}</div>
-    <!-- Affiche un message d'erreur ou de succès selon l'issue de l'inscription. -->
-<div *ngIf="signupSuccess" class="success-message">
-  {{ signupSuccess }}
-</div>
-  </form>
+    <label for="gsm">Gsm:</label>
+    <input type="text" id="gsm" formControlName="gsm">
+  </div>
+  <div>
+    <label for="telephone">Telephone:</label>
+    <input type="text" id="telephone" formControlName="telephone">
+  </div>
+  <div>
+    <label for="twitter">Twitter:</label>
+    <input type="text" id="twitter" formControlName="twitter">
+  </div>
+  <div>
+    <label for="snapchat">Snapchat:</label>
+    <input type="text" id="snapchat" formControlName="snapchat">
+  </div>
+  <div>
+    <label for="facebook">Facebook:</label>
+    <input type="text" id="facebook" formControlName="facebook">
+  </div>
+  <div>
+    <label for="instagram">Instagram:</label>
+    <input type="text" id="instagram" formControlName="instagram">
+  </div>
+
+  <!-- Bouton de soumission du formulaire, désactivé si le formulaire n'est pas valide. -->
+  <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+  <div *ngIf="signupError">{{ signupError }}</div>
+  <!-- Affiche un message d'erreur ou de succès selon l'issue de l'inscription. -->
+  <div *ngIf="signupSuccess" class="success-message">
+    {{ signupSuccess }}
+  </div>
+</form>

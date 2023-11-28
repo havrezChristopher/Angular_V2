@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
-import { UtilisateursComponent } from '../utilisateurs/utilisateurs.component';
 import { UtilisateurInterface } from '../Interface/utilisateur.interface';
 @Injectable({
   providedIn: 'root'
@@ -14,36 +13,41 @@ export class UtilisateursServiceService {
   constructor(private http: HttpClient) { }
 
   // Récupérer les informations de l'utilisateur actuel
-  getCurrentUser(): Observable<any> {
-
-    return this.http.get<any>(`${this.API_URL}/profil`);
+  getCurrentUser(): Observable<UtilisateurInterface> {
+    return this.http.get<UtilisateurInterface>(`${this.API_URL}/profil`);
   }
 
-  getAllUsers(): Observable<any> {
-
-    return this.http.get(`${this.API_URL}/userAll`);
-  }
-//todo Je suis actuelement sur cette methode!!!!! 
-  getUserById(id: number): Observable<any> {
-    return this.http.get(`${this.API_URL}/utilisateur/${id}`);
+  // Récupérer tous les utilisateurs
+  getAllUsers(): Observable<UtilisateurInterface[]> {
+    return this.http.get<UtilisateurInterface[]>(`${this.API_URL}/userAll`);
   }
 
-  updateUser(id: string, userData: any): Observable<any> {
-    return this.http.put(`${this.API_URL}/${id}`, userData);
+  // Récupérer un utilisateur par son ID
+  getUserById(id: number): Observable<UtilisateurInterface> {
+    return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${id}`);
   }
 
+  // Mettre à jour un utilisateur
+  updateUser(id: string, userData: UtilisateurInterface): Observable<UtilisateurInterface> {
+    return this.http.put<UtilisateurInterface>(`${this.API_URL}/${id}`, userData);
+  }
+
+  // Supprimer un utilisateur
   deleteUser(id: string): Observable<any> {
     return this.http.delete(`${this.API_URL}/${id}`);
   }
 
+  // Mettre à jour le mot de passe de l'utilisateur
   updatePassword(id: string, newPassword: string): Observable<any> {
     return this.http.put(`${this.API_URL}/updateMDP/${id}`, { password: newPassword });
   }
 
+  // Mettre à jour l'image de profil de l'utilisateur
   updateProfileImage(userId: string, contenuId: string, imageData: any): Observable<any> {
     return this.http.put(`${this.API_URL}/${userId}/${contenuId}/profil`, imageData);
   }
-
+  
+  // Récupérer toutes les photos de profil
   getAllProfilePhotos(): Observable<any> {
     return this.http.get(`${this.API_URL}/profil`);
   }

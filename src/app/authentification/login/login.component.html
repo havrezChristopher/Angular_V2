@@ -2,8 +2,6 @@
      ngSubmit appelle la méthode login() lorsque le formulaire est soumis. -->
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <div>
-    <!-- Label et champ de saisie pour l'email. 
-             'formControlName' associe ce champ au contrôle du formulaire dans le composant. -->
     <label for="email">Email:</label>
     <input type="email" id="email" formControlName="emailUtilisateur" />
 
@@ -17,7 +15,6 @@
     </div>
   </div>
   <div>
-    <!-- Label et champ de saisie pour le mot de passe. -->
     <label for="password">Password:</label>
     <input type="password" id="password" formControlName="motsDePasse" />
 
@@ -33,7 +30,6 @@
   </div>
 
   <button type="submit" [disabled]="loginForm.invalid">Login</button>
-
-  <!-- Affiche un message d'erreur si la tentative de connexion échoue avec si message erreur du back existe -->
+  
   <div *ngIf="errorMessage">{{ errorMessage }}</div>
 </form>
