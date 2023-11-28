@@ -23,7 +23,7 @@ export class UtilisateursServiceService {
 
     return this.http.get(`${this.API_URL}/userAll`);
   }
-//todo Je susis actuelement sur cette methode!!!!! 
+//todo Je suis actuelement sur cette methode!!!!! 
   getUserById(id: number): Observable<any> {
     return this.http.get(`${this.API_URL}/utilisateur/${id}`);
   }

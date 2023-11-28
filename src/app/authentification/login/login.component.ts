@@ -13,13 +13,13 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginComponent implements OnInit {
   // Déclare une variable pour la lier au formulaire FormGroup
   loginForm!: FormGroup;
-  loginError!: string;
-  idUser!:number
-  
+  errorMessage!: string;
+  idUser!: number;
+
 
   // Injecte FormBuilder pour la création de formulaires réactifs,
   // Router pour la navigation et AuthService pour la gestion de l'authentification.
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService,private _nomActivatedRoute : ActivatedRoute) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService, private _nomActivatedRoute: ActivatedRoute) { }
 
 
   ngOnInit(): void {
@@ -41,19 +41,11 @@ export class LoginComponent implements OnInit {
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
         next: (response) => {
-        console.log('ok',response);
-        
-          // stockage du token dans le session storage avec la valeur de l email
-          sessionStorage.setItem('authToken',response.token)
-
-          //  permets de passer en paramettre l id de l utilisateur !
-          this.router.navigate(['utilisateur/', response.idUtilisateur])
+          this.authService.saveAuthToken(response.token); // Enregistrement du token
+          this.router.navigate(['utilisateur/', response.idUtilisateur]); // Redirection
         },
         error: (error) => {
-
-          this.loginError = 'Adresse email ou mots de passe incorrect';
-          console.warn(this.loginError)
-          // modifier l erreur pour voir le champs qui correspond soit mail ou mdp
+          this.errorMessage = "Échec de la connexion : " + (error.error.message || "Une erreur est survenue.");
         }
       });
     }

@@ -16,7 +16,7 @@ export class UtilisateursComponent implements OnInit {
   utilisateurError!: string;
   utilisateurActuel!: UtilisateurInterface;
   userId!:number;
-  constructor(private _utilsServices: AuthService,private _nomActivatedRoute:ActivatedRoute) { }
+  constructor(private _utilsServices: AuthService,private _nomActivatedRoute:ActivatedRoute,private authServices:AuthService) { }
 
 
 
@@ -24,18 +24,19 @@ export class UtilisateursComponent implements OnInit {
     // L'ID de l'utilisateur à récupérer
 
     this._nomActivatedRoute.params.subscribe(params=>{
+      //! ajout pour passer les parrametre par l id  
       this.userId=+params['id']
     })
     this._utilsServices.getUserDetails(this.userId).subscribe({
       next: (data) => {
-        console.log(this.utilisateurActuel);
+        console.log('Donnée utilisateur ',this.utilisateurActuel);
 
         this.utilisateurActuel = {
 
 
           idUtilisateur: data.idUtilisateur,
           nom: data.nom,
-          // prenom: data.prenom,
+          prenom: data.prenom,
           emailUtilisateur: data.emailUtilisateur,
           motsDePasse: data.motsDePasse,
           dateDeNaissance: data.dateDeNaissance,
@@ -54,16 +55,16 @@ export class UtilisateursComponent implements OnInit {
         console.log(this.utilisateurActuel)
       },
       error: (error) => {
-        console.error('Erreur lors de la récupération des détails de l’utilisateur', error);
-        this.utilisateurError = 'Erreur lors de la récupération de l’utilisateur';
+
+        this.utilisateurError = 'Erreur lors de la récupération de l’utilisateur',error;
       },
       complete: () => {
         console.log("Récupération de l'utilisateur terminée")
         this.userId = this._nomActivatedRoute.snapshot.params['id']
         this.utilisateurFound= !this.utilisateurFound
       }
-
     })
+   
   }
 
 

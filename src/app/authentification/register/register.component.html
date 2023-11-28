@@ -19,6 +19,24 @@
         <label for="dateDeNaissance">DateDeNaissance:</label>
         <input type="date" id="dateDeNaissance" formControlName="dateDeNaissance">
       </div>
+      <!-- Champ pour l'email avec validation et messages d'erreur. -->
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="emailUtilisateur">
+      <!-- Affiche des messages d'erreur si les conditions de validation de l'email ne sont pas remplies. -->
+      <div *ngIf="signupForm.get('emailUtilisateur')?.invalid && signupForm.get('emailUtilisateur')?.touched">
+        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['required']">Email is required.</span>
+        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['email']">Enter a valid email.</span>
+      </div>
+    </div>
+    <!-- Champ pour le mot de passe avec validation et messages d'erreur. -->
+    <div>
+      <label for="password">Mots De Passe:</label>
+      <input type="password" id="password" formControlName="motsDePasse">
+      <div *ngIf="signupForm.get('motsDePasse')?.invalid && signupForm.get('motsDePasse')?.touched">
+        <span *ngIf="signupForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
+      </div>
+    </div>
       <div>
         <label for="genre">Genre:</label>
         <input type="text" id="genre" formControlName="genre">
@@ -43,24 +61,7 @@
       <label for="instagram">Instagram:</label>
       <input type="text" id="instagram" formControlName="instagram">
     </div>
-  <!-- Champ pour l'email avec validation et messages d'erreur. -->
-    <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="emailUtilisateur">
-      <!-- Affiche des messages d'erreur si les conditions de validation de l'email ne sont pas remplies. -->
-      <div *ngIf="signupForm.get('emailUtilisateur')?.invalid && signupForm.get('emailUtilisateur')?.touched">
-        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['required']">Email is required.</span>
-        <span *ngIf="signupForm.get('emailUtilisateur')?.errors?.['email']">Enter a valid email.</span>
-      </div>
-    </div>
-    <!-- Champ pour le mot de passe avec validation et messages d'erreur. -->
-    <div>
-      <label for="password">Mots De Passe:</label>
-      <input type="password" id="password" formControlName="motsDePasse">
-      <div *ngIf="signupForm.get('motsDePasse')?.invalid && signupForm.get('motsDePasse')?.touched">
-        <span *ngIf="signupForm.get('motsDePasse')?.errors?.['required']">Password is required.</span>
-      </div>
-    </div>
+  
 <!-- Bouton de soumission du formulaire, désactivé si le formulaire n'est pas valide. -->
     <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
     <div *ngIf="signupError">{{ signupError }}</div>

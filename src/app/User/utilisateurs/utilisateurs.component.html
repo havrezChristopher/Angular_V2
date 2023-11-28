@@ -1,31 +1,28 @@
 <fieldset>
   <legend><h3>Route Utilisateurs</h3></legend>
-</fieldset>
+
 <div class="user-profile">
   <aside class="sidebar">
     <ul>
-      <!-- Pour mettre en évidence le lien actif <li routerLinkActive="active"> -->
-      <li routerLinkActive="active">
-        <a routerLink="/tableauDeBord">Tableau de bord</a>
-      </li>
-      <li routerLinkActive="active">
-        <a routerLink="/utilisateurs/:id">Votre profil</a>
-      </li>
-      <li routerLinkActive="active"><a routerLink="/message">Message</a></li>
-      <button type="button" >Deconnection</button>
+      <li><a routerLink="/tableauDeBord">Tableau de bord</a></li>
+      <li><a routerLink="/utilisateurs/:id">Votre profil</a></li>
+      <li><a routerLink="/message">Message</a></li>
+      <!-- <li><button (click)="logout()">Déconnexion</button></li> -->
     </ul>
   </aside>
+  
   <div class="profile">
     <fieldset>
-      <legend>
-        <!-- <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1> -->
+      <legend *ngIf="utilisateurActuel; else loading">
+        <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
       </legend>
 
-      <div class="profile-options"></div>
       <div *ngIf="utilisateurActuel; else loading">
+        <!-- Affichage des informations de l'utilisateur -->
+        <div>Nom : {{ utilisateurActuel.nom }}</div>
         <div>idUtilisateur: {{ utilisateurActuel.idUtilisateur }}</div>
         <div>Nom : {{ utilisateurActuel.nom }}</div>
-        <!-- <div>Prenom : {{ utilisateurActuel.prenom }}</div> -->
+        <div>Prenom : {{ utilisateurActuel.prenom }}</div>
         <div>EmailUtilisateur : {{ utilisateurActuel.emailUtilisateur }}</div>
         <div>motsDePasse: : {{ utilisateurActuel.motsDePasse }}</div>
         <div>dateDeNaissance : {{ utilisateurActuel.dateDeNaissance }}</div>
@@ -41,7 +38,8 @@
         <div>telephone : {{ utilisateurActuel.telephone }}</div>
         <div>gsm : {{ utilisateurActuel.gsm }}</div>
       </div>
-      <!-- pour utiliser le else -->
+
+      <!-- Template pour l'affichage en cas de chargement -->
       <ng-template #loading>
         <p>Chargement des détails de l'utilisateur...</p>
       </ng-template>

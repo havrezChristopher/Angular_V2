@@ -32,9 +32,8 @@
     </div>
   </div>
 
-  <!-- Bouton de soumission du formulaire. Il est désactivé si le formulaire n'est pas valide. -->
   <button type="submit" [disabled]="loginForm.invalid">Login</button>
 
-  <!-- Affiche un message d'erreur si la tentative de connexion échoue. -->
-  <div *ngIf="loginError">{{ loginError }}</div>
+  <!-- Affiche un message d'erreur si la tentative de connexion échoue avec si message erreur du back existe -->
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
 </form>

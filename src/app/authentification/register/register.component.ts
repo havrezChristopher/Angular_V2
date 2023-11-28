@@ -29,16 +29,16 @@ export class RegisterComponent implements OnInit {
       prenom: [null, [Validators.required]],
       emailUtilisateur: [null, [Validators.required, Validators.email]],
       motsDePasse: [null, [Validators.required, Validators.minLength(6)]],
+      dateDeNaissance:[null, [Validators.required]],
       // Autres champs sans validations spécifiques
-      dateDeNaissance:[null],
-      role:[null],
-      genre:[null],
-      facebook:[null],
-      snapchat:[null],
-      instagram:[null],
-      twitter:[null],
-      telephone:[null],
-      gsm:[null],
+      role:['', [Validators.minLength(0)]],
+      genre:['', [Validators.minLength(0)]],
+      facebook:['', [Validators.minLength(0)]],
+      snapchat:['', [Validators.minLength(0)]],
+      instagram:['', [Validators.minLength(0)]],
+      twitter:['', [Validators.minLength(0)]],
+      telephone:['', [Validators.minLength(0)]],
+      gsm:['', [Validators.minLength(0)]],
     });
   }
 
@@ -51,6 +51,8 @@ export class RegisterComponent implements OnInit {
       
       this.authService.signup(this.signupForm.value).subscribe({
         next: (response) => {
+          console.log('test',response);
+          
           // En cas de succès, affiche un message et redirige vers le tableau de bord.
           this.signupSuccess = 'Inscription réussie !';
           console.warn(this.signupSuccess)
