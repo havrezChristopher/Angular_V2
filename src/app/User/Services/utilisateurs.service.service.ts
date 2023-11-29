@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { UtilisateurInterface } from '../Interface/utilisateur.interface';
+import { AuthService } from 'src/app/authentification/register/Services/auth-service.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,8 +11,12 @@ export class UtilisateursServiceService {
 
   private API_URL = environment.API_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private authService:AuthService) { }
+  //Deconnection 
+  logout():void {
+    this.authService.logout()
 
+  }
   // Récupérer les informations de l'utilisateur actuel
   getCurrentUser(): Observable<UtilisateurInterface> {
     return this.http.get<UtilisateurInterface>(`${this.API_URL}/profil`);
