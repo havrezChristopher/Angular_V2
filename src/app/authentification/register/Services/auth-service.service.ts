@@ -15,13 +15,13 @@ export class AuthService {
   // URL de l'API récupérée à partir des variables d'environnement.
   private API_URL = environment.API_URL;
 
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   // Méthode pour inscrire un nouvel utilisateur.
 
   signup(userDetails: any): Observable<any> {
 
-    console.log('utilisateur enregistrement ==>',userDetails);
+    console.log('utilisateur enregistrement ==>', userDetails);
     // Envoi d'une requête POST à l'API pour l'inscription.
     return this.http.post(`${this.API_URL}/authentification/register`, userDetails);
   }
@@ -33,17 +33,11 @@ export class AuthService {
     // Envoi d'une requête POST à l'API pour la connexion.
     return this.http.post<any>(`${this.API_URL}/authentification/login`, { emailUtilisateur: email, motsDePasse: password });
   }
-// Enregistre le token d'authentification dans le localStorage
-saveAuthToken(token: string): void {
-  localStorage.setItem('authToken', token);
-}
-  // Méthode pour déconnecter l'utilisateur.
-
-  logout(): void {
-    sessionStorage.removeItem('sessionToken');//suprimer le token
-    this.router.navigate(['/login'])//redirection vers login
-
+  // Enregistre le token d'authentification dans le localStorage
+  saveAuthToken(token: string): void {
+    localStorage.setItem('authToken', token);
   }
+
 
   // Méthode pour vérifier si l'utilisateur est actuellement connecté.
 
@@ -54,6 +48,15 @@ saveAuthToken(token: string): void {
       return false;
     }
     return true;
+
+  }
+  // Méthode pour déconnecter l'utilisateur.
+//! Modification aurelien session==>localStorage 
+  logout(): void {
+    localStorage.removeItem('authToken');//suprimer le token
+    console.log('logout==>',sessionStorage);
+    
+    this.router.navigate(['/login']);//redirection vers login
 
   }
 
