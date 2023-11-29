@@ -15,21 +15,26 @@ export class UtilisateursComponent implements OnInit {
   utilisateurFound!: boolean;
   utilisateurError!: string;
   utilisateurActuel!: UtilisateurInterface;
-  userId!:number;
-  constructor(private _utilsServices: AuthService,private _nomActivatedRoute:ActivatedRoute,private authServices:AuthService) { }
+  userId!: number;
+  successMessage = '';
+  errorMessage = '';
 
-
+  constructor(
+    private authService: AuthService,
+    private _nomActivatedRoute: ActivatedRoute,
+    private authServices: AuthService,
+    private utilisateur: UtilisateursServiceService) { }
 
   ngOnInit() {
     // L'ID de l'utilisateur à récupérer
 
-    this._nomActivatedRoute.params.subscribe(params=>{
+    this._nomActivatedRoute.params.subscribe(params => {
       //! ajout pour passer les parrametre par l id  
-      this.userId=+params['id']
-    })
-    this._utilsServices.getUserDetails(this.userId).subscribe({
+      this.userId = +params['id'];
+    });
+    this.authService.getUserDetails(this.userId).subscribe({
       next: (data) => {
-        console.log('Donnée utilisateur ',this.utilisateurActuel);
+        console.log('Donnée utilisateur ', this.utilisateurActuel);
 
         this.utilisateurActuel = {
 
@@ -51,22 +56,25 @@ export class UtilisateursComponent implements OnInit {
           twitter: data.twitter,
           telephone: data.telephone,
           gsm: data.gsm
-        }
-        console.log(this.utilisateurActuel)
+        };
+        console.log(this.utilisateurActuel);
       },
       error: (error) => {
 
-        this.utilisateurError = 'Erreur lors de la récupération de l’utilisateur',error;
+        this.utilisateurError = 'Erreur lors de la récupération de l’utilisateur', error;
       },
       complete: () => {
-        console.log("Récupération de l'utilisateur terminée")
-        this.userId = this._nomActivatedRoute.snapshot.params['id']
-        this.utilisateurFound= !this.utilisateurFound
+        console.log("Récupération de l'utilisateur terminée");
+        this.userId = this._nomActivatedRoute.snapshot.params['id'];
+        this.utilisateurFound = !this.utilisateurFound;
       }
-    })
-   
+    });
+
   }
 
-
-
+  logout(): void {
+    this.authService.logout();
+  }
+ 
 }
+
