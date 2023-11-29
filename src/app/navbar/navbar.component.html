@@ -1,38 +1,28 @@
- <nav class="nav-barr">
-  <a routerLink="home">logo</a>
-  <a routerLink="reservation">Reservation</a>
-  <a routerLink="contact">Contact</a>
-   <!-- changer nom mettre dashboard -->
-   <a routerLink="utilisateur">Page Utilisateur</a>
-  <a routerLink="login">login</a>
-  <a routerLink="register">s'enregistrer</a>
-</nav> 
- <!-- pour mettre un sous menu apres connection !  -->
-
- <!-- Sous-menu utilisateur  -->
-   <div *ngIf="isLoggedIn",else notconnected> 
-     <!-- Connecter   -->
-   <a routerLink="user/profile">Profile</a>
-  <a routerLink="user/paramètres">Paramètres</a>
-  <a routerLink="user/messages">Messages</a>
-</div> 
-
- <ng-content #notconnected> 
-   <!-- non Connecter  -->
-
- </ng-content>  
- <!-- Navbare a adapter avec les route  -->
 <!-- ****************************************************************************************************************** -->
 <nav class="navbar">
   <div class="nav-brand">MonApp</div>
   <div class="nav-items">
     <a routerLink="/">Accueil</a>
     <a routerLink="/about">À Propos</a>
+    <a routerLink="reservation">Reservation</a>
+  <a routerLink="contact">Contact</a>
 
     <!-- Liens affichés en fonction de l'état de connexion -->
-    <a *ngIf="!isLoggedIn" routerLink="/login">Connexion</a>
-    <a *ngIf="!isLoggedIn" routerLink="/register">Inscription</a>
-    <a *ngIf="isLoggedIn" routerLink="/profil">Profil</a>
-    <div *ngIf="isLoggedIn" class="nav-link nav-link-logout" >Déconnexion</div>
+    <!-- ajouter *ngIf="isLoggedIn"outerLink="/register">Inscription  -->
+    <!--ajouter *ngIf="!isLoggedIn" routerLink="/login">Connexion< -->
+    <a *ngIf="isLoggedIn" routerLink="/utilisateur">Profil</a>
+    <a routerLink="/login">Connexion</a>
+    <a routerLink="/register">Inscription</a>
+    <div *ngIf="isLoggedIn" ,else notconnected>
+      <!-- Connecter   -->
+      <a routerLink="utilisateur/profile">Profile</a>
+      <a routerLink="utilisateur/paramètres">Paramètres</a>
+      <a routerLink="utilisateur/messages">Messages</a>
+    </div>
+    <ng-content #notconnected>
+      <!-- non Connecter  -->
+    
+    </ng-content>
+    <div *ngIf="isLoggedIn" class="nav-link nav-link-logout">Déconnexion</div>
   </div>
 </nav>

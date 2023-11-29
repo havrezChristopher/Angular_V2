@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 import { CookieService } from 'ngx-cookie-service';
 import { UtilisateurInterface } from 'src/app/User/Interface/utilisateur.interface';
+import { Router } from '@angular/router';
 
 // @Injectable indique qu'il s'agit d'un service qui peut être injecté dans d'autres classes.
 // providedIn: 'root' signifie qu'il est disponible dans toute l'application.
@@ -14,13 +15,13 @@ export class AuthService {
   // URL de l'API récupérée à partir des variables d'environnement.
   private API_URL = environment.API_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router:Router) { }
 
   // Méthode pour inscrire un nouvel utilisateur.
 
   signup(userDetails: any): Observable<any> {
 
-    console.log(userDetails);
+    console.log('utilisateur enregistrement ==>',userDetails);
     // Envoi d'une requête POST à l'API pour l'inscription.
     return this.http.post(`${this.API_URL}/authentification/register`, userDetails);
   }
@@ -39,7 +40,8 @@ saveAuthToken(token: string): void {
   // Méthode pour déconnecter l'utilisateur.
 
   logout(): void {
-    sessionStorage.removeItem('sessionToken');
+    sessionStorage.removeItem('sessionToken');//suprimer le token
+    this.router.navigate(['/login'])//redirection vers login
 
   }
 
@@ -49,8 +51,6 @@ saveAuthToken(token: string): void {
     const email = localStorage.getItem('authToken');
 
     if (!email) {
-      console.log(email);
-      
       return false;
     }
     return true;

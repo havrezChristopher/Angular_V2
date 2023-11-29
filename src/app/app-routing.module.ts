@@ -16,12 +16,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
-  {path:'reservation', component:ReservationComponent},
-  {path:'contact', component:ContactComponent},
+  {path:'register',component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
   // authGuard a faire
   {path:'utilisateur/:id', component:UtilisateursComponent,canActivate :[AuthGuard]},
+  {path:'reservation', component:ReservationComponent},
+  {path:'contact', component:ContactComponent},
   {path:'evenement', component:EvenementComponent},
   {path:'message', component:MessageComponent},
   {path:'groupe', component:GroupeComponent},

@@ -19,7 +19,7 @@ export class UtilisateursServiceService {
 
   // Récupérer tous les utilisateurs
   getAllUsers(): Observable<UtilisateurInterface[]> {
-    return this.http.get<UtilisateurInterface[]>(`${this.API_URL}/userAll`);
+    return this.http.get<UtilisateurInterface[]>(`${this.API_URL}/`);
   }
 
   // Récupérer un utilisateur par son ID
@@ -39,12 +39,12 @@ export class UtilisateursServiceService {
 
   // Mettre à jour le mot de passe de l'utilisateur
   updatePassword(id: string, newPassword: string): Observable<any> {
-    return this.http.put(`${this.API_URL}/updateMDP/${id}`, { password: newPassword });
+    return this.http.put(`${this.API_URL}/utilisateur/updateMDP/${id}`, { password: newPassword });
   }
 
   // Mettre à jour l'image de profil de l'utilisateur
-  updateProfileImage(userId: string, contenuId: string, imageData: any): Observable<any> {
-    return this.http.put(`${this.API_URL}/${userId}/${contenuId}/profil`, imageData);
+  updateProfileImage(Idutilisateur: string, contenuId: string, imageData: any): Observable<any> {
+    return this.http.put(`${this.API_URL}/${Idutilisateur}/${contenuId}/profil`, imageData);
   }
   
   // Récupérer toutes les photos de profil
