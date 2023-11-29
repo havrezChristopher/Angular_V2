@@ -54,7 +54,7 @@ export class AuthService {
 //! Modification aurelien session==>localStorage 
   logout(): void {
     localStorage.removeItem('authToken');//suprimer le token
-    console.log('logout==>',sessionStorage);
+    console.log('logout==>',localStorage);
     
     this.router.navigate(['/login']);//redirection vers login
 
