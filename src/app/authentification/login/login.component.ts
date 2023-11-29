@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   errorMessage!: string;
   idUser!: number;
 
+
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -45,6 +46,8 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           this.authService.saveAuthToken(response.token); // Enregistrement du token
           this.router.navigate(['utilisateur/', response.idUtilisateur]); // Redirection
+          console.log('Recuperation token ==> ',response.token);
+          
         },
         error: (error) => {
           this.errorMessage = "Échec de la connexion : " + (error.error.message || "Une erreur est survenue.");

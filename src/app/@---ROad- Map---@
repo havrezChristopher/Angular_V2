@@ -1,11 +1,3 @@
-**REDIRECTION UNE FOIS UTILISATEUR CONNECTER** 
---gestion jwt--
-
-1. **Modification des Informations Personnelles**
-**Interface Utilisateur :** 
-Créez un nouveau composant (par exemple, ProfileComponent) 
-avec un formulaire permettant à l'utilisateur de modifier ses informations personnelles (nom, email, etc.).
-
 **Formulaire Réactif :** 
 Utilisez Angular Reactive Forms pour collecter et valider les données. 
 Assurez-vous que les champs sont pré-remplis avec les informations actuelles de l'utilisateur.
