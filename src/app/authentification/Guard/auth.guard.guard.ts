@@ -7,7 +7,7 @@ import { LoginComponent } from '../login/login.component';
   providedIn: 'root'
 })
 
-export class AuthGuard implements CanActivate {
+export class AuthGuard {
 token!:string;
   constructor(
     private authService: AuthService,
