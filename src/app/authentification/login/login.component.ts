@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
         next: (response) => {
+          localStorage.setItem('authToken', response.token)
           this.authService.saveAuthToken(response.token); // Enregistrement du token
           this.router.navigate(['utilisateur/', response.idUtilisateur]); // Redirection
           console.log('Recuperation token ==> ',response.token);

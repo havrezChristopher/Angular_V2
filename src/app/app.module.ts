@@ -21,6 +21,7 @@ import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -44,6 +45,7 @@ import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/pa
     EvenementComponent,
     TableauDeBordComponent,
     ParametteComponent,
+    PageNotFoundComponent,
     
   ],
   imports: [

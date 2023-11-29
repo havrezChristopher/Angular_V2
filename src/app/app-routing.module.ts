@@ -11,6 +11,7 @@ import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { MessageComponent } from './User/utilisateurs/Messages/message/message.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -20,11 +21,13 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   // authGuard a faire
-  {path:'utilisateur/:id', component:UtilisateursComponent},
+  {path:'utilisateur/:id', component:UtilisateursComponent,canActivate :[AuthGuard]},
   {path:'evenement', component:EvenementComponent},
   {path:'message', component:MessageComponent},
   {path:'groupe', component:GroupeComponent},
   {path:'tableauDeBord', component:TableauDeBordComponent},
+  //! a mettre a la fin sinon il ce met en page par default! 
+  { path: '**', component: PageNotFoundComponent }, 
   
  
 

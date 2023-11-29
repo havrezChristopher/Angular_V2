@@ -46,9 +46,11 @@ saveAuthToken(token: string): void {
   // Méthode pour vérifier si l'utilisateur est actuellement connecté.
 
   isLoggedIn(): boolean {
-    const email = sessionStorage.getItem('authToken');
+    const email = localStorage.getItem('authToken');
 
     if (!email) {
+      console.log(email);
+      
       return false;
     }
     return true;
