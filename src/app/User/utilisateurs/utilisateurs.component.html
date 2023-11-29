@@ -7,7 +7,7 @@
       <li><a routerLink="/tableauDeBord">Tableau de bord</a></li>
       <li><a routerLink="/utilisateurs/:id">Votre profil</a></li>
       <li><a routerLink="/message">Message</a></li>
-      <!-- <li><button (click)="logout()">Déconnexion</button></li> -->
+      <li><button (click)="logout()">Déconnexion</button></li>
     </ul>
   </aside>
   
@@ -16,7 +16,7 @@
       <legend *ngIf="utilisateurActuel; else loading">
         <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
       </legend>
-
+      
       <div *ngIf="utilisateurActuel; else loading">
         <!-- Affichage des informations de l'utilisateur -->
         <div>Nom : {{ utilisateurActuel.nom }}</div>
