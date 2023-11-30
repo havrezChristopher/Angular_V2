@@ -9,33 +9,34 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class MessageServiceService {
-  private readonly _MessageEndPoint = 'http://localhost:3000/Message'
+
+   private API_URL = environment.API_URL;
 
   constructor(private http:HttpClient) { }
 
 
   get (): Observable<MessageInterface[]> {
-    return this.http.get<MessageInterface[]>(this._MessageEndPoint);
+    return this.http.get<MessageInterface[]>(this.API_URL);
   }
 
   getById (id: number): Observable<MessageInterface> {
-    return this.http.get<MessageInterface>(this._MessageEndPoint + '/' + id);
+    return this.http.get<MessageInterface>(`${this.API_URL}/${id}`);
   }
 
   add (message: MessageInterface): Observable<void> {
-    return this.http.post<void>(this._MessageEndPoint, message);
+    return this.http.post<void>(this.API_URL, message);
   }
 
   delete (id: number): Observable<void> {
-    return this.http.delete<void>(this._MessageEndPoint + '/' + id);
+    return this.http.delete<void>(this.API_URL + '/' + id);
   }
 
-  update (id: number, message: MessageInterface): Observable<void> {
-    return this.http.put<void>(this._MessageEndPoint + '/' + id, message);
+  update (id: number, messageData: MessageInterface): Observable<void> {
+    return this.http.put<void>(`${this.API_URL}/${id}`, messageData);
   }
 
-  patch (id: number, message: MessageInterface): Observable<void> {
-    return this.http.patch<void>(this._MessageEndPoint + '/' + id, message);
+  patch (id: number, messageData: MessageInterface): Observable<void> {
+    return this.http.patch<void>(`${this.API_URL}/${id}`, messageData);
   }
   
 
