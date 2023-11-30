@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class MessageServiceService {
-  private readonly _MessageEndPoint = 'http://localhost:3000/products'
+  private readonly _MessageEndPoint = 'http://localhost:3000/Message'
 
   constructor(private http:HttpClient) { }
 
