@@ -16,7 +16,7 @@ export class MessageServiceService {
 
 
   get (): Observable<MessageInterface[]> {
-    return this.http.get<MessageInterface[]>(this.API_URL);
+    return this.http.get<MessageInterface[]>(`${this.API_URL} /`);
   }
 
   getById (id: number): Observable<MessageInterface> {
@@ -38,6 +38,12 @@ export class MessageServiceService {
   patch (id: number, messageData: MessageInterface): Observable<void> {
     return this.http.patch<void>(`${this.API_URL}/${id}`, messageData);
   }
-  
+
+// Logique pour création Message
+
+// 1.crée un groupe (post)
+// 2.add utilisateur (poss)
+// 3.envoyer message a utilisateur un a la fois (post) 
+// 4.getAll pour lister tout les message (get)
 
 }
