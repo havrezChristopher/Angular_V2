@@ -13,7 +13,7 @@ token!:string;
     private router: Router,
     
   ) {}
-
+  
   canActivate(): boolean {
     if (this.authService.isLoggedIn()) {
       return true; // Autorise l'accès à la route si l'utilisateur est connecté
