@@ -16,17 +16,22 @@ import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
-import { MessageComponent } from './User/utilisateurs/Messages/message/message.component';
+import { MessageComponent } from 'Front-end-Angular/src/app/User/utilisateurs/Messages/message/message.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AjoutMessageComponent } from './utilisateur/Message/ajout-message/ajout-message.component';
+import { AjoutMessageComponent } from './User/utilisateurs/Message/ajout-message/ajout-message.component';
 import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/cree-message.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-
+// Material
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 
@@ -51,6 +56,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PageNotFoundComponent,
     AjoutMessageComponent,
     CreeMessageComponent,
+
     
   ],
   imports: [
@@ -61,7 +67,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     //! import SharedModule pour utiliser tout ce quil export !
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+        // Angular Matherial
+        MatSlideToggleModule,
+        MatButtonModule, 
+        MatMenuModule, 
+        MatIconModule,
+        MatFormFieldModule, 
+        MatInputModule, 
+        MatIconModule
+        
+        
+        
   ],
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },

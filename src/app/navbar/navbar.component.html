@@ -2,7 +2,9 @@
 <nav class="navbar">
   <div class="nav-brand">MonApp</div>
   <div class="nav-items">
-    <a routerLink="/">Accueil</a>
+   
+     <a routerLink="/">Accueil</a>
+
     <a routerLink="/about">À Propos</a>
     <a routerLink="reservation">Reservation</a>
   <a routerLink="contact">Contact</a>
@@ -24,5 +26,7 @@
     
     </ng-content>
     <div *ngIf="isLoggedIn" class="nav-link nav-link-logout">Déconnexion</div>
+  <!-- Matherial -->
+  
   </div>
 </nav>

@@ -8,7 +8,7 @@ import { RegisterComponent } from './authentification/register/register.componen
 import { AuthGuard } from './authentification/Guard/auth.guard.guard';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
-import { MessageComponent } from './User/utilisateurs/Messages/message/message.component';
+import { MessageComponent } from 'Front-end-Angular/src/app/User/utilisateurs/Messages/message/message.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
