@@ -24,6 +24,7 @@ import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/pa
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AjoutMessageComponent } from './utilisateur/Message/ajout-message/ajout-message.component';
 import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/cree-message.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -59,7 +60,8 @@ import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/c
     HttpClientModule,
     ReactiveFormsModule,
     //! import SharedModule pour utiliser tout ce quil export !
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule
   ],
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },
