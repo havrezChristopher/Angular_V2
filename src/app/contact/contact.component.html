@@ -1,14 +1,23 @@
-
 <fieldset>
-    <legend><h1>Contact</h1></legend>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!messageSent">
-      <input type="text" formControlName="name" placeholder="Votre nom">
-      <input type="email" formControlName="email" placeholder="Votre email">
-      <textarea formControlName="message" placeholder="Votre message"></textarea><br>
-      <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
-    </form>
-    <div *ngIf="messageSent">
-      Votre message a bien été envoyé.
-    </div>
-    
+  <legend>
+    <h1>Contact</h1>
+  </legend>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!messageSent">
+
+    <!-- Name Ajouter  -->
+    <label for="name">Entrer votre Noms:</label>
+    <input type="text" formControlName="name" placeholder="Votre nom">
+    <!--  Email  -->
+    <label for="email">Entrer votre email:</label>
+    <input type="email" formControlName="email" placeholder="Votre email">
+
+    <textarea formControlName="message" placeholder="Votre message"></textarea><br>
+    <!-- Btn  -->
+    <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
+  </form>
+
+  <div *ngIf="messageSent">
+    Votre message a bien été envoyé.
+  </div>
+
 </fieldset>

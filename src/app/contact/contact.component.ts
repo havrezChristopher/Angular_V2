@@ -7,13 +7,16 @@ import { ContactFormServiceService } from './Services/contact-form.service.servi
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
+
   contactForm!: FormGroup;
   messageSent: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactFormServiceService // Service pour gérer l'envoi des données
   ) { }
+
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -27,11 +30,11 @@ export class ContactComponent implements OnInit{
       this.contactService.sendMessage(this.contactForm.value).subscribe({
         next: (response) => {
           this.messageSent = true;
-          // Réinitialiser le formulaire ici si nécessaire
+          // Réinitialiser le formulaire car bonne Pratique
           this.contactForm.reset();
         },
         error: (error) => {
-          // Gérer les erreurs ici
+          
           console.error('Error sending message:', error);
         }
       });
