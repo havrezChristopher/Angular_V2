@@ -8,22 +8,21 @@ import { RegisterComponent } from './authentification/register/register.componen
 import { AuthGuard } from './authentification/Guard/auth.guard.guard';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
-import { MessageComponent } from 'Front-end-Angular/src/app/User/utilisateurs/Messages/message/message.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
   {path:'home', component:HomeComponent},
+  {path:'reservation', component:ReservationComponent},
+  {path:'about', component:AboutComponent},
+  {path:'contact', component:ContactComponent},
   {path:'register',component:RegisterComponent},
   {path:'login', component:LoginComponent},
-  // authGuard a faire
   {path:'utilisateur/:id', component:UtilisateursComponent,canActivate :[AuthGuard]},
-  {path:'reservation', component:ReservationComponent},
-  {path:'contact', component:ContactComponent},
   {path:'evenement', component:EvenementComponent},
-  {path:'message', component:MessageComponent},
   {path:'groupe', component:GroupeComponent},
   {path:'tableauDeBord', component:TableauDeBordComponent},
   //! a mettre a la fin sinon il ce met en page par default! 

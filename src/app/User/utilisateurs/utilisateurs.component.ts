@@ -3,7 +3,6 @@ import { AuthService } from 'src/app/authentification/register/Services/auth-ser
 import { UtilisateurInterface } from '../Interface/utilisateur.interface';
 import { UtilisateursServiceService } from '../Services/utilisateurs.service.service';
 import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-utilisateurs',

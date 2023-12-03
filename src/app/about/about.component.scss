@@ -1,0 +1,33 @@
+.about-page {
+    text-align: center;
+  }
+  
+  .developer {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: inline-block;
+  }
+  
+  .developer img {
+    max-width: 150px;
+    border-radius: 50%;
+  }
+  
+  .like-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .like-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Styles supplémentaires selon vos préférences de conception */
+  

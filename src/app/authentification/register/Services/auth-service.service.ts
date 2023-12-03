@@ -29,7 +29,6 @@ export class AuthService {
 
   // Méthode pour connecter un utilisateur.
 
-  //TODO ajouter une interface pour l observable 
   signin(email: string, password: string): Observable<any> {
     // Envoi d'une requête POST à l'API pour la connexion.
     return this.http.post<any>(`${this.API_URL}/authentification/login`, { emailUtilisateur: email, motsDePasse: password });

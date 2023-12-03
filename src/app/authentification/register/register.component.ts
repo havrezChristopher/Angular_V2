@@ -53,9 +53,9 @@ export class RegisterComponent implements OnInit {
         next: (response) => {
           console.log('test',response);
           
-          // En cas de succès, affiche un message et redirige vers le tableau de bord.
+          // En cas de succès, affiche un message et redirige vers login
           this.signupSuccess = 'Inscription réussie !';
-          console.warn(this.signupSuccess)
+
           this.router.navigate(['/login']); // Redirection après l'inscription
         },
         error: (error) => {
