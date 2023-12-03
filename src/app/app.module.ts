@@ -32,7 +32,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
-import { ContactFormComponent } from './contact/contactForm/contact-form/contact-form.component';
 
 
 
@@ -63,7 +62,7 @@ import { ContactFormComponent } from './contact/contactForm/contact-form/contact
     ParametteComponent,
     // Pages Not fund
     PageNotFoundComponent,
-    ContactFormComponent,
+
 
 
   ],

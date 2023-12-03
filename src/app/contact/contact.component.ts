@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactFormServiceService } from './Services/contact-form.service.service';
 
 @Component({
   selector: 'app-contact',
@@ -6,5 +8,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
+  contactForm!: FormGroup;
+  messageSent: boolean = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private contactService: ContactFormServiceService // Service pour gérer l'envoi des données
+  ) {}
+  ngOnInit(): void {
+    this.contactForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required],
+    });
+  }
 
+  onSubmit(): void {
+    if (this.contactForm.valid) {
+      this.contactService.sendMessage(this.contactForm.value).subscribe({
+        next: (response) => {
+          this.messageSent = true;
+          // Réinitialiser le formulaire ici si nécessaire
+          this.contactForm.reset();
+        },
+        error: (error) => {
+          // Gérer les erreurs ici
+          console.error('Error sending message:', error);
+        }
+      });
+    }
+  }
 }
+
+
+  
+
+  
+
+  
+
+
