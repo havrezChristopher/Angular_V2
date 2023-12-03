@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactFormServiceService } from './Services/contact-form.service.service';
+import { ContactFormServiceService } from './contactForm/Services/contact-form.service.service';
 // Teste Matherial
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from './PopUp/pop-up/pop-up.component';
@@ -14,8 +14,8 @@ export class ContactComponent implements OnInit {
 
   contactForm!: FormGroup;
   messageSent: boolean = false;
-  messageErreur!:string
-  messageSuccess!:string
+  messageErreur!: string;
+  messageSuccess!: string;
 
   constructor(
     private popUp: MatDialog,
@@ -39,15 +39,29 @@ export class ContactComponent implements OnInit {
         next: (data) => {
           this.messageSent = true;
           this.openDialog('Succès', 'Votre message a bien été envoyé.');
+          console.log(data);
+
           // Réinitialiser le formulaire car bonne Pratique !!!
           this.contactForm.reset();
         },
         error: (error) => {
           
-            this.openDialog('Erreur', 'Une erreur est survenue lors de l envoi du message.');
-        
+          //!Astuce pour utiliser les message erreur du back end  
+          let errorMessage = 'Une erreur est survenue lors de l\'envoi du message.';
+          if (error.error && error.error.message) {
+            // Utiliser le message d'erreur du backend si disponible
+            errorMessage = error.error.message;
+          }
+          //!Astuce pour utiliser les message erreur du back end  
+
+          this.openDialog('Erreur', 'Une erreur est survenue lors de lenvoi du message.');
+
+
         }
         // faire le compled pour integrer d autre chose ! 😋
+        // complete: () => {
+        //  Actions pour l'Observable
+        // }
       });
     }
   }
