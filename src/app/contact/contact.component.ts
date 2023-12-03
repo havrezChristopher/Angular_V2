@@ -13,7 +13,7 @@ export class ContactComponent {
   constructor(
     private formBuilder: FormBuilder,
     private contactService: ContactFormServiceService // Service pour gérer l'envoi des données
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -40,10 +40,10 @@ export class ContactComponent {
 }
 
 
-  
 
-  
 
-  
+
+
+
 
 
