@@ -7,7 +7,7 @@ import { ContactFormServiceService } from './Services/contact-form.service.servi
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit{
   contactForm!: FormGroup;
   messageSent: boolean = false;
   constructor(
