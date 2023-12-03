@@ -32,6 +32,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 
 
 
@@ -46,6 +48,7 @@ import { AboutComponent } from './about/about.component';
     AboutComponent,
     ReservationComponent,
     ContactComponent,
+    
     EvenementComponent,
     // Profile
     LoginComponent,
@@ -62,6 +65,7 @@ import { AboutComponent } from './about/about.component';
     ParametteComponent,
     // Pages Not fund
     PageNotFoundComponent,
+    PopUpComponent,
 
 
 
@@ -81,7 +85,8 @@ import { AboutComponent } from './about/about.component';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
 
 
 

@@ -7,10 +7,14 @@
     <!-- Name Ajouter  -->
     <label for="name">Entrer votre Noms:</label>
     <input type="text" formControlName="name" placeholder="Votre nom">
+    
+    <!-- lastName Ajouter  -->
+    <label for="lastName">Entrer votre Prénoms:</label>
+    <input type="text" formControlName="lastName" placeholder="Votre Prénoms">
     <!--  Email  -->
     <label for="email">Entrer votre email:</label>
     <input type="email" formControlName="email" placeholder="Votre email">
-
+    <!-- Message A changer peux etre ajouter plus de validation   -->
     <textarea formControlName="message" placeholder="Votre message"></textarea><br>
     <!-- Btn  -->
     <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>

@@ -60,7 +60,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (error) => {
           
-          this.signupError = 'Erreur utilisateur (utilisateur) deja inscrit';
+          this.signupError = 'Erreur Inscription ...!';
         }
       });
     }
