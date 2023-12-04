@@ -2,24 +2,30 @@
   <legend>
     <h1>Contact</h1>
   </legend>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!messageSent">
 
-    <!-- Name Ajouter  -->
-    <label for="name">Entrer votre Noms:</label>
-    <input type="text" formControlName="name" placeholder="Votre nom">
+  <!-- Formulaire de contact avec validation  et condition *ngIf -->
+  <form id="monID" [formGroup]="contactForm" (ngSubmit)="onSubmit()" *ngIf="!messageSent">
     
-    <!-- lastName Ajouter  -->
+    <!-- Champ pour le nom de l'utilisateur -->
+    <label for="user_name">Entrer votre Noms:</label>
+    <input type="text" formControlName="user_name" name="user_name" placeholder="Votre nom">
+    
+    <!-- Champ pour le prénom de l'utilisateur -->
     <label for="lastName">Entrer votre Prénoms:</label>
     <input type="text" formControlName="lastName" placeholder="Votre Prénoms">
-    <!--  Email  -->
-    <label for="email">Entrer votre email:</label>
-    <input type="email" formControlName="email" placeholder="Votre email">
-    <!-- Message A changer peux etre ajouter plus de validation   -->
-    <textarea formControlName="message" placeholder="Votre message"></textarea><br>
-    <!-- Btn  -->
+
+    <!-- Champ pour l'email de l'utilisateur -->
+    <label for="user_email">Entrer votre user_email:</label>
+    <input type="email" formControlName="user_email" name="user_email" placeholder="Votre email">
+
+    <!-- Zone de texte pour le message -->
+    <textarea formControlName="message" name="message" placeholder="Votre message"></textarea><br>
+
+    <!-- Bouton de soumission du formulaire -->
     <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
   </form>
 
+  <!-- Message de confirmation après envoi du formulaire -->
   <div *ngIf="messageSent">
     Votre message a bien été envoyé.
   </div>

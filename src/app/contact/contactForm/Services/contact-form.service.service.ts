@@ -11,8 +11,8 @@ export class ContactFormServiceService {
 
   constructor(private http: HttpClient) { }
   //TODO IMPLEMENTER DANS LE BACK-END
-  sendMessage(messageData: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/`, messageData);
-  }
+  // sendMessage(messageData: any): Observable<any> {
+  //   return this.http.post(`${this.API_URL}/`, messageData);
+  // }
   
 }
