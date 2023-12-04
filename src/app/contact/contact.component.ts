@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactFormServiceService } from './contactForm/Services/contact-form.service.service';
+//* EmailJs 
+import emailjs from 'emailjs-com';
 // Teste Matherial
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from './PopUp/pop-up/pop-up.component';
@@ -40,7 +42,6 @@ export class ContactComponent implements OnInit {
           this.messageSent = true;
           this.openDialog('Succès', 'Votre message a bien été envoyé.');
           console.log(data);
-
           // Réinitialiser le formulaire car bonne Pratique !!!
           this.contactForm.reset();
         },
@@ -70,6 +71,16 @@ export class ContactComponent implements OnInit {
     this.popUp.open(PopUpComponent, {
       data: { title, message }
     });
+  }
+  sendEmail(e: Event) {
+    e.preventDefault();
+  
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target as HTMLFormElement, 'YOUR_USER_ID')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   }
 
 }
