@@ -1,32 +1,33 @@
-<!-- ****************************************************************************************************************** -->
 <nav class="navbar">
   <div class="nav-brand">MonApp</div>
   <div class="nav-items">
-   
-     <a routerLink="/">Accueil</a>
-
+    <!-- Liens de navigation statiques -->
+    <a routerLink="/">Accueil</a>
     <a routerLink="/about">À Propos</a>
-    <a routerLink="reservation">Reservation</a>
-  <a routerLink="contact">Contact</a>
-
-    <!-- Liens affichés en fonction de l'état de connexion -->
-    <!-- ajouter *ngIf="isLoggedIn"outerLink="/register">Inscription  -->
-    <!--ajouter *ngIf="!isLoggedIn" routerLink="/login">Connexion< -->
-    <a *ngIf="isLoggedIn" routerLink="/utilisateur">Profil</a>
+    <a routerLink="/reservation">Reservation</a>
+    <a routerLink="/contact">Contact</a>
     <a routerLink="/login">Connexion</a>
     <a routerLink="/register">Inscription</a>
-    <div *ngIf="isLoggedIn" ,else notconnected>
-      <!-- Connecter   -->
-      <a routerLink="utilisateur/profile">Profile</a>
-      <a routerLink="utilisateur/paramètres">Paramètres</a>
-      <a routerLink="utilisateur/messages">Messages</a>
-    </div>
-    <ng-content #notconnected>
-      <!-- non Connecter  -->
-    
-    </ng-content>
-    <!-- <div *ngIf="isLoggedIn" class="nav-link nav-link-logout">Déconnexion</div> -->
-  <!-- Matherial -->
-  
+
+
+
+    <!-- Liens conditionnels en fonction de l'état de connexion -->
+    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+      <!-- Menu déroulant pour l'utilisateur connecté -->
+      <button mat-button [matMenuTriggerFor]="profileMenu">
+        Votre Profil <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item routerLink="/utilisateur/profile">Profil</button>
+        <button mat-menu-item routerLink="/utilisateur/parametres">Paramètres</button>
+        <button mat-menu-item routerLink="/utilisateur/messages">Messages</button>
+      </mat-menu>
+    </ng-container>
+
+    <!-- Template pour les utilisateurs non connectés -->
+    <ng-template #notLoggedIn>
+      <a routerLink="/login">Connexion</a>
+      <a routerLink="/register">Inscription</a>
+    </ng-template>
   </div>
 </nav>

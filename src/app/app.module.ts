@@ -16,13 +16,20 @@ import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
-import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/cree-message.component';
 import { AjoutMessageComponent } from './User/utilisateurs/Message/ajout-message/ajout-message.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// Evenements
+import { EvenementComponent } from './Evenements/evenement/evenement.component';
+import { EvenementTop1Component } from './Evenements/evenement-top1/evenement-top1.component';
+import { EvenementTop2Component } from './Evenements/evenement-top2/evenement-top2.component';
+import { EvenementTop3Component } from './Evenements/evenement-top3/evenement-top3.component';
+// Files Actualiter
+import { FilesActualiterComponent } from './FilesActualiter/files.actualiter/files.actualiter.component';
 // Material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -33,7 +40,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 
 
 
@@ -66,6 +72,11 @@ import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
     // Pages Not fund
     PageNotFoundComponent,
     PopUpComponent,
+    EvenementTop1Component,
+    EvenementTop2Component,
+    EvenementTop3Component,
+    FilesActualiterComponent,
+    
 
 
 
