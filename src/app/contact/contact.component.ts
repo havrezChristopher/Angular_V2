@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { PopUpComponent } from './PopUp/pop-up/pop-up.component';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 // EmailJS
 import emailjs from 'emailjs-com';
 // Material
 import { MatDialog } from '@angular/material/dialog';
+import { ReCaptchaV3Service } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-contact', // Sélecteur CSS du composant
@@ -22,6 +23,7 @@ export class ContactComponent implements OnInit {
   constructor(
     private popUp: MatDialog, // Service MatDialog pour les pop-ups
     private formBuilder: FormBuilder, // FormBuilder pour construire le formulaire réactif
+    private recaptchaV3Service: ReCaptchaV3Service //! .....Integration recaptcha......
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,12 @@ export class ContactComponent implements OnInit {
   onSubmit(): void {
     // Méthode appelée lors de la soumission du formulaire OnSubmit
     if (this.contactForm.valid) {
+      //! .....Integration recaptcha...... 
+      this.recaptchaV3Service.execute('importantAction')
+    .subscribe((token: string) => {
+      console.debug(`Token [${token}] generated`);
+    
+      //! .....Integration recaptcha......
       // Envoi du formulaire si toutes les validations sont passées
       emailjs.sendForm('service_niz5vsh', 'template_7k1e3no', '#monID', 'LmI4E7tIotERZQZ-p')
         .then((response) => {
@@ -50,6 +58,7 @@ export class ContactComponent implements OnInit {
           
           this.openDialog('erreur', error);
         });
+      });
     }
   }
  // faire le compled pour integrer d autre chose ! 😋

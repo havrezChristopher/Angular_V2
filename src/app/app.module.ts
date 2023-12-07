@@ -40,6 +40,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment.development';
 
 
 
@@ -97,7 +99,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    RecaptchaV3Module
 
 
 
@@ -105,6 +108,8 @@ import { MatDialogModule } from '@angular/material/dialog';
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },
 
+   { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey,}
+    
     // provide: indique que vous souhaitez enregistrer un intercepteur pour les requête HTTP
     // useCLass: la classe de votre intercepteur personnalité qu'on souhaite utiliser
     // multi: enregistrer plusieurs intercepteurs de type HTTP_INTERCEPTORS
