@@ -18,7 +18,6 @@ import { SharedModule } from './shared/shared.module';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
-import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/cree-message.component';
 import { AjoutMessageComponent } from './User/utilisateurs/Message/ajout-message/ajout-message.component';
@@ -63,8 +62,6 @@ import { environment } from 'src/environments/environment.development';
     RegisterComponent,
     FooterComponent,
     UtilisateursComponent,
-    // Tableau de bord
-    TableauDeBordComponent,
     // Message Onglet
     AjoutMessageComponent,
     CreeMessageComponent,

@@ -7,13 +7,18 @@ import { AuthService } from '../authentification/register/Services/auth-service.
 })
 
 export class NavbarComponent implements OnInit {
-  isLoggedIn:boolean =this.authService.isLoggedIn()
+  isLoggedIn = false;
 
-  constructor( private authService: AuthService ) { }
-
-  ngOnInit(): void {
-    console.log("is connected navBarr");
-    
-    
-  }
+    constructor(private authService: AuthService) {}
+  
+    ngOnInit() {
+        // Souscrit à l'état de connexion pour mettre à jour isLoggedIn depuis mon status  
+      this.authService.authStatus.subscribe(status => {
+        this.isLoggedIn = status;
+      });
+    }
+  
+    logout() {
+      this.authService.logout();
+    }
 }

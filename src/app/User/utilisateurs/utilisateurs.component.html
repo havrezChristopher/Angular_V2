@@ -4,17 +4,21 @@
 <div class="user-profile">
   <aside class="sidebar">
     <ul>
-      <li><a routerLink="/tableauDeBord">Tableau de bord</a></li>
-      <li><a routerLink="/utilisateurs/:id">Votre profil</a></li>
+      <li><a routerLink="/utilisateurs/">Votre profil</a></li>
       <li><a routerLink="/message">Message</a></li>
     </ul>
   </aside>
-  
   <div class="profile">
     <fieldset>
       <legend *ngIf="utilisateurActuel; else loading">
         <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
       <li><button (click)="logout()">Déconnexion</button></li>
+      <mat-menu #appMenu="matMenu">
+        <ng-template matMenuContent>
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item>Help</button>
+        </ng-template>
+      </mat-menu>
 
       </legend>
 <!--       

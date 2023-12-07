@@ -21,12 +21,11 @@ export class UtilisateursComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private _nomActivatedRoute: ActivatedRoute,
-    private authServices: AuthService,
     private utilisateur: UtilisateursServiceService) { }
 
   ngOnInit() {
     // L'ID de l'utilisateur à récupérer
-
+    const userId = localStorage.getItem('userId'); // Récupère l'ID utilisateur
     this._nomActivatedRoute.params.subscribe(params => {
       //! ajout pour passer les parrametre par l id  
       this.userId = +params['id'];

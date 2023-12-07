@@ -9,7 +9,6 @@ import { AuthGuard } from './authentification/Guard/auth.guard.guard';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
-import { TableauDeBordComponent } from './User/utilisateurs/TableauDeBord/tableau-de-bord/tableau-de-bord.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 
@@ -24,7 +23,6 @@ const routes: Routes = [
   {path:'utilisateur/:id', component:UtilisateursComponent,canActivate :[AuthGuard]},
   {path:'evenement', component:EvenementComponent},
   {path:'groupe', component:GroupeComponent},
-  {path:'tableauDeBord', component:TableauDeBordComponent},
   //! a mettre a la fin sinon il ce met en page par default! 
   { path: '**', component: PageNotFoundComponent }, 
   

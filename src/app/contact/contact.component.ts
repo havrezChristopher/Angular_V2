@@ -43,7 +43,7 @@ export class ContactComponent implements OnInit {
       this.recaptchaV3Service.execute('importantAction')
     .subscribe((token: string) => {
       console.debug(`Token [${token}] generated`);
-    
+      // en gros le recapcha envoie un token juste pour verifier si le nav du client c'est l enregistrer !
       //! .....Integration recaptcha......
       // Envoi du formulaire si toutes les validations sont passées
       emailjs.sendForm('service_niz5vsh', 'template_7k1e3no', '#monID', 'LmI4E7tIotERZQZ-p')

@@ -6,18 +6,36 @@ import { environment } from 'src/environments/environment.development';
 import { CookieService } from 'ngx-cookie-service';
 import { UtilisateurInterface } from 'src/app/User/Interface/utilisateur.interface';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 
-// @Injectable indique qu'il s'agit d'un service qui peut être injecté dans d'autres classes.
-// providedIn: 'root' signifie qu'il est disponible dans toute l'application.
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   // URL de l'API récupérée à partir des variables d'environnement.
   private API_URL = environment.API_URL;
+  private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
+  
+// Getter pour accéder à l'état de connexion
+get authStatus() {
+  return this.loggedIn.asObservable();
+}
 
+// Mettez à jour l'état lors de la connexion/déconnexion
+login() {
+  this.loggedIn.next(true);
+}
+// Méthode pour déconnecter l'utilisateur.
+logout(): void {
+  localStorage.removeItem('authToken');//suprimer le token
+  console.log('logout==>', localStorage);
+  this.loggedIn.next(false);
+
+  this.router.navigate(['/login']);//redirection vers login
+
+}
   // Méthode pour inscrire un nouvel utilisateur.
 
   signup(userDetails: any): Observable<any> {
@@ -40,26 +58,9 @@ export class AuthService {
 
 
   // Méthode pour vérifier si l'utilisateur est actuellement connecté.
-
   isLoggedIn(): boolean {
-    const email = localStorage.getItem('authToken');
-
-    if (!email) {
-      return false;
-    }
-    return true;
-
+    return !!localStorage.getItem('authToken'); // Vérifie si le token existe
   }
-  // Méthode pour déconnecter l'utilisateur.
-//! Modification aurelien session==>localStorage 
-  logout(): void {
-    localStorage.removeItem('authToken');//suprimer le token
-    console.log('logout==>',localStorage);
-    
-    this.router.navigate(['/login']);//redirection vers login
-
-  }
-
   // Méthode pour obtenir les détails de l'utilisateur connecté.
   getUserDetails(userId: number): Observable<UtilisateurInterface> {
     return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${userId}`);
