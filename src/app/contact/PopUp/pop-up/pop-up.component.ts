@@ -12,3 +12,4 @@ export class PopUpComponent {
   //! Propre a matherial!!! 
   constructor(@Inject(MAT_DIALOG_DATA) public dataPopUp: any) { }
 }
+
