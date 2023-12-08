@@ -2,14 +2,15 @@
   <div class="nav-brand">MonApp</div>
   <div class="nav-items">
     <!-- Liens de navigation statiques -->
-    <a routerLink="/">Accueil</a>
+    <a routerLink="/"><mat-icon>home</mat-icon></a>
+
     <a routerLink="/about">À Propos</a>
     <a routerLink="/reservation">Reservation</a>
     <a routerLink="/contact">Contact</a>
     <!-- Liens Quand l'utilisateur est loger -->
     <ng-container *ngIf="isLoggedIn">
-      <a routerLink="/utilisateur">Mon Profile</a>
-      <a (click)="logout()">Déconnexion</a>
+      <a routerLink="/utilisateur/:id">Mon Profile</a>
+      <a (click)="logout()" class="logout-button">Déconnexion</a>
     </ng-container>
     <!-- Liens Quand l'utilisateur n'est pas loger -->
     <ng-container *ngIf="!isLoggedIn">

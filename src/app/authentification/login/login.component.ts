@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, MinLengthValidator, Validators } from '@angular
 import { AuthService } from '../register/Services/auth-service.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+// Matherial
 
 @Component({
   selector: 'app-login',
@@ -39,7 +40,7 @@ export class LoginComponent implements OnInit {
   login(): void {
 
     if (this.loginForm.valid) {
-      // Destructure les valeurs du formulaire pour faciliter l'accès.
+      // Destructure les valeurs du formulaire pour faciliter l'accès et les intégrer a des constante
       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
@@ -62,4 +63,11 @@ export class LoginComponent implements OnInit {
   }
 }
 
-
+// Resumer de ma fonction
+//! Vérifie si le formulaire est valide.
+//! Récupère les valeurs de l'email et du mot de passe depuis le formulaire.
+//! Appelle signin sur AuthService avec ces valeurs et souscrit à la réponse.
+//! En cas de succès, enregistre le token reçu,
+//!  navigue vers la page de profil de l'utilisateur avec son ID,
+//! et stocke le token dans localStorage.
+//! En cas d'erreur, met à jour le message d'erreur.

@@ -1,3 +1,28 @@
 <fieldset>
   <legend><h1>Paramettre</h1></legend>
+
+  <form>
+    <!--[formGroup]="signupForm" (ngSubmit)="signup()"> -->
+
+    <div>
+      <mat-icon>account_circle</mat-icon>
+    </div>
+
+    <div>
+      <label for="genre">email:</label>
+      <input type="text" id="genre" formControlName="genre" />
+    </div>
+    <div>
+      <label for="gsm">Gsm:</label>
+      <input type="text" id="gsm" formControlName="gsm" />
+    </div>
+    <div>
+      <label for="telephone">Telephone:</label>
+      <input type="text" id="telephone" formControlName="telephone" />
+    </div>
+    <div>
+      <label for="twitter">Twitter:</label>
+      <input type="text" id="twitter" formControlName="twitter" />
+    </div>
+  </form>
 </fieldset>

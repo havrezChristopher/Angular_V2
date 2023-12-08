@@ -45,6 +45,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 
@@ -106,7 +107,8 @@ import { MatCardModule } from '@angular/material/card';
     MatIconModule,
     MatDialogModule,
     RecaptchaV3Module,
-    MatCardModule
+    MatCardModule,
+    MatTabsModule
 
 
 

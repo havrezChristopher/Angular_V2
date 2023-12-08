@@ -14,7 +14,10 @@
   .nav-items {
     display: flex;
     align-items: center;
-
+.logout-button {
+  background: red;
+    color: white
+  }
     a, .nav-link {
       color: white;
       text-decoration: none;
@@ -27,7 +30,13 @@
         background-color: #0056b3;
       }
     }
+.nav-items a {
+  transition: color 0.3s ease-in-out;
 
+  &:hover {
+    color: #f44336; // Change la couleur au survol
+  }
+}
     .nav-link-logout {
       background-color: #dc3545;
       &:hover {

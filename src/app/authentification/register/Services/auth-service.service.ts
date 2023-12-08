@@ -18,7 +18,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // Getter pour accéder à l'état de connexion
+  // Getter pour accéder à l'état de connexion obServable Custom en gros 
   get authStatus() {
     return this.loggedIn.asObservable();
   }
@@ -27,7 +27,8 @@ export class AuthService {
   isLoggedIn(): boolean {
     // Mettez à jour l'état lors de la connexion/déconnexion
     this.loggedIn.next(true);
-    return !!localStorage.getItem('authToken'); // Vérifie si le token existe
+    // Vérifie si le token existe
+    return !!localStorage.getItem('authToken'); // Astuce le double ! chnge la variable en boolean
   }
   // Méthode pour obtenir les détails de l'utilisateur connecté.
   getUserDetails(userId: number): Observable<UtilisateurInterface> {
@@ -38,8 +39,8 @@ export class AuthService {
     localStorage.removeItem('authToken');//suprimer le token
     console.log('logout==>', localStorage);
     this.loggedIn.next(false);
-
-    this.router.navigate(['/login']);//redirection vers login
+    //redirection vers login
+    this.router.navigate(['/login']);
 
   }
   // Méthode pour inscrire un nouvel utilisateur.
