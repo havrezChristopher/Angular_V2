@@ -17,26 +17,31 @@ export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
-  
-// Getter pour accéder à l'état de connexion
-get authStatus() {
-  return this.loggedIn.asObservable();
-}
 
-// Mettez à jour l'état lors de la connexion/déconnexion
-login() {
-  this.loggedIn.next(true);
+  // Getter pour accéder à l'état de connexion
+  get authStatus() {
+    return this.loggedIn.asObservable();
+  }
 
-}
-// Méthode pour déconnecter l'utilisateur.
-logout(): void {
-  localStorage.removeItem('authToken');//suprimer le token
-  console.log('logout==>', localStorage);
-  this.loggedIn.next(false);
+  // Méthode pour vérifier si l'utilisateur est actuellement connecté.
+  isLoggedIn(): boolean {
+    // Mettez à jour l'état lors de la connexion/déconnexion
+    this.loggedIn.next(true);
+    return !!localStorage.getItem('authToken'); // Vérifie si le token existe
+  }
+  // Méthode pour obtenir les détails de l'utilisateur connecté.
+  getUserDetails(userId: number): Observable<UtilisateurInterface> {
+    return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${userId}`);
+  }
+  // Méthode pour déconnecter l'utilisateur.
+  logout(): void {
+    localStorage.removeItem('authToken');//suprimer le token
+    console.log('logout==>', localStorage);
+    this.loggedIn.next(false);
 
-  this.router.navigate(['/login']);//redirection vers login
+    this.router.navigate(['/login']);//redirection vers login
 
-}
+  }
   // Méthode pour inscrire un nouvel utilisateur.
 
   signup(userDetails: any): Observable<any> {
@@ -57,13 +62,4 @@ logout(): void {
     localStorage.setItem('authToken', token);
   }
 
-
-  // Méthode pour vérifier si l'utilisateur est actuellement connecté.
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('authToken'); // Vérifie si le token existe
-  }
-  // Méthode pour obtenir les détails de l'utilisateur connecté.
-  getUserDetails(userId: number): Observable<UtilisateurInterface> {
-    return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${userId}`);
-  }
 }

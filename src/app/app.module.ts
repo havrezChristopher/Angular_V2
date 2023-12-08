@@ -5,6 +5,10 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // import { TokenInterceptor } from './demos/demo22/interceptors/token.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+// Module re captch
+import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
+// Variable d environement 
+import { environment } from 'src/environments/environment.development';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
@@ -19,8 +23,8 @@ import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.componen
 import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 // Menu Dashbord message
 import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
-import { GroupeComponent } from './Groupes/groupe/groupe.component';
-// Menu Dashbord 
+import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.component';
+
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // Evenements
@@ -40,8 +44,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AboutComponent } from './about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
-import { environment } from 'src/environments/environment.development';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 
 
@@ -56,7 +61,7 @@ import { environment } from 'src/environments/environment.development';
     AboutComponent,
     ReservationComponent,
     ContactComponent,
-    
+
     EvenementComponent,
     // Profile
     LoginComponent,
@@ -66,7 +71,8 @@ import { environment } from 'src/environments/environment.development';
     //* Menu DashBord 
     // Message 
     BoiteDeReceptionComponent,
-    GroupeComponent,
+    // Groupe
+    MesgroupComponent,
     // Paramettre
     ParametteComponent,
     // Pages Not fund
@@ -76,7 +82,8 @@ import { environment } from 'src/environments/environment.development';
     EvenementTop2Component,
     EvenementTop3Component,
     FilesActualiterComponent,
-    
+    MesgroupComponent,
+
 
 
 
@@ -98,7 +105,8 @@ import { environment } from 'src/environments/environment.development';
     MatInputModule,
     MatIconModule,
     MatDialogModule,
-    RecaptchaV3Module
+    RecaptchaV3Module,
+    MatCardModule
 
 
 
@@ -106,8 +114,8 @@ import { environment } from 'src/environments/environment.development';
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },
 
-   { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey,}
-    
+    { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey, }
+
     // provide: indique que vous souhaitez enregistrer un intercepteur pour les requête HTTP
     // useCLass: la classe de votre intercepteur personnalité qu'on souhaite utiliser
     // multi: enregistrer plusieurs intercepteurs de type HTTP_INTERCEPTORS

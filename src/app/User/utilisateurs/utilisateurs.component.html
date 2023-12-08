@@ -1,48 +1,55 @@
 <fieldset>
   <legend><h3>Route Utilisateurs</h3></legend>
 
-<div class="user-profile">
-  <aside class="sidebar">
-    <ul>
-      <li><a routerLink="/utilisateurs/">Votre profil</a></li>
-      <li><a routerLink="/boiteReception">Message</a></li>
-    </ul>
-  </aside>
-  <div class="profile">
-    <fieldset>
-      <legend *ngIf="utilisateurActuel; else loading">
-        <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
-      <li><button (click)="logout()">Déconnexion</button></li>
+  <div class="user-profile">
+    <aside class="sidebar">
+      <ul>
+        <!-- lien une fois utilisateur connecter  -->
+        <li>
+          <a routerLink="utilisateur/id">Votre profil</a>
+        </li>
 
-<app-evenement></app-evenement>
-      </legend>
-<!--       
-      <div *ngIf="utilisateurActuel; else loading">
-       Affichage des informations de l'utilisateur 
-        <div>Nom : {{ utilisateurActuel.nom }}</div>
-        <div>idUtilisateur: {{ utilisateurActuel.idUtilisateur }}</div>
-        <div>Nom : {{ utilisateurActuel.nom }}</div>
-        <div>Prenom : {{ utilisateurActuel.prenom }}</div>
-        <div>EmailUtilisateur : {{ utilisateurActuel.emailUtilisateur }}</div>
-        <div>motsDePasse: : {{ utilisateurActuel.motsDePasse }}</div>
-        <div>dateDeNaissance : {{ utilisateurActuel.dateDeNaissance }}</div>
-        <div>role : {{ utilisateurActuel.role }}</div>
-        <div>genre : {{ utilisateurActuel.genre }}</div>
-        <div>idPhotoProfil : {{ utilisateurActuel.idPhotoProfil }}</div>
-        <div>derniereConnexion : {{ utilisateurActuel.derniereConnexion }}</div>
-        <div>facebook : {{ utilisateurActuel.facebook }}</div>
-        <div>snapchat : {{ utilisateurActuel.snapchat }}</div>
-        <div>instagram : {{ utilisateurActuel.instagram }}</div>
-        <div>tictoc : {{ utilisateurActuel.tictoc }}</div>
-        <div>twitter : {{ utilisateurActuel.twitter }}</div>
-        <div>telephone : {{ utilisateurActuel.telephone }}</div>
-        <div>gsm : {{ utilisateurActuel.gsm }}</div>
-      </div> -->
+        <li><a routerLink="boiteReception">Envoyer un message</a></li>
+        <li><a routerLink="mesgroupe">Mes groupes</a></li>
+        <li><a routerLink="paramettre">paramettre</a></li>
+      </ul>
+    </aside>
+    <div class="profile">
+      <fieldset>
+        <legend *ngIf="utilisateurActuel; else loading">
+          <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
+        </legend>
 
-      <!-- Template pour l'affichage en cas de chargement -->
-      <ng-template #loading>
-        <p>Chargement des détails de l'utilisateur...</p>
-      </ng-template>
-    </fieldset>
+        <div *ngIf="utilisateurActuel; else loading">
+          Affichage des informations de l'utilisateur
+          <div>Nom : {{ utilisateurActuel.nom }}</div>
+          <div>idUtilisateur: {{ utilisateurActuel.idUtilisateur }}</div>
+          <div>Nom : {{ utilisateurActuel.nom }}</div>
+          <div>Prenom : {{ utilisateurActuel.prenom }}</div>
+          <div>EmailUtilisateur : {{ utilisateurActuel.emailUtilisateur }}</div>
+          <div>motsDePasse: : {{ utilisateurActuel.motsDePasse }}</div>
+          <div>dateDeNaissance : {{ utilisateurActuel.dateDeNaissance }}</div>
+          <div>role : {{ utilisateurActuel.role }}</div>
+          <div>genre : {{ utilisateurActuel.genre }}</div>
+          <div>idPhotoProfil : {{ utilisateurActuel.idPhotoProfil }}</div>
+          <div>
+            derniereConnexion : {{ utilisateurActuel.derniereConnexion }}
+          </div>
+          <div>facebook : {{ utilisateurActuel.facebook }}</div>
+          <div>snapchat : {{ utilisateurActuel.snapchat }}</div>
+          <div>instagram : {{ utilisateurActuel.instagram }}</div>
+          <div>tictoc : {{ utilisateurActuel.tictoc }}</div>
+          <div>twitter : {{ utilisateurActuel.twitter }}</div>
+          <div>telephone : {{ utilisateurActuel.telephone }}</div>
+          <div>gsm : {{ utilisateurActuel.gsm }}</div>
+        </div>
+
+        <!-- Template pour l'affichage en cas de chargement -->
+        <ng-template #loading>
+          <p>Chargement des détails de l'utilisateur...</p>
+        </ng-template>
+      </fieldset>
+      <app-evenement></app-evenement>
+    </div>
   </div>
-</div>
+</fieldset>

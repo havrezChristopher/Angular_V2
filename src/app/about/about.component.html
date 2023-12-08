@@ -1,51 +1,77 @@
-<fieldset>
-  <legend>À propos de notre projet</legend>
-  <div class="about-page">
-    <h1>À propos de notre projet</h1>
+<div class="about-page mat-typography">
+  <!-- Image de fond avec animation 3D -->
+  <div class="background-3d-animation"></div>
 
-    <div class="project-description">
+  <!-- Composant central avec description du projet -->
+  <mat-card class="main-card">
+    <mat-card-header>
+      <mat-card-title>À propos de notre projet</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
       <p>
-        Notre projet est une application web moderne conçue pour répondre aux besoins de nos utilisateurs grâce à une
-        combinaison de technologies avancées.
-        Nous avons choisi des technologies de pointe pour le front-end et le back-end afin de garantir une expérience
-        utilisateur optimale et des performances exceptionnelles.
+        Notre projet est une application web moderne conçue pour répondre aux
+        besoins de nos utilisateurs...
       </p>
+    </mat-card-content>
+  </mat-card>
 
-      <h2>Front-End</h2>
-      <ul>
-        <li><strong>Angular</strong>: Un framework JavaScript robuste pour des interfaces utilisateur réactives et
-          dynamiques.</li>
-        <li><strong>Angular Material</strong>: Une bibliothèque de conception d'interface utilisateur basée sur Angular
-          pour des interfaces esthétiques et conviviales.</li>
-      </ul>
+  <!-- Carte pour Front-End -->
+  <mat-card class="tech-card">
+    <mat-card-header>
+      <mat-card-title><mat-icon>code</mat-icon> Front-End</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Utilisation d'<strong>Angular</strong> pour des interfaces utilisateur
+        dynamiques et d'<strong>Angular Material</strong> pour des composants
+        d'interface utilisateur modernes et réactifs.
+      </p>
+    </mat-card-content>
+  </mat-card>
 
-      <h2>Back-End</h2>
-      <ul>
-        <li>Microsoft SQL Server (MS SQL) : Un système de gestion de base de données relationnelle pour
-          stocker efficacement nos données.</li>
-        <li>Sequelize Un ORM (Object-Relational Mapping) pour Node.js pour simplifier la manipulation
-          des données de la base de données SQL.</li>
-        <li>Express.js Un framework Node.js pour créer des API REST et gérer la communication entre le
-          front-end et la base de données.</li>
-      </ul>
-    </div>
+  <!-- Carte pour Back-End -->
+  <mat-card class="tech-card">
+    <mat-card-header>
+      <mat-card-title><mat-icon>storage</mat-icon> Back-End</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Intégration de <strong>Microsoft SQL Server</strong> pour la gestion des
+        données, de <strong>Sequelize</strong> comme ORM, et d'<strong
+          >Express.js</strong
+        >
+        pour les API REST.
+      </p>
+    </mat-card-content>
+  </mat-card>
 
-    <div class="developer">
-      <img src="lien-vers-image-christopher.jpg" alt="Christopher">
-      <h2>Christopher</h2>
-      <p>Développeur Full Stack</p>
-      <a href="https://github.com/havrezChristopher">lien GitHub</a>
-      <!-- crée bouton de like  -->
-      <!-- <button class="like-button">J'aime</button> -->
-    </div>
+  <!-- Cartes pour les profils des développeurs avec des liens et icônes animés -->
+  <mat-card class="developer-card">
+    <mat-card-header>
+      <mat-card-title>Christopher - Développeur Full Stack</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Spécialisé dans la création de solutions innovantes...</p>
+      <a mat-button href="https://github.com/havrezChristopher"
+        ><mat-icon>link</mat-icon> Profil GitHub</a
+      >
+    </mat-card-content>
+  </mat-card>
 
-    <div class="developer">
-      <img src="lien-vers-image-terence.jpg" alt="Terence">
-      <h2>Terence</h2>
-      <p>Développeur Full Stack</p>
-      <a href="https://github.com/TerenceCastelino">lien GitHub</a>
-      <!-- crée bouton de like  -->
-      <!-- <button class="like-button">J'aime</button> -->
-    </div>
-  </div>
-</fieldset>
+  <mat-card class="developer-card">
+    <mat-card-header>
+      <mat-card-title>Terence - Développeur Full Stack</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Expert en bases de données et systèmes back-end...</p>
+      <a mat-button href="https://github.com/TerenceCastelino"
+        ><mat-icon>link</mat-icon> Profil GitHub</a
+      >
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Bouton de retour à la page d'accueil avec animation -->
+  <button mat-fab color="accent" routerLink="/" class="back-button">
+    <mat-icon>home</mat-icon>
+  </button>
+</div>

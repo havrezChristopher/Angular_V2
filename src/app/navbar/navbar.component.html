@@ -7,13 +7,11 @@
     <a routerLink="/reservation">Reservation</a>
     <a routerLink="/contact">Contact</a>
     <!-- Liens Quand l'utilisateur est loger -->
-    <ng-container *ngIf="isLoggedIn;">
-      <a routerLink="/utilisateur/profile">Profil</a>
-      <a routerLink="/utilisateur/parametres">Paramètres</a>
-      <a routerLink="/boiteReception">Messages></a>
+    <ng-container *ngIf="isLoggedIn">
+      <a routerLink="/utilisateur">Mon Profile</a>
       <a (click)="logout()">Déconnexion</a>
     </ng-container>
-  <!-- Liens Quand l'utilisateur n'est pas loger -->
+    <!-- Liens Quand l'utilisateur n'est pas loger -->
     <ng-container *ngIf="!isLoggedIn">
       <a routerLink="/login">Connexion</a>
       <a routerLink="/register">Inscription</a>

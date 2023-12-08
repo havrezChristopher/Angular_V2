@@ -1,33 +1,93 @@
+
 .about-page {
-    text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: url('/assets/images/ang.png') no-repeat center center fixed;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.background-3d-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background: url('3d-animation-background.png');
+  /* Replace with your 3D animation background */
+  background-size: cover;
+  animation: rotateBackground 60s linear infinite;
+}
+
+.main-card,
+.tech-card,
+.developer-card {
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInUp 0.5s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+.mat-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mat-icon {
+  vertical-align: bottom;
+  margin-right: 8px;
+}
+
+.back-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  animation: bounce 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .developer {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: inline-block;
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .developer img {
-    max-width: 150px;
-    border-radius: 50%;
+}
+
+@keyframes rotateBackground {
+  from {
+    transform: rotate(0deg);
   }
-  
-  .like-button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
+
+  to {
+    transform: rotate(360deg);
   }
-  
-  .like-button:hover {
-    background-color: #2980b9;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
   }
-  
-  /* Styles supplémentaires selon vos préférences de conception */
-  
+
+  40% {
+    transform: translateY(-30px);
+  }
+
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* Ensure paths to images are correct for your project structure */

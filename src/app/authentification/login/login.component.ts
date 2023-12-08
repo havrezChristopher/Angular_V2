@@ -46,12 +46,12 @@ export class LoginComponent implements OnInit {
         next: (response) => {
           this.authService.saveAuthToken(response.token); // Enregistrement du token
           localStorage.setItem('authToken', response.token)
-         // Après une connexion réussie
-         this.router.navigate(['utilisateur/', response.idUtilisateur]); // Naviguer avec l'ID
-         localStorage.setItem('userId', response.idUtilisateur); // Stocke l'ID utilisateur
-         
+          // Après une connexion réussie
+          this.router.navigate(['utilisateur/', response.idUtilisateur]); // Naviguer avec l'ID
+          localStorage.setItem('authToken', response.token); // Stocke l'ID utilisateur
 
-         console.log('Recuperation token ==> ', response.token);
+
+          console.log('Recuperation token ==> ', response.token);
 
         },
         error: (error) => {

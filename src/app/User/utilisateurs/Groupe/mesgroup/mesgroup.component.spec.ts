@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GroupeComponent } from './groupe.component';
+import { MesgroupComponent } from './mesgroup.component';
 
-describe('GroupeComponent', () => {
-  let component: GroupeComponent;
-  let fixture: ComponentFixture<GroupeComponent>;
+describe('MesgroupComponent', () => {
+  let component: MesgroupComponent;
+  let fixture: ComponentFixture<MesgroupComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [GroupeComponent]
+      declarations: [MesgroupComponent]
     });
-    fixture = TestBed.createComponent(GroupeComponent);
+    fixture = TestBed.createComponent(MesgroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

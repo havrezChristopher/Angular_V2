@@ -25,14 +25,14 @@ export class UtilisateursComponent implements OnInit {
 
   ngOnInit() {
     // L'ID de l'utilisateur à récupérer
-    const userId = localStorage.getItem('userId'); // Récupère l'ID utilisateur
+    // const userId = localStorage.getItem('userId'); // Récupère l'ID utilisateur et le stock dans le storage
     this._nomActivatedRoute.params.subscribe(params => {
       //! ajout pour passer les parrametre par l id  
       this.userId = +params['id'];
     });
     this.authService.getUserDetails(this.userId).subscribe({
       next: (data) => {
-        console.log('Donnée utilisateur ', this.utilisateurActuel);
+        console.log('Donnée utilisateur ', this.userId);
 
         this.utilisateurActuel = {
 
@@ -73,6 +73,6 @@ export class UtilisateursComponent implements OnInit {
   logout(): void {
     this.authService.logout();
   }
- 
+
 }
 
