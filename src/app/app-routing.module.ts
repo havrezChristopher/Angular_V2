@@ -11,6 +11,7 @@ import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
+import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home', pathMatch:'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'login', component:LoginComponent},
   {path:'utilisateur/:id', component:UtilisateursComponent,canActivate :[AuthGuard]},
+  {path:'boiteReception', component:BoiteDeReceptionComponent},
   {path:'evenement', component:EvenementComponent},
   {path:'groupe', component:GroupeComponent},
   //! a mettre a la fin sinon il ce met en page par default! 

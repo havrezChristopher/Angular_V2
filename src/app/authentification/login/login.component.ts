@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
          // Après une connexion réussie
          this.router.navigate(['utilisateur/', response.idUtilisateur]); // Naviguer avec l'ID
          localStorage.setItem('userId', response.idUtilisateur); // Stocke l'ID utilisateur
+         
 
          console.log('Recuperation token ==> ', response.token);
 

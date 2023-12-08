@@ -17,10 +17,11 @@ import { RegisterComponent } from './authentification/register/register.componen
 import { SharedModule } from './shared/shared.module';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
+// Menu Dashbord message
+import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
 import { GroupeComponent } from './Groupes/groupe/groupe.component';
+// Menu Dashbord 
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
-import { CreeMessageComponent } from './User/utilisateurs/Message/cree-message/cree-message.component';
-import { AjoutMessageComponent } from './User/utilisateurs/Message/ajout-message/ajout-message.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // Evenements
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
@@ -62,9 +63,9 @@ import { environment } from 'src/environments/environment.development';
     RegisterComponent,
     FooterComponent,
     UtilisateursComponent,
-    // Message Onglet
-    AjoutMessageComponent,
-    CreeMessageComponent,
+    //* Menu DashBord 
+    // Message 
+    BoiteDeReceptionComponent,
     GroupeComponent,
     // Paramettre
     ParametteComponent,

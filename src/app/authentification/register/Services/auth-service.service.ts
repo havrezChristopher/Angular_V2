@@ -26,6 +26,7 @@ get authStatus() {
 // Mettez à jour l'état lors de la connexion/déconnexion
 login() {
   this.loggedIn.next(true);
+
 }
 // Méthode pour déconnecter l'utilisateur.
 logout(): void {

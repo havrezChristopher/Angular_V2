@@ -46,21 +46,21 @@ export class RegisterComponent implements OnInit {
   signup(): void {
     // Vérifie si le formulaire est valide
     if (this.signupForm.valid) {
-      // Appelle la méthode d'inscription d'AuthService et souscrit à la réponse
       console.log(this.signupForm);
       
+      // Appelle la méthode d'inscription d'AuthService et souscrit à la réponse
       this.authService.signup(this.signupForm.value).subscribe({
         next: (response) => {
           console.log('test',response);
           
           // En cas de succès, affiche un message et redirige vers login
           this.signupSuccess = 'Inscription réussie !';
-
-          this.router.navigate(['/login']); // Redirection après l'inscription
+          this.router.navigate(['/login']); 
         },
         error: (error) => {
           
-          this.signupError = 'Erreur Inscription ...!';
+          console.log('Erreur Inscription ...!',error);
+           ;
         }
       });
     }

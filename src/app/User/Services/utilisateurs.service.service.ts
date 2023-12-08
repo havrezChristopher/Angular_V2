@@ -17,14 +17,9 @@ export class UtilisateursServiceService {
     this.authService.logout()
 
   }
-  // Récupérer les informations de l'utilisateur actuel
-  getCurrentUser(): Observable<UtilisateurInterface> {
-    return this.http.get<UtilisateurInterface>(`${this.API_URL}/profil`);
-  }
-
   // Récupérer tous les utilisateurs
-  getAllUsers(): Observable<UtilisateurInterface[]> {
-    return this.http.get<UtilisateurInterface[]>(`${this.API_URL}/`);
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.API_URL}/`);
   }
 
   // Récupérer un utilisateur par son ID
