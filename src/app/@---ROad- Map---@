@@ -1,14 +1,5 @@
-**Formulaire Réactif :** 
-Utilisez Angular Reactive Forms pour collecter et valider les données. 
-Assurez-vous que les champs sont pré-remplis avec les informations actuelles de l'utilisateur.
 
-**Mise à Jour Backend :** 
-Ajoutez une méthode dans AuthService pour envoyer les informations mises à jour au serveur via une requête HTTP PUT/PATCH.
-
-**Gestion des Réponses**
-Gérez les réponses du serveur pour confirmer la mise à jour ou signaler des erreurs.
-
-2. **Changement de Mot de Passe**
+1. **Changement de Mot de Passe**
 UI pour Changement de Mot de Passe : 
 Dans ProfileComponent, ajoutez une section pour le changement de mot de passe 
 avec les champs nécessaires (ancien mot de passe, nouveau mot de passe, confirmation du nouveau mot de passe).
@@ -20,8 +11,8 @@ et que la confirmation du mot de passe correspond.
 **Mise à Jour Backend :** 
 Ajoutez une fonctionnalité dans AuthService pour traiter le changement de mot de passe.
 
-**3. Upload et Gestion d'Images de Profil**
-**Composant d'Upload d'Image :** 
+
+**2.Composant d'Upload d'Image :** 
 Créez un composant pour télécharger et prévisualiser l'image de profil.
 
 **Gestion de Fichier dans Angular :** 
@@ -33,22 +24,10 @@ Envoyez l'image au serveur via une requête HTTP POST.
 Le backend doit gérer la réception, le stockage et potentiellement 
 le redimensionnement de l'image.
 
-**Mise à Jour de l'UI :** 
-Après un téléchargement réussi, mettez à jour l'affichage de l'image de profil 
-sur le tableau de bord et ailleurs dans l'application.
-Conseils de Sécurité et de Bonnes Pratiques
-
-**4. Sécurité des Données :** 
+**3. Sécurité des Données :** 
 Assurez-vous que les requêtes de mise à jour des profils sont sécurisées 
 et autorisées uniquement pour l'utilisateur connecté.
 
-**Validation Côté Serveur :** 
-En plus de la validation côté client, validez toujours les données côté serveur 
-pour éviter les manipulations malveillantes.
-
-**Feedback Utilisateur :** 
-Fournissez des retours clairs à l'utilisateur après chaque action 
-(par exemple, changement de mot de passe réussi, erreur d'upload d'image, etc.).
 
 **5. Intégration et Test**
 **Intégration avec le Backend :** 
