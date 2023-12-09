@@ -1,6 +1,6 @@
 
-import { LOCALE_ID, NgModule } from '@angular/core';
 // LOCALE_ID pour le provider 
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // import { TokenInterceptor } from './demos/demo22/interceptors/token.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,23 +10,18 @@ import { RECAPTCHA_V3_SITE_KEY, RecaptchaV3Module } from 'ng-recaptcha';
 // Variable d environement 
 import { environment } from 'src/environments/environment.development';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ContactComponent } from './contact/contact.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './authentification/login/login.component';
-import { RegisterComponent } from './authentification/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//? *******************Chat Socket io****************************************************************** 
+import { ChatAppComponent } from './_Socket.io/chat-app/chat-app.component';
+//? *******************Chat Socket io******************************************************************
+// Component Base
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ContactComponent } from './contact/contact.component';
 import { SharedModule } from './shared/shared.module';
-import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
-import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
-// Menu Dashbord message
-import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
-import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.component';
-
-import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 // Evenements
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
 import { EvenementTop1Component } from './Evenements/evenement-top1/evenement-top1.component';
@@ -34,7 +29,23 @@ import { EvenementTop2Component } from './Evenements/evenement-top2/evenement-to
 import { EvenementTop3Component } from './Evenements/evenement-top3/evenement-top3.component';
 // Files Actualiter
 import { FilesActualiterComponent } from './FilesActualiter/files.actualiter/files.actualiter.component';
-// Material
+//! ************************Authentification************************************************************ 
+import { LoginComponent } from './authentification/login/login.component';
+import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
+import { RegisterComponent } from './authentification/register/register.component';
+import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { MdpOublierComponent } from './authentification/login/_mdpOublier/mdp-oublier/mdp-oublier.component';
+//! ************************Authentification************************************************************
+//**************************** */ Menu Dashbord message ************************************************
+//? ***Message*** 
+import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
+import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.component';
+//? *** Paramettre *** 
+import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+//**************************** */ Menu Dashbord message ************************************************
+
+//! Material Ui
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
@@ -42,7 +53,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { AboutComponent } from './about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -56,35 +66,42 @@ import { MatTabsModule } from '@angular/material/tabs';
 @NgModule({
   declarations: [
     AppComponent,
-    // Nav-Barre
+    // -----Base composant-----
     NavbarComponent,
+    FooterComponent,
     HomeComponent,
     AboutComponent,
     ReservationComponent,
     ContactComponent,
+    EvenementTop1Component,
+    EvenementTop2Component,
+    EvenementTop3Component,
+    FilesActualiterComponent,
+    // -----Base composant-----
 
     EvenementComponent,
-    // Profile
+    //! ***Authentification***
     LoginComponent,
     RegisterComponent,
-    FooterComponent,
+    PopUpComponent,
     UtilisateursComponent,
-    //* Menu DashBord 
+    //! ***Authentification***
+
+    //? ** Menu DashBord ***
     // Message 
     BoiteDeReceptionComponent,
     // Groupe
     MesgroupComponent,
     // Paramettre
     ParametteComponent,
+    //? ** Menu DashBord ***
+
     // Pages Not fund
     PageNotFoundComponent,
-    PopUpComponent,
-    EvenementTop1Component,
-    EvenementTop2Component,
-    EvenementTop3Component,
-    FilesActualiterComponent,
-    MesgroupComponent,
-
+    //! Socket io 
+    ChatAppComponent,
+    MdpOublierComponent,
+    //! Socket io
 
 
 
@@ -108,16 +125,18 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatDialogModule,
     RecaptchaV3Module,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+
+
 
 
 
   ],
   providers: [  // Permet d'injecter la langue FR partout dans l'application
     { provide: LOCALE_ID, useValue: 'fr-FR' },
-
+    //! Provide recaptchat 
     { provide: RECAPTCHA_V3_SITE_KEY, useValue: environment.recaptcha.siteKey, }
-
+    //! Provide recaptchat
     // provide: indique que vous souhaitez enregistrer un intercepteur pour les requête HTTP
     // useCLass: la classe de votre intercepteur personnalité qu'on souhaite utiliser
     // multi: enregistrer plusieurs intercepteurs de type HTTP_INTERCEPTORS

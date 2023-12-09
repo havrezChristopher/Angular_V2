@@ -1,0 +1,15 @@
+<p>chat-app works!</p>
+<fieldset>
+    <legend><h1>Chat</h1></legend>
+    <mat-card>
+        <mat-card-content>
+          <!-- Messages du chat ici -->
+        </mat-card-content>
+        <mat-card-actions>
+          <mat-form-field>
+            <input matInput [(ngModel)]="message" placeholder="Tapez un message">
+          </mat-form-field>
+          <button mat-raised-button color="primary" (click)="sendMessage()">Envoyer</button>
+        </mat-card-actions>
+      </mat-card>
+</fieldset>
