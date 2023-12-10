@@ -1,5 +1,8 @@
 <nav class="navbar">
-  <div class="nav-brand">MonApp</div>
+  
+  <div class="nav-brand">
+    <img src="assets/images/logo Duxpok.webp" alt="logo">
+  </div>
   <div class="nav-items">
     <!-- Liens de navigation statiques -->
     <a routerLink="/"><mat-icon>home</mat-icon></a>
@@ -7,10 +10,38 @@
     <a routerLink="/about">À Propos</a>
     <a routerLink="/reservation">Reservation</a>
     <a routerLink="/contact">Contact</a>
+    <img src="assets/logo Duxpok.webp" alt="">
+
     <!-- Liens Quand l'utilisateur est loger -->
     <ng-container *ngIf="isLoggedIn">
-      <a routerLink="/utilisateur/:id">Mon Profile</a>
-      <a (click)="logout()" class="logout-button">Déconnexion</a>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item [routerLink]="['utilisateur/:id']">
+          <mat-icon>account_circle</mat-icon>
+          <span>Mon Profile</span>
+        </button>
+        <button mat-menu-item [routerLink]="['utilisateur/:id/boiteReception']">
+          <mat-icon>message</mat-icon>
+          <span>Message</span>
+          <span class="notification-badge">1</span> <!-- Nombre de notifications -->
+        </button>
+        <button mat-menu-item [routerLink]="['utilisateur/:id/mesgroupe']">
+          <mat-icon>group</mat-icon>
+          <span>Group</span>
+        </button>
+        <button mat-menu-item [routerLink]="['utilisateur/:id/paramettre']">
+          <mat-icon>settings</mat-icon>
+          <span>Paramètres</span>
+        </button>
+        <!-- gestionnaire d évenement sur matherial -->
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Déconnexion</span>
+        </button>
+      </mat-menu>
+      
+      <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>person</mat-icon>
+      </button>
     </ng-container>
     <!-- Liens Quand l'utilisateur n'est pas loger -->
     <ng-container *ngIf="!isLoggedIn">

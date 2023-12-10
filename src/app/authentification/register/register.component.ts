@@ -19,7 +19,11 @@ export class RegisterComponent implements OnInit {
 
   // Injection de FormBuilder pour la construction du formulaire,
   // Router pour la navigation, et AuthService pour la gestion des authentifications.
-  constructor(private formBuilder: FormBuilder, private router: Router, private authService: AuthService) { }
+  constructor(
+    private formBuilder: FormBuilder, 
+    private router: Router, 
+    private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
     // Initialisation du formulaire avec ses champs et validations.

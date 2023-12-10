@@ -1,0 +1,15 @@
+home - pour la page d'accueil
+person - pour le profil utilisateur
+info - pour les informations
+settings - pour les paramètres
+menu - pour ouvrir un menu
+check_circle - pour indiquer une action complétée avec succès
+error - pour signaler une erreur
+warning - pour les avertissements
+search - pour la fonction de recherche
+add - pour ajouter un nouvel élément
+delete - pour supprimer un élément
+edit - pour éditer un élément
+shopping_cart - pour le panier d'achats
+email - pour le courrier électronique
+notifications - pour les notifications

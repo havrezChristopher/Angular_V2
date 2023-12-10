@@ -1,55 +1,96 @@
 <fieldset>
-  <legend><h3>Route Utilisateurs</h3></legend>
+  <legend>
+    <h3>Route Utilisateurs</h3>
+  </legend>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Profile -->
+    <div class="profile">
+      <img src="profile-picture.jpg" alt="Profil" class="profile-image">
+      <h3>Nom Utilisateur</h3>
+    </div>
 
+    <!-- Accueil -->
+    <div class="menu-item active">
+      <mat-icon>home</mat-icon>
+      <span>Accueil</span>
+    </div>
+
+    <!-- Profil avec sous-menu -->
+    <div class="menu-item">
+      <mat-icon>person</mat-icon>
+      <span>Profil</span>
+      <div class="submenu">
+        <a href="#profil">Modifier Photos de profile</a>
+        <a href="#edit">Modifier Profil</a>
+
+      </div>
+    </div>
+
+    <!-- Messages avec sous-menu -->
+    <div class="menu-item">
+      <mat-icon>Mes Groupe</mat-icon>
+      <span>Groupe</span>
+      <div class="submenu">
+        <a href="#nouveau">Crée un groupes</a>
+        <a href="#boite">Mes groupes</a>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <mat-icon>notifications</mat-icon>
+      <span>Messages</span>
+      <div class="submenu">
+        <a href="#nouveau">Nouveau Message</a>
+        <a href="#boite">Boîte de Réception</a>
+        <a href="#envoyes">Messages Envoyés</a>
+      </div>
+    </div>
+
+    <div class="menu-item">
+      <mat-icon>settings</mat-icon>
+      <span>Paramettres</span>
+      <div class="submenu">
+        <a href="#nouveau">Nouveau Message</a>
+        <a href="#boite">Boîte de Réception</a>
+        <a href="#envoyes">Messages Envoyés</a>
+      </div>
+    </div>
+
+    <!-- Déconnexion -->
+    <div class="menu-item logout">
+      <mat-icon>logout</mat-icon>
+      <span>Déconnexion</span>
+    </div>
+  </div>
+
+  <!-- 
   <div class="user-profile">
     <aside class="sidebar">
       <ul>
-        <!-- lien une fois utilisateur connecter  -->
-        <li>
-          <a routerLink="utilisateur/id">Votre profil</a>
-        </li>
-
-        <li><a routerLink="boiteReception">Envoyer un message</a></li>
+        <li><a routerLink="utilisateur/id">Mon profil</a></li>
+        <li><a routerLink="boiteReception">Mes message</a></li>
         <li><a routerLink="mesgroupe">Mes groupes</a></li>
-        <li><a routerLink="paramettre">paramettre</a></li>
       </ul>
     </aside>
     <div class="profile">
       <fieldset>
-        <legend *ngIf="utilisateurActuel; else loading">
-          <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
-        </legend>
-
         <div *ngIf="utilisateurActuel; else loading">
-          Affichage des informations de l'utilisateur
-          <div>Nom : {{ utilisateurActuel.nom }}</div>
-          <div>idUtilisateur: {{ utilisateurActuel.idUtilisateur }}</div>
+          <legend>
+            <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
+          </legend>
+
+          <div>PhotoProfil : {{ utilisateurActuel.idPhotoProfil }}</div>
           <div>Nom : {{ utilisateurActuel.nom }}</div>
           <div>Prenom : {{ utilisateurActuel.prenom }}</div>
-          <div>EmailUtilisateur : {{ utilisateurActuel.emailUtilisateur }}</div>
+          <div>Adresse email : {{ utilisateurActuel.emailUtilisateur }}</div>
           <div>motsDePasse: : {{ utilisateurActuel.motsDePasse }}</div>
-          <div>dateDeNaissance : {{ utilisateurActuel.dateDeNaissance }}</div>
-          <div>role : {{ utilisateurActuel.role }}</div>
-          <div>genre : {{ utilisateurActuel.genre }}</div>
-          <div>idPhotoProfil : {{ utilisateurActuel.idPhotoProfil }}</div>
-          <div>
-            derniereConnexion : {{ utilisateurActuel.derniereConnexion }}
-          </div>
-          <div>facebook : {{ utilisateurActuel.facebook }}</div>
-          <div>snapchat : {{ utilisateurActuel.snapchat }}</div>
-          <div>instagram : {{ utilisateurActuel.instagram }}</div>
-          <div>tictoc : {{ utilisateurActuel.tictoc }}</div>
-          <div>twitter : {{ utilisateurActuel.twitter }}</div>
-          <div>telephone : {{ utilisateurActuel.telephone }}</div>
           <div>gsm : {{ utilisateurActuel.gsm }}</div>
         </div>
-
-        <!-- Template pour l'affichage en cas de chargement -->
         <ng-template #loading>
           <p>Chargement des détails de l'utilisateur...</p>
         </ng-template>
       </fieldset>
       <app-evenement></app-evenement>
     </div>
-  </div>
-</fieldset>
+  </div> -->

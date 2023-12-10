@@ -56,6 +56,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CdkMenuModule } from '@angular/cdk/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
+
 
 
 
@@ -126,6 +131,10 @@ import { MatTabsModule } from '@angular/material/tabs';
     RecaptchaV3Module,
     MatCardModule,
     MatTabsModule,
+    MatSidenavModule,
+    MatListModule,
+    CdkMenuModule,
+    CdkStepperModule,
 
 
 

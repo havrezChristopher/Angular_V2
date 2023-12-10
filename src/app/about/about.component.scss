@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  background: url('/assets/images/ang.png') no-repeat center center fixed;
+  background: url('/assets/images/angular-vs-react-.jpg') no-repeat center center fixed;
   background-size: cover;
   overflow: hidden;
 }
@@ -17,22 +17,28 @@
   right: 0;
   bottom: 0;
   // background: url('3d-animation-background.png');
-  /* Replace with your 3D animation background */
+
   background-size: cover;
   animation: rotateBackground 60s linear infinite;
 }
+// .cart{
+//   opacity: 0.8;
+// }
 
 .main-card,
 .tech-card,
 .developer-card {
   margin-top: 20px;
-  opacity: 0;
+  opacity: 0.2;
   animation: fadeInUp 0.5s ease-out forwards;
   animation-delay: 0.3s;
 }
-
+.tech-card{
+  display: flex;
+}
 .mat-card:hover {
   transform: scale(1.05);
+  opacity: 0.2;
   transition: transform 0.3s ease-in-out;
 }
 
