@@ -19,6 +19,7 @@ import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.
 // Paramettre
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ChatAppComponent } from './_Socket.io/chat-app/chat-app.component';
 //? ***********************************Menu DashBoard*********************************
 
 const routes: Routes = [
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'utilisateur/:id/mesgroupe', component: MesgroupComponent },
   { path: 'utilisateur/:id/boiteReception', component: BoiteDeReceptionComponent },
   { path: 'utilisateur/:id/paramettre', component: ParametteComponent },
+  { path: 'utilisateur/:id/chat', component: ChatAppComponent },
 
   //! a mettre a la fin sinon il ce met en page par default! 
   { path: '**', component: PageNotFoundComponent },

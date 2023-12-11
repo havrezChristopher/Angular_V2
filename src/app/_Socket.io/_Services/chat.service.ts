@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'http://localhost:3000'; // URL de ton serveur Express
+  private url = 'http://localhost:3000/api/'; // URL de socket
   private socket;
 
   constructor() {
@@ -22,6 +22,8 @@ export class ChatService {
     return new Observable(observer => {
       this.socket.on('chat message', (data) => {
         observer.next(data);
+        console.log('teste ', data);
+        
       });
     });
   }
