@@ -35,6 +35,7 @@ import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
 import { MdpOublierComponent } from './authentification/login/_mdpOublier/mdp-oublier/mdp-oublier.component';
+import { ResetPassComponent } from './authentification/login/_mdpOublier/Reset-password/reset-pass/reset-pass.component';
 //! ************************Authentification************************************************************
 //**************************** */ Menu Dashbord message ************************************************
 //? ***Message*** 
@@ -44,6 +45,7 @@ import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //**************************** */ Menu Dashbord message ************************************************
+import { UploadComponent } from './_Upload/upload/upload.component';
 
 //! Material Ui
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -71,6 +73,9 @@ import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
 @NgModule({
   declarations: [
     AppComponent,
+    //! upload Services
+    UploadComponent,
+    //! upload Services 
     // -----Base composant-----
     NavbarComponent,
     FooterComponent,
@@ -87,6 +92,8 @@ import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
     EvenementComponent,
     //! ***Authentification***
     LoginComponent,
+    MdpOublierComponent,
+    ResetPassComponent,
     RegisterComponent,
     PopUpComponent,
     UtilisateursComponent,
@@ -105,7 +112,7 @@ import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
     PageNotFoundComponent,
     //! Socket io 
     ChatAppComponent,
-    MdpOublierComponent,
+    UploadComponent,
     //! Socket io
 
 

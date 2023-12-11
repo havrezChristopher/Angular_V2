@@ -8,6 +8,8 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './authentification/login/login.component';
 import { RegisterComponent } from './authentification/register/register.component';
 import { AuthGuard } from './authentification/Guard/auth.guard.guard';
+import { MdpOublierComponent } from './authentification/login/_mdpOublier/mdp-oublier/mdp-oublier.component';
+import { ResetPassComponent } from './authentification/login/_mdpOublier/Reset-password/reset-pass/reset-pass.component';
 //! ***************************************** authentification ***********************************
 //? ***********************************Menu DashBoard*********************************
 import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
@@ -20,6 +22,7 @@ import { MesgroupComponent } from './User/utilisateurs/Groupe/mesgroup/mesgroup.
 import { ParametteComponent } from './User/utilisateurs/Paramettres/paramette/paramette.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ChatAppComponent } from './_Socket.io/chat-app/chat-app.component';
+import { UploadComponent } from './_Upload/upload/upload.component';
 //? ***********************************Menu DashBoard*********************************
 
 const routes: Routes = [
@@ -32,6 +35,11 @@ const routes: Routes = [
   //! ***auth*** 
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  // Forgot
+  { path: 'forgot-password', component: MdpOublierComponent },
+  // Reset
+  { path: 'reset-password', component: ResetPassComponent },
+
   //! ***auth***
   // Guard Route proteger 
   { path: 'utilisateur/:id', component: UtilisateursComponent, canActivate: [AuthGuard] },
@@ -39,6 +47,7 @@ const routes: Routes = [
   { path: 'utilisateur/:id/boiteReception', component: BoiteDeReceptionComponent },
   { path: 'utilisateur/:id/paramettre', component: ParametteComponent },
   { path: 'utilisateur/:id/chat', component: ChatAppComponent },
+  { path: 'utilisateur/:id/paramettre/upload', component: UploadComponent },
 
   //! a mettre a la fin sinon il ce met en page par default! 
   { path: '**', component: PageNotFoundComponent },

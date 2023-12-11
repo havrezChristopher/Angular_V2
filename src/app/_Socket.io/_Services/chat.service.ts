@@ -5,26 +5,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ChatService {
-  private url = 'http://localhost:3000/api/'; // URL de socket
-  private socket;
+  // private url = 'http://localhost:3000/api/socket'; // URL de socket
+  // private socket;
 
-  constructor() {
-    this.socket = io(this.url);
-  }
+  // constructor() {
+  //   this.socket = io(this.url);
+  // }
 
-  // Envoyer un message
-  public sendMessage(message: string) {
-    this.socket.emit('chat message', message);
-  }
+  // // Envoyer un message
+  // public sendMessage(message: string) {
+  //   this.socket.emit('chat message', message);
+  // }
 
-  // Recevoir des messages
-  public getMessages(): Observable<any> {
-    return new Observable(observer => {
-      this.socket.on('chat message', (data) => {
-        observer.next(data);
-        console.log('teste ', data);
-        
-      });
-    });
-  }
+  // // Recevoir des messages
+  // public getMessages(): Observable<any> {
+  //   return new Observable(observer => {
+  //     this.socket.on('chat message', (data) => {
+  //       observer.next(data);
+  //     });
+  //   });
+  // }
 }

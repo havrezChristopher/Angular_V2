@@ -1,0 +1,7 @@
+<p>upload works!</p>
+<h2>Upload de fichier</h2>
+<input type="file" (change)="loadFile($event)">
+<br />
+<button (click)="startUpload()">Envoyer</button>
+<hr />
+<img [src]="url != '' ? url : ''">
