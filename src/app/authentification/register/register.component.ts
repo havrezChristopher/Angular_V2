@@ -50,7 +50,6 @@ export class RegisterComponent implements OnInit {
   signup(): void {
     // Vérifie si le formulaire est valide
     if (this.signupForm.valid) {
-      console.log(this.signupForm);
 
       // Appelle la méthode d'inscription d'AuthService et souscrit à la réponse
       this.authService.signup(this.signupForm.value).subscribe({

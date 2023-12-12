@@ -9,7 +9,9 @@ import { AuthService } from '../register/Services/auth-service.service';
 export class AuthGuard {
 token!:string;
   constructor(
+    // AuthService pour vérifier l'état de connexion de l'utilisateur
     private authService: AuthService,
+    //  Router pour pouvoir rediriger l'utilisateur si nécessaire.
     private router: Router,
     
   ) {}

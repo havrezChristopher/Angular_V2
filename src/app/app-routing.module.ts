@@ -43,12 +43,15 @@ const routes: Routes = [
   //! ***auth***
   // Guard Route proteger 
   { path: 'utilisateur/:id', component: UtilisateursComponent, canActivate: [AuthGuard] },
-  { path: 'utilisateur/:id/mesgroupe', component: MesgroupComponent },
-  { path: 'utilisateur/:id/boiteReception', component: BoiteDeReceptionComponent },
-  { path: 'utilisateur/:id/paramettre', component: ParametteComponent },
-  { path: 'utilisateur/:id/chat', component: ChatAppComponent },
-  { path: 'utilisateur/:id/paramettre/upload', component: UploadComponent },
-
+  { path: 'utilisateur/:id/mesgroupe', component: MesgroupComponent, canActivate: [AuthGuard] },
+  { path: 'utilisateur/:id/boiteReception', component: BoiteDeReceptionComponent, canActivate: [AuthGuard] },
+  { path: 'utilisateur/:id/paramettre', component: ParametteComponent, canActivate: [AuthGuard] },
+  { path: 'utilisateur/:id/chat', component: ChatAppComponent, canActivate: [AuthGuard] },
+  { path: 'utilisateur/:id/paramettre/upload', component: UploadComponent, canActivate: [AuthGuard] },
+  // Routes Dynamiques avec Paramètres :
+  // :id est un paramètre qui peut changer. 
+  // Par exemple, /utilisateur/1/mesgroupe et /utilisateur/2/mesgroupe chargeront le même composant (MesgroupComponent) 
+  // avec un ID utilisateur différent.
   //! a mettre a la fin sinon il ce met en page par default! 
   { path: '**', component: PageNotFoundComponent },
 

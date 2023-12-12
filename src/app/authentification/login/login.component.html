@@ -1,24 +1,18 @@
-<!-- Le formulaire est lié à loginForm défini dans le composant TypeScript. 
-     ngSubmit appelle la méthode login() lorsque le formulaire est soumis. -->
+<!-- Reactive Form d'Angular pour lier le formulaire à loginForm, défini dans ton composant TypeScript.
+"Envoyer", ça déclenche la méthode login() -->
 <form [formGroup]="loginForm" (ngSubmit)="login()">
   <div>
+    <!-- fait le lien avec le contrôle de formulaire pour l'email -->
     <label for="email">Email:</label>
     <input type="email" id="email" formControlName="emailUtilisateur" />
 
     <!-- Affiche des messages d'erreur si les conditions de validation de l'email ne sont pas remplies. -->
-    <div
-      *ngIf="
+    <div *ngIf="
         loginForm.get('emailUtilisateur')?.invalid &&
         loginForm.get('emailUtilisateur')?.touched
-      "
-    >
-      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['required']"
-        >Adresse email Obligatoir !.</span
-      >
-      <span
-        *ngIf="loginForm.get('emailUtilisateur')?.errors?.['emailUtilisateur']"
-        >Adresse email Obligatoir !</span
-      >
+      ">
+      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['required']">Adresse email Obligatoir !.</span>
+      <span *ngIf="loginForm.get('emailUtilisateur')?.errors?.['emailUtilisateur']">Adresse email Obligatoir !</span>
     </div>
   </div>
   <div>
@@ -26,23 +20,21 @@
     <input type="password" id="password" formControlName="motsDePasse" />
 
     <!-- Affiche un message d'erreur si le champ du mot de passe est vide. -->
-    <div
-      *ngIf="
+    <div *ngIf="
         loginForm.get('motsDePasse')?.invalid &&
         loginForm.get('motsDePasse')?.touched
-      "
-    >
-      <!-- ici avec AbstraContol on verifie et on crée les message erreur aproprier -->
-      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['required']"
-        >Mots de passe Obligatoir</span
-      >
-      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['motsDePasse']"
-        >Mots de passe Obligatoir</span
-      >
+      ">
+      <!-- ici avec AbstraContol on verifie et on crée les message erreur aproprier mdp a faire-->
+      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['required']">Mots de passe Obligatoir</span>
+      <span *ngIf="loginForm.get('motsDePasse')?.errors?.['motsDePasse']">Mots de passe Obligatoir</span>
+      <!-- AbstractControl est une classe de base dans Angular pour les contrôles de formulaires, comme les FormControl,
+      FormGroup, et FormArray. Elle fournit les fonctionnalités de base, y compris l'état du contrôle (valide, invalide,
+      touché, non touché, etc.) -->
     </div>
   </div>
+  <!-- lien  -->
   <a routerLink="/forgot-password">Mots de passe Oublier ?</a>
   <button type="submit" [disabled]="loginForm.invalid">Login</button>
-  
+  <!-- Renvoie msg erreur -->
   <div *ngIf="errorMessage">{{ errorMessage }}</div>
 </form>

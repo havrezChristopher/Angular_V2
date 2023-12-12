@@ -14,11 +14,12 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   // URL de l'API récupérée à partir des variables d'environnement.
   private API_URL = environment.API_URL;
+  // Le BehaviorSubject pour l'état de connexion
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  // Getter pour accéder à l'état de connexion obServable Custom en gros 
+  // Getter pour accéder à l'état de connexion obServable Custom en gros teste pour navBarre
   get authStatus() {
     return this.loggedIn.asObservable();
   }
@@ -31,20 +32,22 @@ export class AuthService {
     return !!localStorage.getItem('authToken'); // Astuce le double ! chnge la variable en boolean
   }
   // Méthode pour obtenir les détails de l'utilisateur connecté.
+  // avectypage TypeScript teste
   getUserDetails(userId: number): Observable<UtilisateurInterface> {
     return this.http.get<UtilisateurInterface>(`${this.API_URL}/utilisateur/${userId}`);
   }
   // Méthode pour déconnecter l'utilisateur.
   logout(): void {
     localStorage.removeItem('authToken');//suprimer le token
-    console.log('logout==>', localStorage);
+    console.log('Deconection ==>', localStorage);
+    // Fucking BehaviorSubject
     this.loggedIn.next(false);
     //redirection vers login
     this.router.navigate(['/login']);
 
   }
   // Méthode pour inscrire un nouvel utilisateur.
-
+  // Ajouter typages
   signup(userDetails: any): Observable<any> {
 
     console.log('utilisateur enregistrement ==>', userDetails);

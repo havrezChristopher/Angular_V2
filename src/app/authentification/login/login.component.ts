@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, MinLengthValidator, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../register/Services/auth-service.service';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +16,6 @@ export class LoginComponent implements OnInit {
   // Déclare une variable pour la lier au formulaire FormGroup
   loginForm!: FormGroup;
   errorMessage!: string;
-  idUser!: number;
 
 
   constructor(
@@ -38,24 +38,26 @@ export class LoginComponent implements OnInit {
 
   // Fonction pour gérer le processus de connexion.
   login(): void {
-
+    // vérifies si loginForm est valide. Si oui, On continues.
     if (this.loginForm.valid) {
       // Destructure les valeurs du formulaire pour faciliter l'accès et les intégrer a des constante
+      // extrais emailUtilisateur et motsDePasse de loginForm
       const { emailUtilisateur, motsDePasse } = this.loginForm.value;
       // Appelle la méthode signin d'AuthService et souscrit à la réponse.
       this.authService.signin(emailUtilisateur, motsDePasse).subscribe({
         next: (response) => {
-          this.authService.saveAuthToken(response.token); // Enregistrement du token
-          localStorage.setItem('authToken', response.token)
           // Après une connexion réussie
-          this.router.navigate(['utilisateur/', response.idUtilisateur]); // Naviguer avec l'ID
-          localStorage.setItem('authToken', response.token); // Stocke l'ID utilisateur
-
+          // Enregistrements du token d'authentification reçu dans localStorage.
+          this.authService.saveAuthToken(response.token);
+          localStorage.setItem('authToken', response.token);
+          // Naviguer avec l'ID
+          this.router.navigate(['utilisateur/', response.idUtilisateur]);
 
           console.log('Recuperation token ==> ', response.token);
 
         },
         error: (error) => {
+          // pour récuperer les err ou back
           this.errorMessage = "Échec de la connexion : " + (error.error.message || "Une erreur est survenue.");
         }
       });

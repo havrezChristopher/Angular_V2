@@ -11,7 +11,7 @@ import { MdpService } from '../../_Services/mdp.service';
   styleUrls: ['./reset-pass.component.scss']
 })
 export class ResetPassComponent implements OnInit {
-  // token: string;
+  token!: '';
 
   constructor(
     private formB: FormBuilder,
@@ -35,16 +35,17 @@ export class ResetPassComponent implements OnInit {
   }
 
 
-  // resetPassword(token: string, newPassword: string) {
-  //   this.passwordService.resetPassword(token, newPassword).subscribe(
-  //     res => {
-  //       console.warn('Response', token, newPassword, res)
-  //     },
-  //     err => {
+  resetPassword(token: string, newPassword: string) {
+    this.passwordService.resetPassword(token, newPassword).subscribe(
+      res => {
+        // console.warn('Response', token, newPassword, res)
+        
+      },
+      err => {
 
-  //       console.log('Erreur Reset - Password', err);
+        console.log('Erreur Reset - Password', err);
 
-  //     }
-  //   );
-  // }
+      }
+    );
+  }
 }
