@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 //voir pour remplacer le local storage 
 import { CookieService } from 'ngx-cookie-service';
-import { UtilisateurInterface } from 'src/app/User/Interface/utilisateur.interface';
+import { UtilisateurInterface } from 'src/app/User/_Interface/utilisateur.interface';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 

@@ -6,7 +6,7 @@ import emailjs from 'emailjs-com';
 // Material
 import { MatDialog } from '@angular/material/dialog';
 import { ReCaptchaV3Service } from 'ng-recaptcha';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-contact', // Sélecteur CSS du composant
   templateUrl: './contact.component.html', // Template HTML associé
@@ -21,6 +21,7 @@ export class ContactComponent implements OnInit {
   message!: string; // Variable pour le message
 
   constructor(
+    private router: Router,
     private popUp: MatDialog, // Service MatDialog pour les pop-ups
     private formBuilder: FormBuilder, // FormBuilder pour construire le formulaire réactif
     private recaptchaV3Service: ReCaptchaV3Service //! .....Integration recaptcha......
@@ -53,6 +54,7 @@ export class ContactComponent implements OnInit {
           this.messageSent=true
           // Réinitialisation du formulaire c'est les bonne pratique 
           this.contactForm.reset();
+          this.router.navigate(['/home'])
         }, (error) => {
           console.log('Erreur lors de l\'envoi :', error);
           

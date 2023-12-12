@@ -28,12 +28,12 @@ import { EvenementTop1Component } from './Evenements/evenement-top1/evenement-to
 import { EvenementTop2Component } from './Evenements/evenement-top2/evenement-top2.component';
 import { EvenementTop3Component } from './Evenements/evenement-top3/evenement-top3.component';
 // Files Actualiter
-import { FilesActualiterComponent } from './FilesActualiter/files.actualiter/files.actualiter.component';
+import { FilesActualiterComponent } from './FilesActualiter/FileActualiter/files.actualiter.component';
 //! ************************Authentification************************************************************ 
 import { LoginComponent } from './authentification/login/login.component';
 import { PopUpComponent } from './contact/PopUp/pop-up/pop-up.component';
 import { RegisterComponent } from './authentification/register/register.component';
-import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { UtilisateursComponent } from './User/utilisateurs/Utilisateur/utilisateurs.component';
 import { MdpOublierComponent } from './authentification/login/_mdpOublier/mdp-oublier/mdp-oublier.component';
 import { ResetPassComponent } from './authentification/login/_mdpOublier/Reset-password/reset-pass/reset-pass.component';
 //! ************************Authentification************************************************************
@@ -61,7 +61,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { CdkStepper, CdkStepperModule } from '@angular/cdk/stepper';
+import { CdkStepperModule } from '@angular/cdk/stepper';
 
 
 

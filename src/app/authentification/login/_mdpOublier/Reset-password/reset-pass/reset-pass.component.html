@@ -1,10 +1,29 @@
 <p></p>
 <fieldset>
-    <legend><h3>Reset-pass works!</h3></legend>
-    <!-- <form (submit)="resetPassword(token, newPassword.value)"> -->
-        <form>
-        <input type="password" #newPassword placeholder="Enter new password" required>
-        <button type="submit">Reset Password</button>
-      </form>
-      
+  <legend><h3>Reset-pass works!</h3></legend>
+  <!-- <form (submit)="resetPassword(token, newPassword.value)"> -->
+
+  <form [formGroup]="form">
+    <label>Nouveau Mots de Passe :</label>
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Nouveau Mots de Passe"
+    />
+
+    <label>Confirmer votre Mots de Passe ! :</label>
+    <input
+      type="password"
+      formControlName="verifyPassword"
+      placeholder="Confirmer votre Mots de Passe"
+    />
+
+    <ng-container *ngIf="form.controls['verifyPassword'].touched">
+      <p *ngIf="form.errors">
+        {{ form.errors["twoPasswordCheck"] }}
+      </p>
+    </ng-container>
+
+    <button [disabled]="form.invalid">Envoyer</button>
+  </form>
 </fieldset>

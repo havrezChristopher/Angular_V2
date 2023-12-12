@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ChatService } from '../_Services/chat.service';
-import { io } from 'socket.io-client';
+
+
 @Component({
   selector: 'app-chat-app',
   templateUrl: './chat-app.component.html',
@@ -10,7 +10,7 @@ export class ChatAppComponent {
   // private socket: any;
   // public messages: string[] = [];
   // public newMessage: string = '';
-  
+
   // constructor(private chatService: ChatService) {
   //   this.socket = io('http://localhost:3000'); // serveur WebSocket
 
@@ -18,7 +18,7 @@ export class ChatAppComponent {
   //     // Traitez le message reçu du serveur WebSocket
   //     this.messages.push(msg);
   //     console.log('Teste',msg);
-      
+
   //   });
   // }
 

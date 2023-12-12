@@ -4,14 +4,14 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
 import { AuthService } from 'src/app/authentification/register/Services/auth-service.service';
 // voir pour tiper aprés
-import { UtilisateurInterface } from 'src/app/User/Interface/utilisateur.interface';
+import { UtilisateurInterface } from 'src/app/User/_Interface/utilisateur.interface';
 @Injectable({
   providedIn: 'root'
 })
 export class ParametteServicesService {
   private API_URL = environment.API_URL;
 
-  constructor(private http:HttpClient,authService:AuthService) { }
+  constructor(private http: HttpClient, authService: AuthService) { }
   // Récupérer un utilisateur par son ID
   getUserById(id: number): Observable<any> {
     return this.http.get<any>(`${this.http}/utilisateur/${id}`);
@@ -31,5 +31,5 @@ export class ParametteServicesService {
   updateProfileImage(Idutilisateur: string, contenuId: string, imageData: any): Observable<any> {
     return this.http.put(`${this.http}/${Idutilisateur}/${contenuId}/profil`, imageData);
   }
-  
+
 }

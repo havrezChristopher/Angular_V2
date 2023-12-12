@@ -1,0 +1,61 @@
+/* Style général du formulaire */
+form {
+    background-color: #377be2dc;
+
+    color: rgb(0, 0, 0);
+    /* Texte  */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Style des labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style des inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d4d4d4;
+    /* Fond légèrement plus clair pour les inputs */
+    color: rgb(0, 0, 0);
+    /* Texte blanc pour les inputs */
+}
+
+/* Style des messages d'erreur */
+p {
+    color: red;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+
+/* Style du bouton */
+button {
+    background-color: #ff0000;
+    /* Rouge */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #b30000;
+    /* Bleu plus foncé */
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}

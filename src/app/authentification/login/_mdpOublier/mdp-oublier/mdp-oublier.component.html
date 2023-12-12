@@ -1,6 +1,24 @@
 <p>mdp-oublier works!</p>
 <!-- <form (submit)="getResetPassword(email.value)"> -->
-    <form >
-    <input type="email" #email placeholder="Enter votre Adresse email" required>
-    <button type="submit">envoyer </button>
-  </form>
+
+<form
+  id="monID"
+  [formGroup]="MdpForm"
+  (ngSubmit)="onSubmit()"
+  *ngIf="!messageSent"
+>
+  <!-- Champ pour l'email de l'utilisateur -->
+  <label for="email">Entrer votre Adresse Email:</label>
+  <input
+    type="email"
+    formControlName="email"
+    name="email"
+    placeholder="Votre email"
+  />
+
+  <!-- Bouton de soumission du formulaire -->
+  <button type="submit" [disabled]="MdpForm.invalid">Envoyer</button>
+</form>
+
+<!-- Message de confirmation après envoi du formulaire -->
+<div *ngIf="messageSent">Votre message a bien été envoyé.</div>

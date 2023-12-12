@@ -12,7 +12,7 @@ import { MdpOublierComponent } from './authentification/login/_mdpOublier/mdp-ou
 import { ResetPassComponent } from './authentification/login/_mdpOublier/Reset-password/reset-pass/reset-pass.component';
 //! ***************************************** authentification ***********************************
 //? ***********************************Menu DashBoard*********************************
-import { UtilisateursComponent } from './User/utilisateurs/utilisateurs.component';
+import { UtilisateursComponent } from './User/utilisateurs/Utilisateur/utilisateurs.component';
 import { EvenementComponent } from './Evenements/evenement/evenement.component';
 // Message
 import { BoiteDeReceptionComponent } from './User/utilisateurs/Message/boiteDeReception/boite-de-reception/boite-de-reception.component';
