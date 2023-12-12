@@ -2,19 +2,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment.development';
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceUploadService {
-
-  url : string = "https://localhost:44375/api/File";
+  private API_URL = environment.API_URL;
 
   constructor(
-    private _client : HttpClient
+    private _http : HttpClient
   ) { }
 
   upload(fileToUpload : File) : Observable<string> {
     let formData : FormData = new FormData()
     formData.append('myfile', fileToUpload, fileToUpload.name)
-    return this._client.post(this.url, formData, {responseType : 'text'})
+    return this._http.post(this.API_URL, formData, {responseType : 'text'})
   }}

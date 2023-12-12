@@ -42,7 +42,7 @@ export class MdpOublierComponent implements OnInit {
       //! .....Integration recaptcha...... 
       this.recaptchaV3Service.execute('importantAction')
         .subscribe((token: string) => {
-          console.debug(`Token [${token}] generated`);
+          console.log(`Token [${token}] generated`);
           // en gros le recapcha envoie un token juste pour verifier si le nav du client c'est l enregistrer !
           //! .....Integration recaptcha......
           // Envoi du formulaire si toutes les validations sont passées

@@ -24,7 +24,7 @@ export class UtilisateursComponent implements OnInit {
     private utilisateur: UtilisateursServiceService) { }
 
   ngOnInit() {
-    // L'ID de l'utilisateur à récupérer
+    
     // const userId = localStorage.getItem('userId'); // Récupère l'ID utilisateur et le stock dans le storage
     this._nomActivatedRoute.params.subscribe(params => {
       //! ajout pour passer les parrametre par l id  

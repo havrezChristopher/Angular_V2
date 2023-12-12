@@ -16,6 +16,8 @@ export class NavbarComponent implements OnInit {
       this.authService.authStatus.subscribe(status => {
         this.isLoggedIn = status;
       });
+      console.log('NavBarrTeste login ==>',status);
+      
     }
   
     logout() {
