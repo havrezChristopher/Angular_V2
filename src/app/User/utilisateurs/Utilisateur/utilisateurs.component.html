@@ -22,7 +22,7 @@
       <span>Profil</span>
       <div class="submenu">
         <a routerLink="paramettre/upload">Modifier Photos de profile</a>
-        <a routerLink="#edit">Modifier Profil</a>
+        <a routerLink="paramettre/upload">Modifier Profil</a>
 
       </div>
     </div>
@@ -32,8 +32,8 @@
       <mat-icon>Mes Groupe</mat-icon>
       <span>Groupe</span>
       <div class="submenu">
-        <a routerLink="#nouveau">Crée un groupes</a>
-        <a routerLink="#boite">Mes groupes</a>
+        <a routerLink="mesgroupe">Crée un groupes</a>
+        <a routerLink="mesgroupe">Mes groupes</a>
       </div>
     </div>
 
@@ -42,8 +42,8 @@
       <span>Messages</span>
       <div class="submenu">
         <a routerLink="boiteReception">Nouveau Message</a>
-        <a routerLink="#boite">Boîte de Réception</a>
-        <a routerLink="#envoyes">Messages Envoyés</a>
+        <a routerLink="boiteReception">Boîte de Réception</a>
+        <a routerLink="boiteReception">Messages Envoyés</a>
       </div>
     </div>
 
@@ -53,7 +53,7 @@
       <div class="submenu">
         <a routerLink="paramettre/upload">Upload</a>
         <a routerLink="boiteReception">Boîte de Réception</a>
-        <a routerLink="#envoyes">Messages Envoyés</a>
+        <a routerLink="boiteReception">Messages Envoyés</a>
       </div>
     </div>
 
@@ -64,33 +64,4 @@
     </div>
   </div>
 
-  <!-- 
-  <div class="user-profile">
-    <aside class="sidebar">
-      <ul>
-        <li><a routerLink="utilisateur/id">Mon profil</a></li>
-        <li><a routerLink="boiteReception">Mes message</a></li>
-        <li><a routerLink="mesgroupe">Mes groupes</a></li>
-      </ul>
-    </aside>
-    <div class="profile">
-      <fieldset>
-        <div *ngIf="utilisateurActuel; else loading">
-          <legend>
-            <h1>Bienvenu {{ utilisateurActuel.prenom }}</h1>
-          </legend>
-
-          <div>PhotoProfil : {{ utilisateurActuel.idPhotoProfil }}</div>
-          <div>Nom : {{ utilisateurActuel.nom }}</div>
-          <div>Prenom : {{ utilisateurActuel.prenom }}</div>
-          <div>Adresse email : {{ utilisateurActuel.emailUtilisateur }}</div>
-          <div>motsDePasse: : {{ utilisateurActuel.motsDePasse }}</div>
-          <div>gsm : {{ utilisateurActuel.gsm }}</div>
-        </div>
-        <ng-template #loading>
-          <p>Chargement des détails de l'utilisateur...</p>
-        </ng-template>
-      </fieldset>
-      <app-evenement></app-evenement>
-    </div>
-  </div> -->
+  
