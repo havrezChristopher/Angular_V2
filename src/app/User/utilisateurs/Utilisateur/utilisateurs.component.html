@@ -34,6 +34,7 @@
       <div class="submenu">
         <a routerLink="mesgroupe">Crée un groupes</a>
         <a routerLink="mesgroupe">Mes groupes</a>
+        <a routerLink="mesgroupe">Les groupes</a>
       </div>
     </div>
 
@@ -44,6 +45,7 @@
         <a routerLink="boiteReception">Nouveau Message</a>
         <a routerLink="boiteReception">Boîte de Réception</a>
         <a routerLink="boiteReception">Messages Envoyés</a>
+        <a routerLink="chat">Chat-instantanée</a>
       </div>
     </div>
 
@@ -52,15 +54,13 @@
       <span>Paramettres</span>
       <div class="submenu">
         <a routerLink="paramettre/upload">Upload</a>
-        <a routerLink="boiteReception">Boîte de Réception</a>
-        <a routerLink="boiteReception">Messages Envoyés</a>
       </div>
     </div>
 
-    <!-- Déconnexion -->
-    <div class="menu-item logout">
+    <!--! MArche pas Déconnexion -->
+    <div class="menu-item logout" (click)="logout()">
       <mat-icon>logout</mat-icon>
-      <span>Déconnexion</span>
+      <span >Déconnexion</span>
     </div>
   </div>
 

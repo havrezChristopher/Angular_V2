@@ -38,7 +38,7 @@ const routes: Routes = [
   // Forgot
   { path: 'forgot-password', component: MdpOublierComponent },
   // Reset
-  { path: 'reset-password/:token', component: ResetPassComponent },
+  { path: 'reset-password', component: ResetPassComponent },
 
   //! ***auth***
   // Guard Route proteger 
